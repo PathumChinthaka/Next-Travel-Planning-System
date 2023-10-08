@@ -32,21 +32,8 @@
         <span class="float-start">
           <div>
             <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Log in</button>
-
-            <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Register</button>
+            <button data-bs-toggle="modal" data-bs-target="#registerModal" class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Register</button>
           </div>
-         
-          <!-- <span class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </span> -->
-          <!-- <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-1">Register</button> -->
         </span>
       </div>
     </div>
@@ -60,16 +47,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="form-floating">
+          <div class="input-group input-group">
             <input type="text" class="form-control my-1" id="userName" placeholder="User name">
-            <label for="userName">User name</label>
           </div>
-          <div class="form-floating">
+          <div class="input-group input-group">
             <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
           </div>
-          <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="dropdown mt-2">
+            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Login as
             </button>
             <ul class="dropdown-menu">
@@ -80,7 +65,39 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Log in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- user Register Model -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Log in</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <input type="text" class="form-control my-1" id="userName" placeholder="name">
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control my-2" id="address" placeholder="address">
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control my-1" id="userNic" placeholder="Nic/Passport">
+          </div>
+          <div class="input-group">
+            <input type="email" class="form-control my-1" id="userEmail" placeholder="e-mail">
+          </div>
+          <div class="input-group input-group">
+            <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Log in</button>
         </div>
       </div>
