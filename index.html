@@ -17,7 +17,7 @@
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarText">
+      <div class="collapse navbar-collapse nav-link-bar" id="navbarText">
         <ul class="navbar-nav navbar-text me-auto mb-2 mb-lg-0 mx-4 fw-medium">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -30,30 +30,95 @@
           </li>
         </ul>
         <span class="float-start">
-          <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-1">Log in</button>
-          <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-1">Register</button>
+          <div>
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Log in</button>
+
+            <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Register</button>
+          </div>
+         
+          <!-- <span class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </span> -->
+          <!-- <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-1">Register</button> -->
         </span>
       </div>
     </div>
   </nav>
+  <!-- login modal goes here -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Log in</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating">
+            <input type="text" class="form-control my-1" id="userName" placeholder="User name">
+            <label for="userName">User name</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="dropdown mt-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login as
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Guest user</a></li>
+              <li><a class="dropdown-item" href="#">Package Admin</a></li>
+              <li><a class="dropdown-item" href="#">Vehicle admin</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Log in</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- homepage banner  -->
-  <section>
-    <div class="container-fluid text-center text-white main-banner opacity-75 d-flex justify-content-center align-items-center">
+  <section class="pb-2">
+    <div
+      class="container-fluid text-center text-white main-banner opacity-75 d-flex justify-content-center align-items-center">
       <div class="row">
         <h1 class="fw-bold banner-title"><span>Enjoy</span> Your Vacation With Next-Travel</h1>
       </div>
   </section>
   <!-- About us section -->
   <section>
-    <div class="container-fluid about-us d-flex text-white flex-wrap p-4">
+    <div class="container-fluid about-us d-flex text-white flex-wrap p-4 pt-5">
       <div class="col-6 p-2">
         <h1 class="fw-bold">About-Us</h1>
-        <p class="p-1">Welcome to Next Travel Pvt Ltd., your trusted partner in crafting unforgettable local travel experiences. At Next Travel, we have a passion for exploring the beauty and culture of our local destinations, and we specialize in curating journeys that immerse you in the heart of the region. With a deep understanding of the hidden gems, unique traditions, and diverse landscapes that our local area has to offer, we take pride in designing custom itineraries that cater to your interests and preferences. Whether you're seeking an adventure in the great outdoors, a culinary exploration, or a cultural immersion, our team of dedicated travel experts is here to turn your travel dreams into reality. Discover the essence of our local destinations with Next Travel Pvt Ltd. and embark on a journey filled with memories that will last a lifetime.</p>
+        <p class="p-1">Welcome to Next Travel Pvt Ltd., your trusted partner in crafting unforgettable local travel
+          experiences. At Next Travel, we have a passion for exploring the beauty and culture of our local destinations,
+          and we specialize in curating journeys that immerse you in the heart of the region. With a deep understanding
+          of the hidden gems, unique traditions, and diverse landscapes that our local area has to offer, we take pride
+          in designing custom itineraries that cater to your interests and preferences. Whether you're seeking an
+          adventure in the great outdoors, a culinary exploration, or a cultural immersion, our team of dedicated travel
+          experts is here to turn your travel dreams into reality. Discover the essence of our local destinations with
+          Next Travel Pvt Ltd. and embark on a journey filled with memories that will last a lifetime.</p>
       </div>
-      <div class="col-6 about-us-img rounded-2 p-1"></div>
+      <div class="col-6 about-us-img rounded-3 p-1"></div>
     </div>
   </section>
+
+  <section>
+<!-- Modal -->
+
+  </section>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
+  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
+  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.esm.min.js"></script>
   <script src="Lib\jquery-3.6.4.min.js"></script>
 </body>
 
