@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Lib\bootstrap-5.3.2-dist\css\bootstrap.min.css">
+  <link rel="stylesheet" href="Asset\Styles\style.css">
   <title>Next-Travel</title>
 </head>
-<body>
-  <h1 class="text-success">Hello World</h1>
+
+<body class="bg-black">
+  <nav class="navbar navbar-expand-lg bg-light text-center">
+    <div class="container-fluid">
+      <a class="navbar-brand text-primary fs-2 fw-bold" href="#">Next-Travel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav navbar-text me-auto mb-2 mb-lg-0 mx-4 fw-medium">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Packages</a>
+          </li>
+        </ul>
+        <span class="float-start">
+          <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-1">Log in</button>
+          <button class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-1">Register</button>
+        </span>
+      </div>
+    </div>
+  </nav>
+  <section>
+    <div class="container-fluid text-center text-white main-banner opacity-75 d-flex justify-content-center align-items-center">
+      <div class="row">
+        <h1 class="fw-bold banner-title"><span>Enjoy</span>Your Vacation With Next-Travel</h1>
+      </div>
+  </section>
+  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\jquery-3.6.4.min.js"></script>
 </body>
+
 </html>

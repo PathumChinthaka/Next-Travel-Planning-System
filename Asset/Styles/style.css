@@ -1,0 +1,11 @@
+.main-banner{
+  /* border: 2px solid red; */
+  height: 100vh;
+  background-image: url('/Asset/Images/tropical-beach.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-title{
+  font-size: 3rem;
+}
