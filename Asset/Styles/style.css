@@ -9,3 +9,14 @@
 .banner-title{
   font-size: 3rem;
 }
+
+.about-us{
+  border: 2px solid red;
+  height: 75vh;
+}
+
+.about-us-img{
+  background-image: url('/Asset/Images/map.jpg');
+  background-position: center;
+  background-size: cover;
+}
