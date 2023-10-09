@@ -31,8 +31,10 @@
         </ul>
         <span class="float-start">
           <div>
-            <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Log in</button>
-            <button data-bs-toggle="modal" data-bs-target="#registerModal" class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Register</button>
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal"
+              class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Log in</button>
+            <button data-bs-toggle="modal" data-bs-target="#registerModal"
+              class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Register</button>
           </div>
         </span>
       </div>
@@ -53,16 +55,12 @@
           <div class="input-group input-group">
             <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
           </div>
-          <div class="dropdown mt-2">
-            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Login as
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Guest user</a></li>
-              <li><a class="dropdown-item" href="#">Package Admin</a></li>
-              <li><a class="dropdown-item" href="#">Vehicle admin</a></li>
-            </ul>
-          </div>
+          <label for="login-as" class="text-primary mx-1">Login As</label>
+          <select class="form-select bg-secondary text-white" id="login-as" aria-label="">
+            <option>Guest user</option>
+            <option>Travel Service</option>
+            <option>Hotel Service</option>
+          </select>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -76,7 +74,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Log in</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -98,7 +96,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Log in</button>
+          <button type="button" class="btn btn-primary">Register</button>
         </div>
       </div>
     </div>
@@ -130,13 +128,17 @@
   </section>
 
   <section>
-<!-- Modal -->
+    <!-- Modal -->
 
   </section>
+  <script src="Lib\jquery-3.6.4.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
-  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.esm.min.js"></script>
-  <script src="Lib\jquery-3.6.4.min.js"></script>
+  <script>
+    $('#login-as').change(function (e) {
+      alert(e.target.value);
+    });
+  </script>
 </body>
 
 </html>
