@@ -1,14 +1,13 @@
 .navbar{
   position: sticky;
   top: 0;
-  background-color: rgb(218, 214, 214) !important;
   z-index: 1;
 }
 
 .main-banner{
   /* border: 2px solid red; */
   height: 100vh;
-  background-image: url('/Asset/Images/tropical-beach.jpg');
+  background-image: url('/Asset/Images/beautiful-tropical-beach-sea.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -23,7 +22,7 @@
 }
 
 .about-us-img{
-  background-image: url('/Asset/Images/map.jpg');
+  background-image: url('/Asset/Images/traveling-concept-with-landmarks.jpg');
   background-position: center;
   background-size: cover;
 }
