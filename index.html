@@ -9,7 +9,7 @@
   <title>Next-Travel</title>
 </head>
 
-<body class="bg-black">
+<body class="">
   <nav class="navbar navbar-expand-lg bg-light text-center">
     <div class="container-fluid">
       <a class="navbar-brand text-primary fs-2 fw-bold" href="#">Next-Travel</a>
@@ -32,7 +32,7 @@
         <span class="float-start">
           <div>
             <button data-bs-toggle="modal" data-bs-target="#exampleModal"
-              class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Log in</button>
+              class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2" id="login-btn">Log </button>
             <button data-bs-toggle="modal" data-bs-target="#registerModal"
               class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Register</button>
           </div>
@@ -113,8 +113,8 @@
   <section>
     <div class="container-fluid about-us d-flex text-white flex-wrap p-4 pt-5">
       <div class="col-6 p-2">
-        <h1 class="fw-bold">About-Us</h1>
-        <p class="p-1">Welcome to Next Travel Pvt Ltd., your trusted partner in crafting unforgettable local travel
+        <h1 class="fw-bold text-secondary">About-Us</h1>
+        <p class="p-1 text-dark">Welcome to Next Travel Pvt Ltd., your trusted partner in crafting unforgettable local travel
           experiences. At Next Travel, we have a passion for exploring the beauty and culture of our local destinations,
           and we specialize in curating journeys that immerse you in the heart of the region. With a deep understanding
           of the hidden gems, unique traditions, and diverse landscapes that our local area has to offer, we take pride
@@ -138,6 +138,11 @@
     $('#login-as').change(function (e) {
       alert(e.target.value);
     });
+
+    $('#login-btn').click(function(){
+      $('body').load( 'dashboard.html' );
+    });
+
   </script>
 </body>
 
