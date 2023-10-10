@@ -31,6 +31,7 @@
     }
   </style>
 </head>
+
 <body class="">
   <div>
     <h1 class="fw-bold fs-2 bg-primary text-white p-3 m-0">Admin-Dashboard</h1>
@@ -93,7 +94,7 @@
       <div id="travel-package-tbl">
         <div>
           <button class="active-btn bg-primary text-white py-2 px-5 my-1 btn-light border-0 fw-medium rounded-1 mb-4"
-            data-bs-toggle="modal" data-bs-target="#TravelServiceModal">Add +</button>
+            data-bs-toggle="modal" data-bs-target="#HotelServiceModal">Add +</button>
         </div>
         <div>
           <table class="table table-hover rounded-1 w-100">
@@ -120,7 +121,7 @@
       <div id="travel-package-tbl">
         <div>
           <button class="active-btn bg-primary text-white py-2 px-5 my-1 btn-light border-0 fw-medium rounded-1 mb-4"
-            data-bs-toggle="modal" data-bs-target="#TravelServiceModal">Add +</button>
+            data-bs-toggle="modal" data-bs-target="#RoomServiceModal">Add +</button>
         </div>
         <div>
           <table class="table table-hover rounded-1 w-100">
@@ -259,7 +260,78 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="TravelServiceModal">Travel package service</h1>
+          <h1 class="modal-title fs-5" id="TravelServiceModal">Manage Travel packages</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <input type="text" class="form-control my-1" id="userName" placeholder="name">
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control my-2" id="address" placeholder="address">
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control my-1" id="userNic" placeholder="Nic/Passport">
+          </div>
+          <div class="input-group">
+            <input type="email" class="form-control my-1" id="userEmail" placeholder="e-mail">
+          </div>
+          <div class="input-group input-group">
+            <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-success px-5">Save</button>
+            <button type="button" class="btn btn-warning px-5">Update</button>
+            <button type="button" class="btn btn-danger px-5">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hotel admin modal -->
+  <div class="modal fade" id="HotelServiceModal" tabindex="-1" aria-labelledby="HotelServiceModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="HotelServiceModal">Manage Hotel service</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <input type="text" class="form-control my-1" id="userName" placeholder="name">
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control my-2" id="address" placeholder="address">
+          </div>
+          <div class="input-group">
+            <input type="text" class="form-control my-1" id="userNic" placeholder="Nic/Passport">
+          </div>
+          <div class="input-group">
+            <input type="email" class="form-control my-1" id="userEmail" placeholder="e-mail">
+          </div>
+          <div class="input-group input-group">
+            <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-success px-5">Save</button>
+            <button type="button" class="btn btn-warning px-5">Update</button>
+            <button type="button" class="btn btn-danger px-5">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="RoomServiceModal" tabindex="-1" aria-labelledby="RoomServiceModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="RoomServiceModal">Manage Room service</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
