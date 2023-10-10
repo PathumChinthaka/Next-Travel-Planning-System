@@ -7,13 +7,15 @@
 .main-banner{
   /* border: 2px solid red; */
   height: 100vh;
-  background-image: url('/Asset/Images/beachsea.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/22/22/21/adventure-1850912_1280.jpg');
   background-position: center;
   background-size: cover;
+  filter: brightness(87%);
 }
 
 .banner-title{
-  font-size: 3rem;
+  font-size: 6rem;
+  color: rgb(255, 255, 255);
 }
 
 .about-us{
@@ -22,7 +24,7 @@
 }
 
 .about-us-img{
-  background-image: url('/Asset/Images/traveling.jpg');
+  background-image: url('https://img.freepik.com/free-photo/travel-concept-with-baggage_23-2149153260.jpg?2&w=740&t=st=1696947003~exp=1696947603~hmac=536cec8ecfa5b1228e81e323c8766af46513c573fbe7adb385f01c5cf7e8a104');
   background-position: center;
   background-size: cover;
 }
