@@ -26,3 +26,8 @@
   background-position: center;
   background-size: cover;
 }
+
+.footer{
+  border: 2px solid red;
+  height: 200px;
+}
