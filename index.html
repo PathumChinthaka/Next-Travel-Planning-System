@@ -84,7 +84,7 @@
         </div>
         <div class="modal-body">
           <div class="input-group">
-            <input type="text" class="form-control my-1" id="userName" placeholder="name">
+            <input type="text" class="form-control my-1" id="travelerName" placeholder="name">
           </div>
           <div class="input-group">
             <input type="text" class="form-control my-2" id="address" placeholder="address">
@@ -96,12 +96,12 @@
             <input type="email" class="form-control my-1" id="userEmail" placeholder="e-mail">
           </div>
           <div class="input-group input-group">
-            <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control my-2" id="Password" placeholder="Password">
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Register</button>
+          <button type="button" class="btn btn-primary" id="register-btn">Register</button>
         </div>
       </div>
     </div>
@@ -358,6 +358,7 @@
   <script src="Lib\jquery-3.6.4.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
+  <script src="controller\TravelerRegisterController.js" type="module"></script>
   <script>
     $('#login-as').change(function (e) {
       alert(e.target.value);
