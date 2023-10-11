@@ -2,7 +2,7 @@ export class TravelerRegisterController{
 
   constructor(){
     $('#register-btn').on('click', () => {
-      this.travelerRegisterData();
+      this.saveRegisterData();
     });
   }
 
@@ -14,8 +14,28 @@ export class TravelerRegisterController{
       email:$('#userEmail').val(),
       password:$('#Password').val()
     })
-    console.log(travelerObj);
     return travelerObj;
+  }
+
+  saveRegisterData(){
+    const registerData=this.travelerRegisterData();
+
+    $.ajax({
+      url: "http://localhost:8080/nextTravel/api/v1/save",
+      type: "POST",
+      data: registerData,
+      dataType: "json",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: (response) => {
+        console.log("i came");
+        console.log(response);
+      },
+      error: (message) => {
+        console.log(message);
+      }
+    });
   }
 }
 new TravelerRegisterController();
