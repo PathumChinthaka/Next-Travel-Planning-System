@@ -270,15 +270,17 @@
           <div class="input-group">
             <input type="text" class="form-control my-1" id="travelpackageid" placeholder="travel package id">
           </div>
-          <select class="form-select bg-secondary text-white my-2" id="packageCategory" aria-label="">
-            <option>abc</option>
+          <select class="form-select bg-secondary text-white my-2" id="packageName" aria-label="">
+            <option>Package Name</option>
+            <option ></option>
           </select>
           <div class="input-group">
             <input type="text" class="form-control my-2" id="travel_package_description" placeholder="travel package description">
           </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="travel_package_category_id	" placeholder="travel package category id">
-          </div>
+          <select class="form-select bg-secondary text-white my-2" id="packageCategory" aria-label="">
+            <option>Package Category</option>
+            <option ></option>
+          </select>
           <div class="input-group">
             <input type="text" class="form-control my-1" id="day_Count" placeholder="day Count">
           </div>
@@ -287,6 +289,7 @@
           </div>
           <select class="form-select bg-secondary text-white my-2" id="travel-area-id" aria-label="">
             <option>travel area</option>
+            <option></option>
           </select>
           <div class="input-group my-2">
             <input type="checkbox" class="form-control my-1" id="pet-allow" placeholder="">
@@ -294,6 +297,7 @@
           </div>
           <select class="form-select bg-secondary text-white my-2" id="room-type-id" aria-label="">
             <option>room type</option>
+            <option></option>
           </select>
           <div class="input-group">
             <input type="text" class="form-control my-1" id="travel_package_video_url" placeholder="travel package video url">
@@ -323,10 +327,10 @@
             <input type="text" class="form-control my-1" id="hotelId" placeholder="hotel Id">
           </div>
           <div class="input-group">
-            <input type="text" class="form-control my-2" id="hotelName	" placeholder="hotel Name	">
+            <input type="text" class="form-control my-2" id="hotelName" placeholder="hotel Name	">
           </div>
           <select class="form-select bg-secondary text-white my-2" id="hotelCategory" aria-label="">
-            <option>abc</option>
+            <option>Hotel Category</option>
           </select>
           <div class="input-group">
             <input type="email" class="form-control my-1" id="Email" placeholder="e-mail">
@@ -384,13 +388,15 @@
             <input type="text" class="form-control my-1" id="vehicle_id" placeholder="vehicle id">
           </div>
           <select class="form-select bg-secondary text-white my-2" id="hotelCategory" aria-label="">
-            <option>vehicle category</option>
+            <option>Vehicle Category</option>
+            <option></option>
           </select>
           <div class="input-group">
             <input type="text" class="form-control my-1" id="vehicle_name	" placeholder="vehicle_name	">
           </div>
           <select class="form-select bg-secondary text-white my-2" id="hotelCategory" aria-label="">
-            <option>fuel type</option>
+            <option>Fuel Type</option>
+            <option></option>
           </select>
           <div class="input-group">
             <input type="text" class="form-control my-1" id="fuel_usage" placeholder="fuel usage">
@@ -432,7 +438,7 @@
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-success px-5">Save</button>
+            <button type="button" class="btn btn-success px-5" id="vehicle-save-btn">Save</button>
             <button type="button" class="btn btn-warning px-5">Update</button>
             <button type="button" class="btn btn-danger px-5">Delete</button>
           </div>
@@ -511,6 +517,12 @@
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.esm.min.js"></script>
   <script src="Lib\jquery-3.6.4.min.js"></script>
+  <!-- <script>
+    $('#vehicle-save-btn').click(function (e) { 
+        const value=$('#vehicle-img').val();
+        console.log(value);
+    });
+  </script> -->
 </body>
 
 </html>
