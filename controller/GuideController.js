@@ -1,5 +1,83 @@
 //server URL
-var baseURL = "http://localhost:8085/NextTravel/api/guide/";
+const baseURL = "http://localhost:8085/NextTravel/api/guide/";
+
+//Regex content
+const regExGuideUsername = /^[A-Z|a-z\s]{3,20}$/;
+const regExGuidePassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
+const regExGuideName = /^[A-Z|a-z\s]{3,20}$/;
+const regExContact = /^(071|077|075|078|076)[0-9]{7}$/;
+const regExAge = /^[1-9]{1,2}$/;
+const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
+
+// Guide Name Input validation
+$("#guide_name").keydown(function (event) {
+  const name = $('#guide_name').val();
+  if (regExGuideName.test(name)) {
+      $("#guide_name").css('border', '2px solid #134eed');
+      if (event.key == "Enter") {
+          $("#guidAddress").focus();
+      }
+  } else {
+      $("#guide_name").css('border', '2px solid red');
+      console.log("Invaid name Check again!");
+  }
+});
+
+// Guide Address Input validation
+$("#guidAddress").keydown(function (event) {
+  const address = $('#guidAddress').val();
+  if (regExAddress.test(address)) {
+      $("#guidAddress").css('border', '2px solid #134eed');
+      if (event.key == "Enter") {
+          $("#age").focus();
+      }
+  } else {
+      $("#guidAddress").css('border', '2px solid red');
+      console.log("Invaid Address Check again!");
+  }
+});
+
+// Guide Age Input validation
+$("#age").keydown(function (event) {
+  const age = $('#age').val();
+  if (re.test(age)) {
+      $("#age").css('border', '2px solid #134eed');
+      if (event.key == "Enter") {
+          $("#gender").focus();
+      }
+  } else {
+      $("#age").css('border', '2px solid red');
+      console.log("Invaid Age Check again!");
+  }
+});
+
+// Guide Age Input validation
+$("#gender").keydown(function (event) {
+  const gender = $('#gender').val();
+  if (re.test(gender)) {
+      $("#gender").css('border', '2px solid #134eed');
+      if (event.key == "Enter") {
+          $("#contact").focus();
+      }
+  } else {
+      $("#gender").css('border', '2px solid red');
+      console.log("Invaid Gender Check again!");
+  }
+});
+
+// Guide Contact Input validation
+$("#contact").keydown(function (event) {
+  const contact = $('#contact').val();
+  if (re.test(contact)) {
+      $("#contact").css('border', '2px solid #134eed');
+      if (event.key == "Enter") {
+          $("#experiences").focus();
+      }
+  } else {
+      $("#contact").css('border', '2px solid red');
+      console.log("Invaid Contact No: Check again!");
+  }
+});
 
 //Key Events
 $('#guide-save-btn').click(function (e) {
@@ -46,3 +124,20 @@ $('#guide-save-btn').click(function (e) {
     }
   });
 });
+
+//get All Guide Details
+function getAllGuideDetails(){
+  $.ajax({
+    url: baseURL + "getAll",
+    method: "get",
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+      alert(response.message);
+    },
+    error: function (error) {
+      var jsObject = JSON.parse(error.responseText);
+      alert(jsObject.message);
+    }
+  });
+}
