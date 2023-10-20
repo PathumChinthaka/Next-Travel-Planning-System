@@ -27,7 +27,7 @@
       height: 85vh !important;
     }
 
-    .hotel-service-modal{
+    .hotel-service-modal {
       width: 120% !important;
     }
   </style>
@@ -56,7 +56,8 @@
     </div>
     <hr>
     <div>
-      <button class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Guide Details</button>
+      <button class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium" data-bs-toggle="modal"
+        data-bs-target="#GuideServiceModal">Add Guide Details</button>
     </div>
     <hr>
     <div>
@@ -272,14 +273,15 @@
           </div>
           <select class="form-select bg-secondary text-white my-2" id="packageName" aria-label="">
             <option>Package Name</option>
-            <option ></option>
+            <option></option>
           </select>
           <div class="input-group">
-            <input type="text" class="form-control my-2" id="travel_package_description" placeholder="travel package description">
+            <input type="text" class="form-control my-2" id="travel_package_description"
+              placeholder="travel package description">
           </div>
           <select class="form-select bg-secondary text-white my-2" id="packageCategory" aria-label="">
             <option>Package Category</option>
-            <option ></option>
+            <option></option>
           </select>
           <div class="input-group">
             <input type="text" class="form-control my-1" id="day_Count" placeholder="day Count">
@@ -288,7 +290,7 @@
             <input type="number" class="form-control my-1" id="night_Count" placeholder="night Count  ">
           </div>
           <select class="form-select bg-secondary text-white my-2" id="travel-area-id" aria-label="">
-            <option>travel area</option>
+            <option>Travel area</option>
             <option></option>
           </select>
           <div class="input-group my-2">
@@ -296,11 +298,12 @@
             <input type="checkbox" class="form-control my-1" id="pet-notallow" placeholder="night Count  ">
           </div>
           <select class="form-select bg-secondary text-white my-2" id="room-type-id" aria-label="">
-            <option>room type</option>
+            <option>Room type</option>
             <option></option>
           </select>
           <div class="input-group">
-            <input type="text" class="form-control my-1" id="travel_package_video_url" placeholder="travel package video url">
+            <input type="text" class="form-control my-1" id="travel_package_video_url"
+              placeholder="travel package video url">
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
@@ -424,7 +427,8 @@
             <input type="text" class="form-control my-1" id="fuel_usage" placeholder="fuel usage">
           </div>
           <div class="input-group">
-            <input type="text" class="form-control my-1" id="vehical_per_day_charge" placeholder="vehical_per_day_charge">
+            <input type="text" class="form-control my-1" id="vehical_per_day_charge"
+              placeholder="vehical_per_day_charge">
           </div>
           <div class="input-group">
             <input type="text" class="form-control my-1" id="vehical_1km_charge" placeholder="vehical_1km_charge">
@@ -453,59 +457,54 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="VehicleServiceModal">Manage Guide service</h1>
+          <h1 class="modal-title fs-5" id="GuideServiceModal">Manage Guide service</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="guid_Id" placeholder="guid Id">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="guide_name" placeholder="guide name">
-          </div>
-          <select class="form-select bg-secondary text-white my-2" id="hotelCategory" aria-label="">
-            <option>vehicle category</option>
-          </select>
-          
-          <select class="form-select bg-secondary text-white my-2" id="hotelCategory" aria-label="">
-            <option>fuel type</option>
-          </select>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="address " placeholder="address">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="age" placeholder="age">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="gender" placeholder="gender">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="contact" placeholder="contact">
-          </div>
-          <div class="my-1">
-            <label for="formFile" class="form-label">profile pic</label>
-            <input class="form-control" type="file" id="profile_pic">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="experiences" placeholder="experiences">
-          </div>
-          <div class="my-1">
-            <label for="formFile" class="form-label">Nic pic</label>
-            <input class="form-control" type="file" id="nic_pic">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="day_value" placeholder="Day Value">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="remark" placeholder="remark">
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="can_policy" placeholder="can policy">
-          </div>
+          <form id="Guide-Form" class="was-validated">
+            <div class="input-group">
+              <input type="text" class="form-control is-invalid my-1" id="guid_Id" placeholder="guid Id" required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="guide_name" placeholder="guide name" required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="guidAddress" placeholder="address" required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="age" placeholder="age" required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="gender" placeholder="gender" required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="contact" placeholder="contact" required>
+            </div>
+            <div class="my-1">
+              <label for="formFile" class="form-label">profile pic</label>
+              <input class="form-control" type="file" id="profile_pic">
+            </div>
+            <div>
+              <input type="text" class="form-control my-1" id="experiences" placeholder="experiences" required>
+            </div>
+            <div class="my-1">
+              <label for="formFile" class="form-label">Nic pic</label>
+              <input class="form-control" type="file" id="nic_pic">
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="day_value" placeholder="Day Value" required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="remark" placeholder="remark" required>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control my-1" id="can_policy" placeholder="can policy">
+            </div>
+          </form>
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-success px-5">Save</button>
+            <button type="button" id="guide-save-btn" class="btn btn-success px-5">Save</button>
             <button type="button" class="btn btn-warning px-5">Update</button>
             <button type="button" class="btn btn-danger px-5">Delete</button>
           </div>
@@ -515,8 +514,9 @@
   </div>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
-  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.esm.min.js"></script>
+  <!-- <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.esm.min.js"></script> -->
   <script src="Lib\jquery-3.6.4.min.js"></script>
+  <script type="module" src="controller\GuideController.js"></script>
   <!-- <script>
     $('#vehicle-save-btn').click(function (e) { 
         const value=$('#vehicle-img').val();

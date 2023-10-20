@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Lib\bootstrap-5.3.2-dist\css\bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <title>Custom-package</title>
+  <style>
+    .carousel-control-prev,
+    .carousel-control-next {
+      top: 80%;
+    }
+
+    /* .carousel-inner{
+      background-image: url('https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=600');
+      background-position: center;
+      background-size:cover;
+    } */
+
+    .carousel-item {
+      height: 50vh !important;
+      border: 2px solid red;
+      /* margin-top: 25px; */
+    }
+
+    .input-group-append {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="carouselExampleControls" class="carousel carousel-fade" data-mdb-target="true">
+    <div class="carousel-inner banner">
+      <div class="carousel-item active">
+        <img
+          src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHRyYXZlbHxlbnwwfDB8MHx8fDA%3D&w=500"
+          class="d-block w-100 image" alt="Camera" />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
+      data-mdb-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
+      data-mdb-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- booking form -->
+  <section class="overflow-x-hidden mt-5 container">
+    <div class="row">
+      <div class="col">
+        <select class="form-select bg-secondary text-white mt-4" id="packageCategory" aria-label="">
+          <option>Package Category</option>
+          <option ></option>
+        </select>
+      </div>
+      <div class="col">
+        <!-- Name input -->
+        <div class="form-outline">
+          <label class="form-label" for="form8Example1">Travel Start Date</label>
+          <input type="date" id="form8Example1" class="form-control" />
+        </div>
+      </div>
+      <div class="col">
+        <!-- Email input -->
+        <div class="form-outline">
+          <label class="form-label" for="form8Example2">Travel End Date</label>
+          <input type="date" id="form8Example2" class="form-control" />
+        </div>
+      </div>
+      
+      <div class="col">
+        <!-- Email input -->
+        <div class="form-outline">
+          <label class="form-label" for="form8Example2">Customer ID</label>
+          <input type="email" id="form8Example2" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <!-- <hr /> -->
+    <div class="row mt-5">
+      <div class="col">
+        <!-- Name input -->
+        <div class="form-outline">
+          <input type="text" id="form8Example3" class="form-control" />
+          <label class="form-label" for="form8Example3"></label>
+        </div>
+      </div>
+      <div class="col">
+        <!-- Name input -->
+        <div class="form-outline">
+          <input type="text" id="form8Example4" class="form-control" />
+          <label class="form-label" for="form8Example4">Last name</label>
+        </div>
+      </div>
+      <div class="col">
+        <!-- Email input -->
+        <div class="form-outline">
+          <input type="email" id="form8Example5" class="form-control" />
+          <label class="form-label" for="form8Example5">Email address</label>
+        </div>
+      </div>
+      <div class="col">
+        <!-- Email input -->
+        <div class="form-outline">
+          <input type="email" id="form8Example5" class="form-control" />
+          <label class="form-label" for="form8Example5">Email address</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
+  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
+  <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.esm.min.js"></script>
+  <script src="Lib\jquery-3.6.4.min.js"></script>
+  <script>
+    $('#create-package-btn').click(function () {
+      $('body').load('index.html');
+    });
+    $(function () {
+      $('#datepicker').datepicker();
+    });
+  </script>
+</body>
+
+</html>
