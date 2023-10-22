@@ -8,7 +8,7 @@
   <title>Document</title>
   <style>
     .dashboard-aside {
-      width: 250px !important;
+      width: 210px !important;
       height: 100%;
     }
 
@@ -23,8 +23,8 @@
 
     .table-wrapper {
       border: 2px solid rgb(89, 0, 255);
-      margin-left: 250px;
-      height: 85vh !important;
+      margin-left: 220px;
+      margin-top:800px;
     }
 
     .hotel-service-modal {
@@ -65,7 +65,8 @@
     </div>
   </aside>
   <div class="d-flex justify-content-center align-items-center table-container">
-    <div class="table-wrapper col-9 d-flex flex-column overflow-y-hidden">
+    <!-- table wrapper -->
+    <div class="table-wrapper col-10 d-flex flex-column p-2">
       <div id="travel-package-tbl">
         <div>
           <button class="active-btn bg-primary text-white py-2 px-5 my-1 btn-light border-0 fw-medium rounded-1 mb-4"
@@ -147,19 +148,27 @@
         </div>
         <br>
       </div>
-      <div id="travel-package-tbl">
+      <div id="guide-details-tbl">
         <div>
           <button class="active-btn bg-primary text-white py-2 px-5 my-1 btn-light border-0 fw-medium rounded-1 mb-4"
-            data-bs-toggle="modal" data-bs-target="#TravelServiceModal">Add +</button>
+            data-bs-toggle="modal" data-bs-target="#GuideServiceModal">Add +11</button>
         </div>
         <div>
           <table class="table table-hover rounded-1 w-100">
             <thead class="table-secondary">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Age</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Experience</th>
+                <th scope="col">dayValue</th>
+                <th scope="col">canPolicy</th>
+                <th scope="col">profilePic</th>
+                <th scope="col">NicPic</th>
+                <th scope="col">Remarks</th>
               </tr>
             </thead>
             <tbody>
@@ -177,7 +186,7 @@
       <div id="travel-package-tbl">
         <div>
           <button class="active-btn bg-primary text-white py-2 px-5 my-1 btn-light border-0 fw-medium rounded-1 mb-4"
-            data-bs-toggle="modal" data-bs-target="#TravelServiceModal">Add +</button>
+            data-bs-toggle="modal" data-bs-target="#TravelServiceModal">Add +231</button>
         </div>
         <div>
           <table class="table table-hover rounded-1 w-100">
@@ -509,8 +518,8 @@
               <input class="form-control" type="file" id="profile_pic">
             </div>
             <div class="my-1 mt-1">
-              <label for="formFile" class="form-label">Nic pic</label>
               <input class="form-control" type="file" id="nic_pic">
+              <label for="formFile" class="form-label">Nic pic</label>
             </div>
           </form>
         </div>

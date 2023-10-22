@@ -5,7 +5,7 @@ const baseURL = "http://localhost:8085/NextTravel/api/guide/";
 const regExGuideUsername = /^[A-Z|a-z\s]{3,20}$/;
 const regExGuidePassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
 const regExGuideName = /^[A-Z|a-z\s]{3,20}$/;
-const regExContact = /^(071|077|075|078|076)[0-9]{10}$/;
+const regExContact = /^(071|077|075|078|076)[0-9]{7}$/;
 const regExAge = /^[1-9]{1,2}$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
@@ -66,7 +66,7 @@ $("#contact").keydown(function (event) {
   }
 });
 
-// Guide Contact Input validation
+// Guide DayValue Input validation
 $("#day_value").keydown(function (event) {
   const dayValue = $('#day_value').val();
   if (regExDayValue.test(dayValue)) {
@@ -79,9 +79,6 @@ $("#day_value").keydown(function (event) {
       console.log("Invaid Contact No: Check again!");
   }
 });
-
-// Guide Gender Input validation
-
 
 //Key Events
 $('#guide-save-btn').click(function (e) {
@@ -145,3 +142,6 @@ function getAllGuideDetails(){
     }
   });
 }
+
+getAllGuideDetails();
+
