@@ -109,8 +109,6 @@ $('#guide-save-btn').click(function (e) {
     policyId: policyId
   };
 
-  // console.log("guideobject :",guideObj);
-
   // Create Post Request
   $.ajax({
     url: baseURL + "save",
