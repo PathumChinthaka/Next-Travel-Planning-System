@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <title>Manage Guide Details</title>
   <style>
-    .btn-warning{
+    #guide-update-btn{
       margin-left: -60px;
     }
 
-    .btn-danger{
+    #guide-delete-btn{
       margin-left: -100px;
     }
   </style>
@@ -78,7 +78,7 @@
       </div>
       <div class="col">
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="can_policy" placeholder="can policy">
+          <input type="text" class="form-control my-1" id="can_policy" placeholder="can policy id">
         </div>
       </div>
       <div class="col">
@@ -98,10 +98,10 @@
         <button type="button" id="guide-save-btn" class="btn btn-success px-5">Save</button>
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-warning px-5">Update</button>
+        <button type="button" id="guide-update-btn" class="btn btn-warning px-5">Update</button>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-danger px-5">Delete</button>
+        <button type="button" id="guide-delete-btn" class="btn btn-danger px-5">Delete</button>
       </div>
     </div>
   </section>
@@ -119,9 +119,9 @@
             <th scope="col">Experience</th>
             <th scope="col">dayValue</th>
             <th scope="col">canPolicy</th>
-            <th scope="col">profilePic</th>
-            <th scope="col">NicPic</th>
-            <th scope="col">Remarks</th>
+            <th scope="col">remarks</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
