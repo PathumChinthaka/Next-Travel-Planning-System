@@ -1,5 +1,5 @@
 //server URL
-const baseURL = "http://localhost:8085/NextTravel/api/guide/";
+var baseURL = "http://localhost:8085/NextTravel/api/guide/";
 
 //Regex content
 const regExGuideUsername = /^[A-Z|a-z\s]{3,20}$/;
@@ -82,7 +82,6 @@ const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 
 //Key Events
 $('#guide-save-btn').click(function (e) {
-
   //Get guideDetails
   const guidId = $('#guid_Id').val();
   const name = $('#guide_name').val();
@@ -109,6 +108,8 @@ $('#guide-save-btn').click(function (e) {
     policyId: policyId
   };
 
+  console.log(guideObj);
+
   // Create Post Request
   $.ajax({
     url: baseURL + "save",
@@ -124,8 +125,8 @@ $('#guide-save-btn').click(function (e) {
       }
     },
     error: function (error) {
-      var jsObject = JSON.parse(error.responseText);
-      alert(jsObject.message);
+      // 
+      alert("Error :",error.message)
     }
   });
 });
@@ -154,8 +155,9 @@ function getAllGuideDetails() {
       });
     },
     error: function (error) {
-      var jsObject = JSON.parse(error.responseText);
-      alert(jsObject.message);
+      // var jsObject = JSON.parse(error.responseText);
+      // alert(jsObject.message);
+      alert("Error :",error.message);
     }
   });
 }
@@ -178,7 +180,7 @@ $("#guide-update-btn").click(function (e) {
   const policyId = $('#can_policy').val();
 
   //Create guide details object
-  let guideObj = {
+  let GuideObj = {
     guidId: guidId,
     guidName: name,
     address: guidAddress,
@@ -190,12 +192,13 @@ $("#guide-update-btn").click(function (e) {
     remarks: remarks,
     policyId: policyId
   };
-
+  console.log(guidId);
+  
   // Create Put Request
   $.ajax({
-    url: baseURL + "update?guidId=" + guidId,
+    url: baseURL + "update",
     method: "PUT",
-    data: JSON.stringify(guideObj),
+    data: JSON.stringify(GuideObj),
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
@@ -206,26 +209,40 @@ $("#guide-update-btn").click(function (e) {
       }
     },
     error: function (error) {
-      var jsObject = JSON.parse(error.responseText);
-      alert(jsObject.message);
+      alert("Error :",error.message);
     }
   });
 });
 
+
 //get selected table row
 function getSelectedRow() {
+
   $('#guid_Id').prop("readonly", true);
+
   $('#guide-details-tbody').on('click', 'tr', (event) => {
-    $('#guid_Id').val($(event.target).closest('tr').find('td').eq(0).text());
-    $('#guide_name').val($(event.target).closest('tr').find('td').eq(1).text());
-    $('#guidAddress').val($(event.target).closest('tr').find('td').eq(2).text());
-    $('#age').val($(event.target).closest('tr').find('td').eq(3).text());
-    $('#guide_gender').val($(event.target).closest('tr').find('td').eq(4).text());
-    $('#contact').val($(event.target).closest('tr').find('td').eq(5).text());
-    $('#experiences').val($(event.target).closest('tr').find('td').eq(6).text());
-    $('#day_value').val($(event.target).closest('tr').find('td').eq(7).text());
-    $('#remark').val($(event.target).closest('tr').find('td').eq(8).text());
-    $('#can_policy').val($(event.target).closest('tr').find('td').eq(9).text());
+
+    const guidId = $(event.target).closest('tr').find('td').eq(0).text();
+    const name = $(event.target).closest('tr').find('td').eq(1).text();
+    const guidAddress = $(event.target).closest('tr').find('td').eq(2).text();
+    const age = $(event.target).closest('tr').find('td').eq(3).text();
+    const gender = $(event.target).closest('tr').find('td').eq(4).text();
+    const contact = $(event.target).closest('tr').find('td').eq(5).text();
+    const guideExperience = $(event.target).closest('tr').find('td').eq(6).text();
+    const dayValue = $(event.target).closest('tr').find('td').eq(7).text();
+    const policyId = $(event.target).closest('tr').find('td').eq(8).text();
+    const remarks = $(event.target).closest('tr').find('td').eq(9).text();
+
+    $('#guid_Id').val(guidId);
+    $('#guide_name').val(name);
+    $('#guidAddress').val(guidAddress);
+    $('#age').val(age);
+    $('#guide_gender').val(gender);
+    $('#contact').val(contact);
+    $('#experiences').val(guideExperience);
+    $('#day_value').val(dayValue);
+    $('#remark').val(remarks);
+    $('#can_policy').val(policyId);
   });
 }
 
