@@ -149,18 +149,6 @@ function getAllGuideDetails() {
                 <td> ${element.data.dayValue}</td>
                 <td> ${element.data.policyId}</td>
                 <td> ${element.data.remarks}</td>
-                <td>
-                <button type="button" id="btn-delete-guide" 
-                class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
-                <i class="bi bi-trash3-fill"></i>
-                </button>
-                </td>
-                <td>
-                <button type="button" id="btn-update-guide" 
-                class="btn btn-primary btn-sm px-3" data-ripple-color="dark">
-                <i class="bi bi-pencil-square"></i>
-                </button>
-                </td>
                 </tr>`;
         $("#Guide-Details-table tbody").append(rawData);
       });
@@ -172,6 +160,77 @@ function getAllGuideDetails() {
   });
 }
 
+// get all guide details method globally calling
+getAllGuideDetails();
+
+//update guideDetails event
+$("#guide-update-btn").click(function (e) {
+  //Get guideDetails
+  const guidId = $('#guid_Id').val();
+  const name = $('#guide_name').val();
+  const guidAddress = $('#guidAddress').val();
+  const age = $('#age').val();
+  const gender = $('#guide_gender').val();
+  const contact = $('#contact').val();
+  const guideExperience = $('#experiences').val();
+  const dayValue = $('#day_value').val();
+  const remarks = $('#remark').val();
+  const policyId = $('#can_policy').val();
+
+  //Create guide details object
+  let guideObj = {
+    guidId: guidId,
+    guidName: name,
+    address: guidAddress,
+    age: age,
+    gender: gender,
+    contact: contact,
+    experience: guideExperience,
+    dayValue: dayValue,
+    remarks: remarks,
+    policyId: policyId
+  };
+
+  // Create Put Request
+  $.ajax({
+    url: baseURL + "update?guidId=" + guidId,
+    method: "PUT",
+    data: JSON.stringify(guideObj),
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+      if (response.code == 200) {
+        alert("response ok");
+        getAllGuideDetails();
+        clearFields();
+      }
+    },
+    error: function (error) {
+      var jsObject = JSON.parse(error.responseText);
+      alert(jsObject.message);
+    }
+  });
+});
+
+//get selected table row
+function getSelectedRow() {
+  $('#guid_Id').prop("readonly", true);
+  $('#guide-details-tbody').on('click', 'tr', (event) => {
+    $('#guid_Id').val($(event.target).closest('tr').find('td').eq(0).text());
+    $('#guide_name').val($(event.target).closest('tr').find('td').eq(1).text());
+    $('#guidAddress').val($(event.target).closest('tr').find('td').eq(2).text());
+    $('#age').val($(event.target).closest('tr').find('td').eq(3).text());
+    $('#guide_gender').val($(event.target).closest('tr').find('td').eq(4).text());
+    $('#contact').val($(event.target).closest('tr').find('td').eq(5).text());
+    $('#experiences').val($(event.target).closest('tr').find('td').eq(6).text());
+    $('#day_value').val($(event.target).closest('tr').find('td').eq(7).text());
+    $('#remark').val($(event.target).closest('tr').find('td').eq(8).text());
+    $('#can_policy').val($(event.target).closest('tr').find('td').eq(9).text());
+  });
+}
+
+//globally calling getSelected Row
+getSelectedRow();
 
 //clear input fields
 function clearFields() {

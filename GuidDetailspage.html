@@ -9,11 +9,11 @@
   <title>Manage Guide Details</title>
   <style>
     #guide-update-btn{
-      margin-left: -60px;
+      margin-left: -70px;
     }
 
     #guide-delete-btn{
-      margin-left: -100px;
+      margin-left: -120px;
     }
   </style>
 </head>
@@ -95,7 +95,13 @@
     </div>
     <div class="row mt-5 d-flex">
       <div class="col-2">
-        <button type="button" id="guide-save-btn" class="btn btn-primary px-5">ADD+</button>
+        <button type="button" id="guide-save-btn" class="btn btn-success px-5">Save</button>
+      </div>
+      <div class="col-2">
+        <button type="button" id="guide-update-btn" class="btn btn-warning px-5">Update</button>
+      </div>
+      <div class="col-2">
+        <button type="button" id="guide-delete-btn" class="btn btn-danger px-5">Delete</button>
       </div>
     </div>
   </section>
@@ -114,13 +120,10 @@
             <th scope="col">dayValue</th>
             <th scope="col">canPolicy</th>
             <th scope="col">remarks</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="guide-details-tbody">
           <tr>
-            <td></td>
           </tr>
         </tbody>
       </table>
