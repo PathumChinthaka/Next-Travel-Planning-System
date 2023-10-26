@@ -1,5 +1,4 @@
 
-
 //handle vehicle save event
 $("#vehicle-save-btn").click(function (e) {
   const vehicleId = $('#vehicle_id').val();
@@ -44,7 +43,7 @@ $("#vehicle-save-btn").click(function (e) {
         alert(response.message);
         getAllVehicleDetails();
         clearVehicleInputs();
-        
+
       }
     },
     error: function (xhr, status, error) {
@@ -143,7 +142,7 @@ function getSelectedVehicleRaw() {
 getSelectedVehicleRaw();
 
 //update guide details event
-$("#vehicle-update-btn").click(function (e) { 
+$("#vehicle-update-btn").click(function (e) {
 
   const vehicleId = $('#vehicle_id').val();
   const vehicleCategory = $('#vehicleCategory').val();
@@ -196,19 +195,43 @@ $("#vehicle-update-btn").click(function (e) {
   });
 });
 
+
+//delete guide details event
+$("#vehicle-delete-btn").click(function (e) {
+  const choice = confirm("Do you want to delete this Data ?");
+  if (choice == true) {
+    const vehicleId = $('#vehicle_id').val();
+    $.ajax({
+      url: baseURL + "vehicle/" + vehicleId,
+      method: "delete",
+      dataType: "json",
+      success: function (response) {
+        alert(response.message);
+      },
+      error: function (xhr, status, error) {
+        alert("Vehicle Data Deleted");
+        getAllVehicleDetails();
+        clearVehicleInputs();
+      }
+    });
+  } else {
+    clearVehicleInputs();
+  }
+});
+
 //create clear input function
-function clearVehicleInputs(){
-    $('#vehicle_id').val("");
-    $('#vehicleCategory').val("");
-    $('#vehicle_name').val("");
-    $('#fuel_type').val("");
-    $('#fuel_usage').val("");
-    $('#is_Hybrid').val("");
-    $('#seat_count').val("");
-    $('#transmision_type').val("");
-    $('#fuel_usage_cost').val("");
-    $('#Vehicle_charge').val("");
-    $('#vehical_1km_charge').val("");
-    $('#vehicle_remarks').val("");
-    $('#policy-type').val("");
+function clearVehicleInputs() {
+  $('#vehicle_id').val("");
+  $('#vehicleCategory').val("");
+  $('#vehicle_name').val("");
+  $('#fuel_type').val("");
+  $('#fuel_usage').val("");
+  $('#is_Hybrid').val("");
+  $('#seat_count').val("");
+  $('#transmision_type').val("");
+  $('#fuel_usage_cost').val("");
+  $('#Vehicle_charge').val("");
+  $('#vehical_1km_charge').val("");
+  $('#vehicle_remarks').val("");
+  $('#policy-type').val("");
 }
