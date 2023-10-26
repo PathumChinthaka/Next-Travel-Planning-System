@@ -98,6 +98,96 @@ function getAllVehicleDetails() {
 getAllVehicleDetails();
 
 //get selected vehicle row from db
-function getSelectedVehicleRaw(){
+function getSelectedVehicleRaw() {
 
+  $('#vehicle-tbody-one').on('click', 'tr', (event) => {
+    const vehicleId = $(event.target).closest('tr').find('td').eq(0).text();
+    const vehicleCategory = $(event.target).closest('tr').find('td').eq(1).text();
+    const vehicleName = $(event.target).closest('tr').find('td').eq(2).text();
+    const fuelType = $(event.target).closest('tr').find('td').eq(3).text();
+    const fuelUsage = $(event.target).closest('tr').find('td').eq(4).text();
+    const isHybrid = $(event.target).closest('tr').find('td').eq(5).text();
+    const seatCount = $(event.target).closest('tr').find('td').eq(6).text();
+
+    $('#vehicle_id').val(vehicleId.trim());
+    $('#vehicleCategory').val(vehicleCategory.trim());
+    $('#vehicle_name').val(vehicleName.trim());
+    $('#fuel_type').val(fuelType.trim());
+    $('#fuel_usage').val(fuelUsage.trim());
+    $('#is_Hybrid').val(isHybrid.trim());
+    $('#seat_count').val(seatCount.trim());
+  });
+
+  $('#vehicle-tbody-two').on('click', 'tr', (event) => {
+    const vehicleId = $(event.target).closest('tr').find('td').eq(0).text();
+    const transmission = $(event.target).closest('tr').find('td').eq(1).text();
+    const fuelUsageCost = $(event.target).closest('tr').find('td').eq(2).text();
+    const perDayCharage = $(event.target).closest('tr').find('td').eq(3).text();
+    const oneKmCharge = $(event.target).closest('tr').find('td').eq(4).text();
+    const remarks = $(event.target).closest('tr').find('td').eq(5).text();
+    const policyType = $(event.target).closest('tr').find('td').eq(6).text();
+
+    $('#vehicle_id').val(vehicleId.trim());
+    $('#transmision_type').val(transmission.trim());
+    $('#fuel_usage_cost').val(fuelUsageCost.trim());
+    $('#Vehicle_charge').val(perDayCharage.trim());
+    $('#vehical_1km_charge').val(oneKmCharge.trim());
+    $('#vehicle_remarks').val(remarks.trim());
+    $('#policy-type').val(policyType.trim());
+  });
+}
+
+//get Selected vehicle raw globally
+getSelectedVehicleRaw();
+
+//update guide details event
+function updateVehicleDetails(){
+
+  const vehicleId = $('#vehicle_id').val();
+  const vehicleCategory = $('#vehicleCategory').val();
+  const vehicleName = $('#vehicle_name').val();
+  const fuelType = $('#fuel_type').val();
+  const fuelUsage = $('#fuel_usage').val();
+  const isHybrid = $('#is_Hybrid').val();
+  const seatCount = $('#seat_count').val();
+  const transmission = $('#transmision_type').val();
+  const fuelUsageCost = $('#fuel_usage_cost').val();
+  const perDayCharage = $('#Vehicle_charge').val();
+  const oneKmCharge = $('#vehical_1km_charge').val();
+  const remarks = $('#vehicle_remarks').val();
+  const policyType = $('#policy-type').val();
+
+  const vehicleDetails = {
+    vehicleId: vehicleId,
+    vehicleCategory: vehicleCategory,
+    vehicleName: vehicleName,
+    fuelType: fuelType,
+    isHybrid: isHybrid,
+    fuelUsage: fuelUsage,
+    seatCount: seatCount,
+    transmissionType: transmission,
+    fuelUsageCost: fuelUsageCost,
+    perDayCharge: perDayCharage,
+    vehicle1kmCharge: oneKmCharge,
+    remarks: remarks,
+    policyType: policyType
+  }
+
+  $.ajax({
+    url: baseURL + "vehicle/update",
+    method: "put",
+    data: JSON.stringify(vehicleDetails),
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+      if (response.code == 200) {
+        alert(response.message);
+        getAllVehicleDetails();
+      };
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+      alert("An error occurred: " + error);
+    },
+  });
 }
