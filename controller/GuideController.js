@@ -5,12 +5,12 @@
 const regExGuideUsername = /^[A-Z|a-z\s]{3,20}$/;
 const regExGuidePassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
 const regExGuideName = /^[A-Z|a-z\s]{3,20}$/;
-const regExContact = /^(071|077|075|078|076)[0-9]{7}$/;
-const regExAge = /^[1-9]{1,2}$/;
+const regExContact = /^(075|077|071|074|078|076|070|072)([0-9]{7})$/;
+const regExAge = /^[1-9]{1,1}$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 
-// Guide Name Input validation
+// // Guide Name Input validation
 // $("#guide_name").keydown(function (event) {
 //   const name = $('#guide_name').val();
 //   if (regExGuideName.test(name)) {
@@ -24,7 +24,7 @@ const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 //   }
 // });
 
-// // Guide Address Input validation
+// // // Guide Address Input validation
 // $("#guidAddress").keydown(function (event) {
 //   const address = $('#guidAddress').val();
 //   if (regExAddress.test(address)) {
@@ -38,7 +38,7 @@ const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 //   }
 // });
 
-// // Guide Age Input validation
+// // // Guide Age Input validation
 // $("#age").keydown(function (event) {
 //   const age = $('#age').val();
 //   if (regExAge.test(age)) {
@@ -52,7 +52,7 @@ const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 //   }
 // });
 
-// // Guide Contact Input validation
+// // // Guide Contact Input validation
 // $("#contact").keydown(function (event) {
 //   const contact = $('#contact').val();
 //   if (regExContact.test(contact)) {
@@ -66,7 +66,7 @@ const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 //   }
 // });
 
-// // Guide DayValue Input validation
+// // // Guide DayValue Input validation
 // $("#day_value").keydown(function (event) {
 //   const dayValue = $('#day_value').val();
 //   if (regExDayValue.test(dayValue)) {
@@ -79,6 +79,9 @@ const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 //     console.log("Invaid Contact No: Check again!");
 //   }
 // });
+
+
+
 
 //Key Events
 $('#guide-save-btn').click(function (e) {
@@ -108,8 +111,6 @@ $('#guide-save-btn').click(function (e) {
     policyId: policyId
   };
 
-  console.log(guideObj);
-
   // Create Post Request
   $.ajax({
     url: baseURL + "guide/save",
@@ -120,6 +121,7 @@ $('#guide-save-btn').click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
+        // generateAutoIncrementID();
         getAllGuideDetails();
         clearFields();
       }
@@ -152,6 +154,7 @@ function getAllGuideDetails() {
                 </tr>`;
         $("#Guide-Details-table tbody").append(rawData);
       });
+        // generateAutoIncrementID();
     },
     error: function (xhr, status, error) {
       alert("An error occurred: " + error);
@@ -241,6 +244,35 @@ $("#guide-delete-btn").click(function (e) {
   choice == true ? deleteGuidDetails() : clearFields();
 });
 
+
+function generateAutoIncrementID() {
+  $('#guid_Id').val("C00-0001");
+  $.ajax({
+    url: baseURL + "guide/latestId",
+    method: "GET",
+    success: function (response) {
+      const guidId=response.data;
+      console.log("guid Id ",guidIdId);
+      let tempId = parseInt(guidId.split("-")[1]);
+      console.log(tempId);
+      tempId=tempId+1;
+      if (tempId <= 9) {
+      $('#guid_Id').val("C00-000" + tempId);
+    } else if (tempId <= 99) {
+      $('#guid_Id').val("D00-00" + tempId);
+    } else if (tempId <= 999) {
+      $('#guid_Id').val("D00-0" + tempId);
+    } else {
+      $('#guid_Id').val("D00-" + tempId);
+    }
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+      alert("genarate Id An error occurred: " + error);
+    }
+  });
+}
+
 //get selected table row
 function getSelectedRow() {
 
@@ -275,6 +307,7 @@ getSelectedRow();
 
 //clear input fields
 function clearFields() {
+  generateAutoIncrementID();
   $('#guid_Id').val("");
   $('#guide_name').val("");
   $('#guidAddress').val("");

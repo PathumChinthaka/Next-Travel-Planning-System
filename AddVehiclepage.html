@@ -19,35 +19,40 @@
 </head>
 
 <body>
-  <div class="p-2 bg-secondary-subtle">
+  <div class="p-2 bg-info-subtle">
     <h1>Manage Vehicle Details</h1>
   </div>
   <!-- booking form -->
   <section class="overflow-x-hidden mt-5 container-fluid px-5">
     <div class="row">
       <div class="col">
+      <label>Vehicle ID</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="vehicle_id" placeholder="vehicle id">
         </div>
       </div>
       <div class="col">
+      <label>Vehicle Category</label>
         <select class="form-select bg-secondary text-white my-2" id="vehicleCategory" aria-label="">
           <option>Vehicle Category</option>
           <option></option>
         </select>
       </div>
       <div class="col">
+      <label>Vehicle Name</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="vehicle_name	" placeholder="vehicle_name	">
+          <input type="text" class="form-control my-1" id="vehicle_name" placeholder="vehicle_name	">
         </div>
       </div>
       <div class="col">
-        <select class="form-select bg-secondary text-white my-2" id="hotelCategory" aria-label="">
-          <option>Fuel Type</option>
-          <option></option>
+      <label>Fuel Type</label>
+        <select class="form-select bg-secondary text-white my-2" id="fuel_type" aria-label="">
+          <option>Diesel</option>
+          <option>Petrol</option>
         </select>
       </div>
       <div class="col">
+      <label>Fuel Usage per 1km</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="fuel_usage" placeholder="fuel usage">
         </div>
@@ -56,7 +61,8 @@
     <!-- <hr /> -->
     <div class="row mt-5">
       <div class="col">
-        <select class="form-select bg-secondary text-white my-2" id="isHybrid" aria-label="">
+      <label>Is Hybrid</label>
+        <select class="form-select bg-secondary text-white my-2" id="is_Hybrid" aria-label="">
           <option>Hybrid</option>
           <option>Non-Hybrid</option>
         </select>
@@ -68,13 +74,16 @@
         </div>
       </div>
       <div class="col">
+      <label>Seat Count</label>
         <div class="input-group input-group">
-          <input type="number" class="form-control my-2" id="seat_count	" placeholder="seat_count">
+          <input type="text" class="form-control my-2" id="seat_count" placeholder="seat_count">
         </div>
       </div>
       <div class="col">
-        <select class="form-select bg-secondary text-white my-2" id="transmisionCategory" aria-label="">
-          <option>transmision type</option>
+      <label>Transmision type</label>
+        <select class="form-select bg-secondary text-white my-2" id="transmision_type" aria-label="">
+          <option>Auto</option>
+          <option>Menual</option>
         </select>
       </div>
       <div class="col">
@@ -85,47 +94,53 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col"> <div class="input-group">
-        <input type="text" class="form-control my-1" id="fuel_usage" placeholder="fuel usage">
+      <div class="col">
+      <label>Fuel cost per 1Km</label>
+      <div class="input-group">
+        <input type="text" class="form-control my-1" id="fuel_usage_cost" placeholder="fuel usage cost">
       </div>
       </div>
       <div class="col">
+      <label>Vehicle per day charge</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="vehical_per_day_charge"
+          <input type="text" class="form-control my-1" id="Vehicle_charge"
             placeholder="vehical_per_day_charge">
         </div>
       </div>
       <div class="col">
+        <label>Vehicle 1km charge</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="vehical_1km_charge" placeholder="vehical_1km_charge">
         </div>
       </div>
       <div class="col">
+        <label>Remarks</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="remarks" placeholder="remarks">
+          <input type="text" class="form-control my-1" id="vehicle_remarks" placeholder="remarks">
         </div>
       </div>
       <div class="col">
+        <label>Policy type</label>
         <select class="form-select bg-secondary text-white my-2" id="policy-type" aria-label="">
-          <option>policy type</option>
+          <option>1</option>
         </select>
       </div>
     </div>
     <div class="row mt-5 d-flex">
       <div class="col-2">
-        <button type="button" id="guide-save-btn" class="btn btn-success px-5">Save</button>
+        <button type="button" id="vehicle-save-btn" class="btn btn-success px-5">Save</button>
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-warning px-5">Update</button>
+        <button type="button" id="vehicle-update-btn" class="btn btn-warning px-5">Update</button>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-danger px-5">Delete</button>
+        <button type="button" id="vehicle-delete-btn" class="btn btn-danger px-5">Delete</button>
       </div>
     </div>
   </section>
   <Section class="container-fluid p-5">
     <div>
-      <table class="table table-hover rounded-1 w-100">
+      <table class="table table-hover rounded-1 w-100" id="vehicle-table-one">
         <thead class="table-secondary">
           <tr>
             <th scope="col">VID</th>
@@ -134,20 +149,12 @@
             <th scope="col">fuelType</th>
             <th scope="col">fuelUsage</th>
             <th scope="col">isHybrid</th>
-            <!-- <th scope="col">image</th> -->
             <th scope="col">SeatCount</th>
-            <th scope="col">Auto/Menual</th>
-            <!-- <th scope="col">LicenPic</th> -->
-            <th scope="col">FuelUsage</th>
-            <th scope="col">preDaycharge</th>
-            <th scope="col">1KmCharge</th>
-            <th scope="col">remark</th>
-            <th scope="col">policy</th>
+            <!-- <th scope="col">image</th> -->
           </tr>
         </thead>
-        <tbody>
+        <tbody id="vehicle-tbody-one">
           <tr>
-            <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
@@ -155,19 +162,43 @@
         </tbody>
       </table>
     </div>
-    <br>
+  </Section>
+  <Section class="container-fluid p-5">
+    <div>
+      <table class="table table-hover rounded-1 w-100" id="vehicle-table-two">
+        <thead class="table-secondary">
+          <tr>
+            <th scope="col">Auto/Menual</th>
+            <th scope="col">FuelUsage</th>
+            <th scope="col">preDaycharge</th>
+            <th scope="col">1KmCharge</th>
+            <th scope="col">remark</th>
+            <th scope="col">policy</th>
+            <!-- <th scope="col">LicenPic</th> -->
+          </tr>
+        </thead>
+        <tbody id="vehicle-tbody-two">
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </Section>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
   <script src="Lib\jquery-3.7.1.min.js"></script>
   <script src="config\serverUrl.js"></script>
+  <script src="controller\VehicleDetailsController.js"></script>
   <script>
     $('#create-package-btn').click(function () {
       $('body').load('index.html');
     });
-    $(function () {
-      $('#datepicker').datepicker();
-    });
+    // $(function () {
+    //   $('#datepicker').datepicker();
+    // });
   </script>
 </body>
 
