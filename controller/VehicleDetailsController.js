@@ -21,13 +21,13 @@ $("#vehicle-save-btn").click(function (e) {
     vehicleCategory: vehicleCategory,
     vehicleName: vehicleName,
     fuelType: fuelType,
-    fuelUsage: fuelUsage,
     isHybrid: isHybrid,
+    fuelUsage: fuelUsage,
     seatCount: seatCount,
-    transmission: transmission,
+    transmissionType: transmission,
     fuelUsageCost: fuelUsageCost,
-    perDayCharage: perDayCharage,
-    oneKmCharge: oneKmCharge,
+    perDayCharge: perDayCharage,
+    vehicle1kmCharge: oneKmCharge,
     remarks: remarks,
     policyType: policyType
   }
@@ -42,6 +42,7 @@ $("#vehicle-save-btn").click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
+        getAllVehicleDetails();
       }
     },
     error: function (xhr, status, error) {
@@ -54,7 +55,7 @@ $("#vehicle-save-btn").click(function (e) {
 //get All vehicle details
 function getAllVehicleDetails() {
   $.ajax({
-    url: baseURL + "guide/getAll",
+    url: baseURL + "vehicle/getAll",
     method: "GET",
     success: function (response) {
       //load 1 st table data
@@ -75,10 +76,11 @@ function getAllVehicleDetails() {
       $("#vehicle-table-two tbody").empty();
       response.forEach(element => {
         let rawDataTwo = `<tr>
-                <td> ${element.data.transmission}</td>
+                <td> ${element.data.vehicleId}</td>
+                <td> ${element.data.transmissionType}</td>
                 <td>${element.data.fuelUsageCost}</td>
-                <td> ${element.data.perDayCharage}</td>
-                <td> ${element.data.oneKmCharge}</td>
+                <td> ${element.data.perDayCharge}</td>
+                <td> ${element.data.vehicle1kmCharge}</td>
                 <td> ${element.data.remarks}</td>
                 <td> ${element.data.policyType}</td>
                 </tr>`;
@@ -90,3 +92,12 @@ function getAllVehicleDetails() {
     }
   });
 };
+
+
+//get All Vehicle Details globally
+getAllVehicleDetails();
+
+//get selected vehicle row from db
+function getSelectedVehicleRaw(){
+
+}
