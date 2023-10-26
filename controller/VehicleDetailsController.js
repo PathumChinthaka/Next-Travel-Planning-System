@@ -43,6 +43,8 @@ $("#vehicle-save-btn").click(function (e) {
       if (response.code == 200) {
         alert(response.message);
         getAllVehicleDetails();
+        clearVehicleInputs();
+        
       }
     },
     error: function (xhr, status, error) {
@@ -141,7 +143,7 @@ function getSelectedVehicleRaw() {
 getSelectedVehicleRaw();
 
 //update guide details event
-function updateVehicleDetails(){
+$("#vehicle-update-btn").click(function (e) { 
 
   const vehicleId = $('#vehicle_id').val();
   const vehicleCategory = $('#vehicleCategory').val();
@@ -173,6 +175,7 @@ function updateVehicleDetails(){
     policyType: policyType
   }
 
+  //create put mapping ajax
   $.ajax({
     url: baseURL + "vehicle/update",
     method: "put",
@@ -183,6 +186,7 @@ function updateVehicleDetails(){
       if (response.code == 200) {
         alert(response.message);
         getAllVehicleDetails();
+        clearVehicleInputs();
       };
     },
     error: function (xhr, status, error) {
@@ -190,4 +194,21 @@ function updateVehicleDetails(){
       alert("An error occurred: " + error);
     },
   });
+});
+
+//create clear input function
+function clearVehicleInputs(){
+    $('#vehicle_id').val("");
+    $('#vehicleCategory').val("");
+    $('#vehicle_name').val("");
+    $('#fuel_type').val("");
+    $('#fuel_usage').val("");
+    $('#is_Hybrid').val("");
+    $('#seat_count').val("");
+    $('#transmision_type').val("");
+    $('#fuel_usage_cost').val("");
+    $('#Vehicle_charge').val("");
+    $('#vehical_1km_charge').val("");
+    $('#vehicle_remarks').val("");
+    $('#policy-type').val("");
 }
