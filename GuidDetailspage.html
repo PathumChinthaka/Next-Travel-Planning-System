@@ -25,21 +25,25 @@
   <section class="overflow-x-hidden mt-5 container-fluid px-5">
     <div class="row">
       <div class="col">
-        <div class="input-group">
+      <label>Guide Id</label>
+        <div class="input-group form-outline">
           <input type="text" class="form-control  my-1" id="guid_Id" placeholder="guid Id">
         </div>
       </div>
       <div class="col">
+      <label>Guid Name</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="guide_name" placeholder="guide name" required>
         </div>
       </div>
       <div class="col">
+      <label>Guide Address</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="guidAddress" placeholder="address" required>
         </div>
       </div>
       <div class="col">
+      <label>Guide Age</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="age" placeholder="age" required>
         </div>
@@ -48,22 +52,26 @@
     <!-- <hr /> -->
     <div class="row mt-5">
       <div class="col">
+      <label>Gender</label>
           <select class="form-select bg-secondary text-white my-2" id="guide_gender" aria-label="">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
       </div>
       <div class="col">
+      <label>Contact</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="contact" placeholder="contact" required>
         </div>
       </div>
       <div class="col">
+      <label>Experience</label>
         <div>
-          <input type="text" class="form-control my-1" id="experiences" placeholder="experiences" required>
+          <input type="text" class="form-control my-1" id="experiences" placeholder="experience" required>
         </div>
       </div>
       <div class="col">
+      <label>Day Value Rs</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="day_value" placeholder="Day Value" required>
         </div>
@@ -72,23 +80,25 @@
     <div class="row mt-5">
       <div class="col">
         <div class="my-1">
-          <label for="formFile" class="form-label">profile pic</label>
+          <label>Profile image</label>
           <input class="form-control" type="file" id="profile_pic">
         </div>
       </div>
       <div class="col">
+      <label>Policy Id</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="can_policy" placeholder="can policy id">
         </div>
       </div>
       <div class="col">
+      <label>Remarks</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="remark" placeholder="remark" required>
         </div>
       </div>
       <div class="col">
         <div class="my-1 mt-1">
-          <label for="formFile" class="form-label">Nic pic</label>
+          <label>Nic image</label>
           <input class="form-control" type="file" id="nic_pic">
         </div>
       </div>
@@ -132,7 +142,8 @@
   </Section>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
-  <script src="Lib\jquery-3.6.4.min.js"></script>
+  <script src="Lib\jquery-3.7.1.min.js"></script>
+  <script src="config\serverUrl.js"></script>
   <script src="controller\GuideController.js"></script>
 </body>
 
