@@ -34,9 +34,9 @@ public class TravelPackageController {
                 new ResponseUtil(200, "fetch all packages", allPackages));
     }
 
-    @PutMapping("{packageId}")
-    public Mono<ResponseUtil> updatePackageDetails(@RequestBody TravelPackageDTO packageDTO, @PathVariable int packageId) {
-        return packageService.updatePackage(packageDTO, packageId).map(updatedPackage ->
+    @PutMapping("/update")
+    public Mono<ResponseUtil> updatePackageDetails(@RequestBody TravelPackageDTO packageDTO) {
+        return packageService.updatePackage(packageDTO).map(updatedPackage ->
                 new ResponseUtil(200, "Package updated", null));
     }
 

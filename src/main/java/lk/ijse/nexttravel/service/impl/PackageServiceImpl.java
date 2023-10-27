@@ -45,8 +45,20 @@ public class PackageServiceImpl implements TravelPackageService {
 
     //update travel packages in database
     @Override
-    public Mono<TravelPackageDTO> updatePackage(TravelPackageDTO packageDTO, int packageId) {
-        return null;
+    public Mono<TravelPackageDTO> updatePackage(TravelPackageDTO packageDTO) {
+        Mono<TravelPackage> updatePackage = packageRepository.findById(packageDTO.getPackageId());
+        return updatePackage.flatMap((existPackage) ->{
+            existPackage.setPackageName(packageDTO.getPackageName());
+            existPackage.setPackageCategory(packageDTO.getPackageCategory());
+            existPackage.setPackageDescription(packageDTO.getPackageDescription());
+            existPackage.setDayCount(packageDTO.getDayCount());
+            existPackage.setAllowPets(packageDTO.getAllowPets());
+            existPackage.setNightCount(packageDTO.getNightCount());
+            existPackage.setRoomTypes(packageDTO.getRoomTypes());
+            existPackage.setTravelAreas(packageDTO.getTravelAreas());
+            existPackage.setTravelPackageVideoUrl(packageDTO.getTravelPackageVideoUrl());
+            return packageRepository.save(existPackage);
+        }).map((travelPackage -> modelMapper.map(travelPackage,TravelPackageDTO.class)));
     }
 
     //delete travel package from database
