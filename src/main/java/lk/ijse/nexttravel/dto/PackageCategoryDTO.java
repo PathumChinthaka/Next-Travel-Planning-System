@@ -1,5 +1,6 @@
-package lk.ijse.nexttravel.entity;
+package lk.ijse.nexttravel.dto;
 
+import lk.ijse.nexttravel.entity.HotelCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,9 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(value = "Travel_package_category")
-public class TravelPackageCategory {
-    @Id
+public class PackageCategoryDTO {
     private int packageCategoryId;
     private String packageCategoryName;
     private List<HotelCategory>hotelCategories;
