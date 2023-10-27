@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="col">
-        <label>Package Category<span><button class="mx-4 px-2 btn btn-info py-0">add+</button></span></label>
+        <label>Package Category<span><button data-bs-toggle="modal" data-bs-target="#AddnewPackageModal" class="mx-4 px-2 btn btn-info py-0">add+</button></span></label>
         <select class="form-select bg-secondary text-white my-2" id="package_Category" aria-label="">
           <option>cat1</option>
           <option>cat2</option>
@@ -62,7 +62,7 @@
     <!-- <hr /> -->
     <div class="row mt-5">
       <div class="col">
-        <label>Travel Area<span><button class="mx-5 px-2 btn btn-info py-0">add+</button></span></label>
+        <label>Travel Area<span><button data-bs-toggle="modal" data-bs-target="#AddTravelAreaModal" class="mx-5 px-2 btn btn-info py-0">add+</button></span></label>
         <select class="form-select bg-secondary text-white my-2" id="travel_area_id" aria-label="">
           <option>Travel area2</option>
           <option></option>
@@ -133,6 +133,62 @@
     </div>
     <br>
   </Section>
+  <section>
+    <!-- Add travel package modal -->
+    <div class="modal fade" id="AddnewPackageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Create New Package Category</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group input-group mt-1">
+              <input type="text" class="form-control my-1" id="newPackageId" placeholder="Package Id">
+            </div>
+            <div class="input-group input-group mt-1">
+              <input type="text" class="form-control my-1" id="newPackageName" placeholder="Package name">
+            </div>
+            <div class="mt-3">
+              <label>Select Hotel category</label>
+              <select class="form-select bg-secondary text-white" id="hotel_category_list" aria-label="">
+                <option>Guest user</option>
+                <option>Travel Service</option>
+                <option>Hotel Service</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer mt-2">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Add New Package</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add travel Area modal -->
+    <div class="modal fade" id="AddTravelAreaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Travel Area</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group input-group mt-1">
+              <input type="text" class="form-control my-1" id="TravelAreaId" placeholder="Travel Area Id">
+            </div>
+            <div class="input-group input-group mt-1">
+              <input type="text" class="form-control my-1" id="TravelAreaName" placeholder="Travel Area Name">
+            </div>
+          </div>
+          <div class="modal-footer mt-2">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">New Travel Area</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
   <script src="Lib\jquery-3.7.1.min.js"></script>
