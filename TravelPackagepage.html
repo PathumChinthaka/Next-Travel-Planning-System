@@ -19,36 +19,41 @@
 </head>
 
 <body>
-  <div class="p-2 bg-dark-subtle">
+  <div class="p-2 bg-primary-subtle">
     <h1>Manage Travel Package Details</h1>
   </div>
   <!-- booking form -->
   <section class="overflow-x-hidden mt-5 container-fluid px-5">
     <div class="row">
       <div class="col">
+        <label>Package ID</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="travelpackageid" placeholder="travel package id">
+          <input type="text" class="form-control my-1" id="package_id" placeholder="travel package id">
         </div>
       </div>
       <div class="col">
-        <select class="form-select bg-secondary text-white my-2" id="packageName" aria-label="">
-          <option>Package Name</option>
-          <option></option>
+        <label>Package Name</label>
+        <select class="form-select bg-secondary text-white my-2" id="package_Name" aria-label="">
+          <option>pkg1</option>
+          <option>pkg2</option>
         </select>
       </div>
       <div class="col">
+        <label>Package description</label>
         <div class="input-group">
-          <input type="text" class="form-control my-2" id="travel_package_description"
+          <input type="text" class="form-control my-2" id="package_description"
             placeholder="travel package description">
         </div>
       </div>
       <div class="col">
-        <select class="form-select bg-secondary text-white my-2" id="packageCategory" aria-label="">
-          <option>Package Category</option>
-          <option></option>
+        <label>Package Category<span><button class="mx-4 px-2 btn btn-info py-0">add+</button></span></label>
+        <select class="form-select bg-secondary text-white my-2" id="package_Category" aria-label="">
+          <option>cat1</option>
+          <option>cat2</option>
         </select>
       </div>
       <div class="col">
+        <label>Day Count</label>
         <div class="input-group">
           <input type="text" class="form-control my-1" id="day_Count" placeholder="day Count">
         </div>
@@ -57,50 +62,55 @@
     <!-- <hr /> -->
     <div class="row mt-5">
       <div class="col">
+        <label>Travel Area<span><button class="mx-5 px-2 btn btn-info py-0">add+</button></span></label>
+        <select class="form-select bg-secondary text-white my-2" id="travel_area_id" aria-label="">
+          <option>Travel area2</option>
+          <option></option>
+        </select>
+      </div>
+      <div class="col">
+        <label>Night Count</label>
         <div class="input-group">
           <input type="number" class="form-control my-1" id="night_Count" placeholder="night Count  ">
         </div>
       </div>
       <div class="col">
-        <select class="form-select bg-secondary text-white my-2" id="travel-area-id" aria-label="">
-          <option>Travel area</option>
-          <option></option>
-        </select>
+        <label>Allow Pets</label>
+          <select class="form-select bg-secondary text-white my-2" id="pets_Allow" aria-label="">
+            <option>yes</option>
+            <option>No</option>
+          </select>
       </div>
       <div class="col">
-        <div class="input-group my-2">
-          <input type="radio" class="form-control my-1" id="pet-allow" placeholder="">
-          <input type="radio" class="form-control my-1" id="pet-notallow" placeholder="night Count  ">
-        </div>
-      </div>
-      <div class="col">
-        <select class="form-select bg-secondary text-white my-2" id="room-type-id" aria-label="">
-          <option>Room type</option>
-          <option></option>
-        </select>
-      </div>
-      <div class="col">
+        <label>Package video URL</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="travel_package_video_url"
+          <input type="text" class="form-control my-1" id="package_video_url"
             placeholder="travel package video url">
         </div>
+      </div>
+      <div class="col">
+        <label>Room Type</label>
+        <select class="form-select bg-secondary text-white my-2" id="room_type" aria-label="">
+          <option>Room type 1</option>
+          <option>Room type 1</option>
+        </select>
       </div>
     </div>
     <div class="row mt-5 d-flex">
       <div class="col-2">
-        <button type="button" id="guide-save-btn" class="btn btn-success px-5">Save</button>
+        <button type="button" id="package-save-btn" class="btn btn-success px-5">Save</button>
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-warning px-5">Update</button>
+        <button type="button" id="package-update-btn" class="btn btn-warning px-5">Update</button>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-danger px-5">Delete</button>
+        <button type="button" id="package-delete-btn" class="btn btn-danger px-5">Delete</button>
       </div>
     </div>
   </section>
   <Section class="container-fluid p-5">
     <div>
-      <table class="table table-hover rounded-1 w-100">
+      <table class="table table-hover rounded-1 w-100" id="package-table">
         <thead class="table-secondary">
           <tr>
             <th scope="col">ID</th>
@@ -115,12 +125,8 @@
             <th scope="col">VideoUrl</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="package-tbody">
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
           </tr>
         </tbody>
       </table>
@@ -131,13 +137,14 @@
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
   <script src="Lib\jquery-3.7.1.min.js"></script>
   <script src="config\serverUrl.js"></script>
+  <script src="controller\TravelPackageController.js"></script>
   <script>
     $('#create-package-btn').click(function () {
       $('body').load('index.html');
     });
-    $(function () {
-      $('#datepicker').datepicker();
-    });
+    // $(function () {
+    //   $('#datepicker').datepicker();
+    // });
   </script>
 </body>
 
