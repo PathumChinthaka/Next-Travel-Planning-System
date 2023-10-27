@@ -16,5 +16,5 @@ public class TravelPackageCategory {
     @Id
     private int packageCategoryId;
     private String packageCategoryName;
-    private List<HotelCategory>hotelCategories;
+    private HotelCategory hotelCategories;
 }

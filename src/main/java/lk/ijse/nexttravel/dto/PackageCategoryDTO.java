@@ -15,5 +15,5 @@ import java.util.List;
 public class PackageCategoryDTO {
     private int packageCategoryId;
     private String packageCategoryName;
-    private List<HotelCategory>hotelCategories;
+    private HotelCategory hotelCategories;
 }
