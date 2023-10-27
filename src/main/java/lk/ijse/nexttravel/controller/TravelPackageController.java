@@ -1,5 +1,6 @@
 package lk.ijse.nexttravel.controller;
 
+import lk.ijse.nexttravel.dto.PackageCategoryDTO;
 import lk.ijse.nexttravel.dto.TravelPackageDTO;
 import lk.ijse.nexttravel.service.TravelPackageService;
 import lk.ijse.nexttravel.util.ResponseUtil;
@@ -21,6 +22,13 @@ public class TravelPackageController {
         return packageService.savePackage(packageDTO).map(savedPackage ->
                 new ResponseUtil(200, "package saved", null));
     }
+
+    @PostMapping("/savecategory")
+    Mono<ResponseUtil>savePackageCategory(PackageCategoryDTO packageCategoryDTO){
+        return packageService.savePackageCategory(packageCategoryDTO).map(packageCategory ->
+                new ResponseUtil(200,"New Package Category Saved",null));
+    }
+
 
     @GetMapping("{packageName}")
     public Mono<ResponseUtil> getPackageDetails(@PathVariable String packageName) {

@@ -1,7 +1,10 @@
 package lk.ijse.nexttravel.service.impl;
 
+import lk.ijse.nexttravel.dto.PackageCategoryDTO;
 import lk.ijse.nexttravel.dto.TravelPackageDTO;
 import lk.ijse.nexttravel.entity.TravelPackage;
+import lk.ijse.nexttravel.entity.TravelPackageCategory;
+import lk.ijse.nexttravel.repository.PackageCategoryRepository;
 import lk.ijse.nexttravel.repository.TravelPackageRepository;
 import lk.ijse.nexttravel.service.TravelPackageService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +21,8 @@ public class PackageServiceImpl implements TravelPackageService {
 
     private final TravelPackageRepository packageRepository;
 
+    private final PackageCategoryRepository categoryRepository;
+
     private final ModelMapper modelMapper;
 
     //save travel packages in database
@@ -26,6 +31,15 @@ public class PackageServiceImpl implements TravelPackageService {
         TravelPackage travelPackage = modelMapper.map(packageDTO, TravelPackage.class);
         return packageRepository.save(travelPackage)
                 .map(savedPackage->modelMapper.map(savedPackage,TravelPackageDTO.class));
+    }
+
+    @Override
+    public Mono<PackageCategoryDTO>savePackageCategory(PackageCategoryDTO packageCategoryDTO) {
+        TravelPackageCategory packageCategory = modelMapper
+                .map(packageCategoryDTO, TravelPackageCategory.class);
+        return categoryRepository.save(packageCategory).map(savedCategory->modelMapper
+                .map(savedCategory,PackageCategoryDTO.class));
+
     }
 
     //get travel package from database
