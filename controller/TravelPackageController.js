@@ -1,6 +1,6 @@
 
 //travel package save btn event
-$("#package-save-btn").click(function (e) { 
+$("#package-save-btn").click(function (e) {
   const packageId = $('#package_id').val();
   const packageName = $('#package_Name').val();
   const packagedescription = $('#package_description').val();
@@ -12,17 +12,17 @@ $("#package-save-btn").click(function (e) {
   const packageVideoUrl = $('#package_video_url').val();
   const roomType = $('#room_type').val();
 
-  const packageDetails={
-    packageId:packageId,
-    packageName:packageName,
-    packageDescription:packagedescription,
-    packageCategory:packageCategory,
-    dayCount:dayCount,
-    travelAreas:travelAreaId,
-    nightCount:nightCount,
-    allowPets:petsAllow,
-    roomTypes:roomType,
-    travelPackageVideoUrl:packageVideoUrl
+  const packageDetails = {
+    packageId: packageId,
+    packageName: packageName,
+    packageDescription: packagedescription,
+    packageCategory: packageCategory,
+    dayCount: dayCount,
+    travelAreas: travelAreaId,
+    nightCount: nightCount,
+    allowPets: petsAllow,
+    roomTypes: roomType,
+    travelPackageVideoUrl: packageVideoUrl
   }
 
   // Create Post Request
@@ -42,3 +42,35 @@ $("#package-save-btn").click(function (e) {
     }
   });
 });
+
+//get all package details
+function getAllPackageDetails() {
+  $.ajax({
+    url: baseURL + "package/getAll",
+    method: "GET",
+    success: function (response) {
+      $("#package-table tbody").empty();
+      response.forEach(element => {
+        let rawData = `<tr>
+                <td> ${element.data.packageId}</td>
+                <td>${element.data.packageName}</td>
+                <td> ${element.data.packageDescription}</td>
+                <td> ${element.data.packageCategory}</td>
+                <td> ${element.data.dayCount}</td>
+                <td> ${element.data.nightCount}</td>
+                <td> ${element.data.travelAreas}</td>
+                <td> ${element.data.allowPets}</td>
+                <td> ${element.data.roomTypes}</td>
+                <td> ${element.data.travelPackageVideoUrl}</td>
+                </tr>`;
+        $("#package-table tbody").append(rawData);
+      });
+    },
+    error: function (xhr, status, error) {
+      alert("An error occurred: " + error);
+    }
+  });
+}
+
+//get all packages globally called
+getAllPackageDetails();
