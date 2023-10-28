@@ -218,6 +218,7 @@ $("#btn-add-new-package").click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
+        getExistPackageDetails();
       }
     },
     error: function (xhr, status, error) {
