@@ -46,7 +46,7 @@ public class HotelServiceImpl implements HotelService {
 
     //update hotel details in database
     @Override
-    public Mono<HotelDTO> updateHotelDetails(HotelDTO hotelDTO) {
+    public Mono<HotelDTO>updateHotelDetails(HotelDTO hotelDTO) {
         Mono<Hotel> updateHotel = hotelRepository.findById(hotelDTO.getHotelId());
         return updateHotel.flatMap((existHotel)->{
             existHotel.setHotelName(hotelDTO.getHotelName());

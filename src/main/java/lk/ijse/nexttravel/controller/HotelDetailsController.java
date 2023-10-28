@@ -41,9 +41,9 @@ public class HotelDetailsController {
 
     //handle hotel details update request
     @PutMapping("/update")
-    public ResponseUtil updateHotelDetails(@RequestBody HotelDTO hotelDTO) {
-        hotelService.updateHotelDetails(hotelDTO);
-        return new ResponseUtil(200, "Hotel Details Updated", null);
+    public Mono<ResponseUtil> updateHotelDetails(@RequestBody HotelDTO hotelDTO) {
+       return hotelService.updateHotelDetails(hotelDTO).map(updatedHotel ->
+                new ResponseUtil(200, "Hotel Details updated Success",null));
     }
 
     //handle hotel details delete request
