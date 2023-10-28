@@ -12,6 +12,7 @@ public interface TravelPackageService {
     Mono<PackageCategoryDTO>savePackageCategory(PackageCategoryDTO packageCategoryDTO);
     Mono<TravelPackageDTO>getPackage(String packageName);
     Flux<TravelPackageDTO> getAllPackages();
+    Flux<PackageCategoryDTO> getAllPackageCategories();
     Mono<TravelPackageDTO>updatePackage(TravelPackageDTO packageDTO);
     Mono<Void>deletePackage(String packageId);
 }

@@ -23,18 +23,23 @@ public class TravelPackageController {
                 new ResponseUtil(200, "package saved", null));
     }
 
-    @PostMapping("/savecategory")
+    @GetMapping("{packageName}")
+    public Mono<ResponseUtil> getPackageDetails(@PathVariable String packageName) {
+        return packageService.getPackage(packageName).map(searchPackage ->
+                new ResponseUtil(200, "search package data", searchPackage));
+    }
+
+    @PostMapping("/category")
     Mono<ResponseUtil>savePackageCategory(@RequestBody PackageCategoryDTO packageCategoryDTO){
         System.out.println("req controller "+packageCategoryDTO);
         return packageService.savePackageCategory(packageCategoryDTO).map(packageCategory ->
                 new ResponseUtil(200,"New Package Category Saved",null));
     }
 
-
-    @GetMapping("{packageName}")
-    public Mono<ResponseUtil> getPackageDetails(@PathVariable String packageName) {
-        return packageService.getPackage(packageName).map(searchPackage ->
-                new ResponseUtil(200, "search package data", searchPackage));
+    @GetMapping("/getAllcategory")
+    public Flux<ResponseUtil> getAllPackageCategories(){
+        return packageService.getAllPackageCategories().map(allPackageCategory ->
+                new ResponseUtil(200,"package category received",allPackageCategory));
     }
 
     @GetMapping("/getAll")

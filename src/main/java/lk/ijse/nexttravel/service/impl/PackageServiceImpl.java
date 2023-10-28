@@ -62,6 +62,14 @@ public class PackageServiceImpl implements TravelPackageService {
                 .switchIfEmpty(Flux.empty());
     }
 
+    //get All package categories from database
+    @Override
+    public Flux<PackageCategoryDTO> getAllPackageCategories() {
+        Flux<TravelPackageCategory> allPackageCategory = categoryRepository.findAll();
+        return allPackageCategory.map(allCategory ->modelMapper.map(allCategory,PackageCategoryDTO.class))
+                .switchIfEmpty(Flux.empty());
+    }
+
     //update travel packages in database
     @Override
     public Mono<TravelPackageDTO> updatePackage(TravelPackageDTO packageDTO) {
