@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
 @Repository
-public interface VehicleRepository extends ReactiveMongoRepository<Vehicle,Integer> {
+public interface VehicleRepository extends ReactiveMongoRepository<Vehicle,String> {
     Mono<Vehicle>findByVehicleName(String vehicleName);
-    Mono<Vehicle>findByVehicleId(int vehicleId);
-    Mono<Void>deleteByVehicleId(int vehicleId);
+    Mono<Vehicle>findByVehicleId(String vehicleId);
+    Mono<Void>deleteByVehicleId(String vehicleId);
 }

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class VehicleDTO {
-    private int vehicleId;
+    private String vehicleId;
     private String vehicleCategory;
     private String vehicleName;
     private String fuelType;

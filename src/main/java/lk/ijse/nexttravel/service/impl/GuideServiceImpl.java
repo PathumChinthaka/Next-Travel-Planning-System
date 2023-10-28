@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -25,6 +27,7 @@ public class GuideServiceImpl implements GuideService {
     @Override
     public Mono<GuideDTO> saveGuide(GuideDTO guideDTO) {
         Guide saveGuid = modelMapper.map(guideDTO, Guide.class);
+        saveGuid.setGuidId(UUID.randomUUID().toString());
         return guideRepository.save(saveGuid)
                 .map(savedGuid -> modelMapper.map(savedGuid, GuideDTO.class));
     }

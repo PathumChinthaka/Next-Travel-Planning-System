@@ -1,5 +1,6 @@
 package lk.ijse.nexttravel.entity;
 
+import jakarta.annotation.Generated;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

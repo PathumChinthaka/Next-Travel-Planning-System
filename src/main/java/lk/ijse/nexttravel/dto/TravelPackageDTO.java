@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class TravelPackageDTO {
-    private int packageId;
+    private String packageId;
     private String packageName;
     private String packageDescription;
     private String packageCategory;

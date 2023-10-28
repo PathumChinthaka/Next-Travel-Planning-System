@@ -24,7 +24,8 @@ public class TravelPackageController {
     }
 
     @PostMapping("/savecategory")
-    Mono<ResponseUtil>savePackageCategory(PackageCategoryDTO packageCategoryDTO){
+    Mono<ResponseUtil>savePackageCategory(@RequestBody PackageCategoryDTO packageCategoryDTO){
+        System.out.println("req controller "+packageCategoryDTO);
         return packageService.savePackageCategory(packageCategoryDTO).map(packageCategory ->
                 new ResponseUtil(200,"New Package Category Saved",null));
     }
@@ -49,7 +50,7 @@ public class TravelPackageController {
     }
 
     @DeleteMapping("{packageId}")
-    public Mono<ResponseUtil> deletePackage(@PathVariable int packageId) {
+    public Mono<ResponseUtil> deletePackage(@PathVariable String packageId) {
         return packageService.deletePackage(packageId).map(deletedPackage ->
                 new ResponseUtil(200, "package deleted", null));
     }

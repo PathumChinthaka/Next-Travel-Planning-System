@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("Travel_package")
 public class TravelPackage {
     @Id
-    private int packageId;
+    private String packageId;
     private String packageName;
     private String packageDescription;
     private String packageCategory;

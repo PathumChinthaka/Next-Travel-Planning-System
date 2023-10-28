@@ -1,4 +1,4 @@
-package lk.ijse.nexttravel.entity;
+package lk.ijse.nexttravel.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(value = "Hotel_category")
-public class HotelCategory {
-    @Id
+public class HotelCategoryDTO {
     private String hotelCategoryId;
     private String hotelCategoryName;
 }

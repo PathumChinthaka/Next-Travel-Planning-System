@@ -46,7 +46,7 @@ public class VehicleController {
 
     //handle vehicle delete by id request
     @DeleteMapping("{vehicleId}")
-    public Mono<ResponseUtil> deleteVehicleData(@PathVariable int vehicleId) {
+    public Mono<ResponseUtil> deleteVehicleData(@PathVariable String vehicleId) {
         return vehicleService.deleteVehicle(vehicleId).map(deletedVehicle ->
                 new ResponseUtil(200, vehicleId + " Deleted Success", null));
     }

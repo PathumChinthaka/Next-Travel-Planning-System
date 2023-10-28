@@ -29,7 +29,7 @@ public class GuideController {
     }
 
 //    //handle autoGenaratedGuidId
-    @GetMapping(value = "/latestId",produces =MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/latestId")
     public Mono<ResponseUtil>generateGuideId() {
         System.out.println("i came");
        return guideService.generateGuideId().map(newId->{

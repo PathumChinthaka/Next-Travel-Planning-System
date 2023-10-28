@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -24,6 +26,7 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public Mono<VehicleDTO> saveVehicle(VehicleDTO vehicleDTO) {
         Vehicle vehicleSave = modelMapper.map(vehicleDTO, Vehicle.class);
+        vehicleSave.setVehicleId(UUID.randomUUID().toString());
         return vehicleRepository.save(vehicleSave).map(savedVehicle ->
                 modelMapper.map(savedVehicle, VehicleDTO.class));
     }
@@ -65,7 +68,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     //delete Vehicle details in db
     @Override
-    public Mono<Void> deleteVehicle(int vehicleId) {
+    public Mono<Void> deleteVehicle(String vehicleId) {
         return vehicleRepository.deleteByVehicleId(vehicleId);
     }
 }
