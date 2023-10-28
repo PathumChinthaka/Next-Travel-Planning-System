@@ -218,8 +218,6 @@ $("#btn-add-new-package").click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
-        getAllPackageDetails();
-        clearPackageInputs();
       }
     },
     error: function (xhr, status, error) {
@@ -227,3 +225,24 @@ $("#btn-add-new-package").click(function (e) {
     }
   });
 });
+
+//get exist package
+function getExistPackageDetails(){
+  $.ajax({
+    url: baseURL + "package/getAllcategory",
+    method: "GET",
+    success: function (response) {
+        let Packages=$('#package_Category');
+        response.forEach(element => {
+            let name=`<option>${element.data.packageCategoryName}</option>`;
+            Packages.append(name);
+        });
+    },
+    error: function (xhr, status, error) {
+      alert("An error occurred: " + error);
+    }
+  });
+}
+
+//load exist package details into selectbar
+getExistPackageDetails();
