@@ -26,33 +26,59 @@
   <section class="overflow-x-hidden mt-5 container-fluid px-5">
     <div class="row">
       <div class="col">
+        <label>User ID</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="userId" placeholder="userId">
+          <input type="text" class="form-control my-1" id="user_Id" placeholder="User ID">
         </div>
       </div>
       <div class="col">
+        <label>User Name</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="Username" placeholder="UserName">
+          <input type="text" class="form-control my-1" id="User_name" placeholder="UserName">
         </div>
       </div>
       <div class="col">
+        <label>User Password</label>
         <div class="input-group">
-          <input type="password" class="form-control my-1" id="userpassword" placeholder="user password	">
+          <input type="password" class="form-control my-1" id="user_password" placeholder="Password">
         </div>
       </div>
       <div class="col">
-        <div class="input-group">
-          <input type="text" class="form-control my-1" id="userMobile" placeholder="userMobile">
-        </div>
+        <label>Gender</label>
+        <select class="form-select bg-secondary text-white my-2" id="user_gender" aria-label="">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
       </div>
     </div>
     <!-- <hr /> -->
     <div class="row mt-5">
       <div class="col">
+        <label>User Contact No</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="userContact" placeholder="userContac">
+          <input type="text" class="form-control my-1" id="user_Contact" placeholder="User Contact No">
         </div>
       </div>
+      <div class="col">
+        <label>User Age</label>
+        <div class="input-group">
+          <input type="text" class="form-control my-1" id="user_Age" placeholder="userAge">
+        </div>
+      </div>
+      <div class="col">
+        <label>User Address</label>
+        <div class="input-group">
+          <input type="text" class="form-control my-1" id="User_Address" placeholder="User Address">
+        </div>
+      </div>
+      <div class="col">
+        <label>UserNic / Passport</label>
+        <div class="input-group">
+          <input type="text" class="form-control my-1" id="userNicPassport" placeholder="UserNic / Passport">
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
       <div class="col">
         <div class="my-1">
           <label for="formFile" class="form-label">User Image</label>
@@ -60,8 +86,9 @@
         </div>
       </div>
       <div class="col">
+        <label>Remarks</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="userNicPassport" placeholder="userNic/Passport">
+          <input type="text" class="form-control my-1" id="user_Remarks" placeholder="Remarks">
         </div>
       </div>
       <div class="col">
@@ -71,37 +98,15 @@
         </div>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col">
-        <div class="input-group">
-          <input type="text" class="form-control my-1" id="userAge" placeholder="userAge">
-        </div>
-      </div>
-      <div class="col">
-        <div class="input-group">
-          <input type="text" class="form-control my-1" id="userGender" placeholder="userGender">
-        </div>
-      </div>
-      <div class="col">
-        <div class="input-group">
-          <input type="text" class="form-control my-1" id="userAddress" placeholder="userAddress">
-        </div>
-      </div>
-      <div class="col">
-        <div class="input-group">
-          <input type="text" class="form-control my-1" id="userRemarks" placeholder="Remarks">
-        </div>
-      </div>
-    </div>
     <div class="row mt-5 d-flex">
       <div class="col-2">
-        <button type="button" id="guide-save-btn" class="btn btn-success px-5">Save</button>
+        <button type="button" id="user-save-btn" class="btn btn-success px-5">Save</button>
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-warning px-5">Update</button>
+        <button type="button" id="user-update-btn" class="btn btn-warning px-5">Update</button>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-danger px-5">Delete</button>
+        <button type="button" id="user-delete-btn" class="btn btn-danger px-5">Delete</button>
       </div>
     </div>
   </section>
@@ -113,12 +118,11 @@
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Password</th>
-            <th scope="col">MobileNo</th>
-            <th scope="col">Contact</th>
-            <th scope="col">Nic/passport</th>
-            <th scope="col">Age</th>
             <th scope="col">Gender</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Age</th>
             <th scope="col">Address</th>
+            <th scope="col">Nic/passport</th>
             <th scope="col">Remarks</th>
             <!-- <th scope="col">NicPic</th> -->
             <!-- <th scope="col">Remarks</th> -->
