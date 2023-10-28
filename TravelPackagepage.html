@@ -143,24 +143,26 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <label>Package ID</label>
             <div class="input-group input-group mt-1">
-              <input type="text" class="form-control my-1" id="newPackageId" placeholder="Package Id">
+              <input type="text" class="form-control my-1" id="newPackageID" placeholder="Package ID">
             </div>
+            <label class="mt-1">Package name</label>
             <div class="input-group input-group mt-1">
               <input type="text" class="form-control my-1" id="newPackageName" placeholder="Package name">
             </div>
             <div class="mt-3">
               <label>Select Hotel category</label>
-              <select class="form-select bg-secondary text-white" id="hotel_category_list" aria-label="">
-                <option>Guest user</option>
-                <option>Travel Service</option>
-                <option>Hotel Service</option>
+              <select class="form-select bg-secondary text-white" id="hotel_category" aria-label="">
+                <option>2-3 Stars</option>
+                <option>3-5 Stars</option>
+                <option>5 Stars</option>
               </select>
             </div>
           </div>
           <div class="modal-footer mt-2">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add New Package</button>
+            <button type="button" id="btn-add-new-package" class="btn btn-primary">Add New Package</button>
           </div>
         </div>
       </div>
@@ -174,9 +176,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="input-group input-group mt-1">
-              <input type="text" class="form-control my-1" id="TravelAreaId" placeholder="Travel Area Id">
-            </div>
+            <label>Travel Area name</label>
             <div class="input-group input-group mt-1">
               <input type="text" class="form-control my-1" id="TravelAreaName" placeholder="Travel Area Name">
             </div>

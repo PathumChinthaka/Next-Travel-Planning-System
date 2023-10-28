@@ -75,7 +75,7 @@ function getAllPackageDetails() {
 }
 
 //get all packages globally called
-getAllPackageDetails();
+// getAllPackageDetails();
 
 //update package details event
 $("#package-update-btn").click(function (e) {
@@ -193,3 +193,37 @@ function clearPackageInputs(){
   $('#room_type').val("");
 }
 
+//add new package event
+$("#btn-add-new-package").click(function (e) { 
+  const newPackageId=$('#newPackageID').val();
+  const newPackageName=$('#newPackageName').val();
+  const hotelPackage=$('#hotel_category').val();
+
+  const newPackageDetails={
+    packageCategoryId:newPackageId,
+    packageCategoryName:newPackageName,
+    hotelCategories:{
+      hotelCategoryName:hotelPackage
+    }
+  }
+
+  console.log(newPackageDetails);
+  // Create Post Request
+  $.ajax({
+    url: baseURL + "package/category",
+    method: "post",
+    data: JSON.stringify(newPackageDetails),
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+      if (response.code == 200) {
+        alert(response.message);
+        getAllPackageDetails();
+        clearPackageInputs();
+      }
+    },
+    error: function (xhr, status, error) {
+      alert("An error occurred: " + error);
+    }
+  });
+});
