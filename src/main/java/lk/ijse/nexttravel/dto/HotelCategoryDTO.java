@@ -11,5 +11,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 public class HotelCategoryDTO {
     private String hotelCategoryId;
-    private String hotelCategoryName;
+    private String hotelCategory;
 }

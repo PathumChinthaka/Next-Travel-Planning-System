@@ -13,5 +13,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class HotelCategory {
     @Id
     private String hotelCategoryId;
-    private String hotelCategoryName;
+    private String hotelCategory;
 }

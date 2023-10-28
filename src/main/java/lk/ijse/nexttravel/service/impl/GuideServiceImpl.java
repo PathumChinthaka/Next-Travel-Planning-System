@@ -76,7 +76,6 @@ public class GuideServiceImpl implements GuideService {
     @Override
     public Mono<Void> deleteGuide(String guidId) {
         Mono<Void> voidMono = guideRepository.deleteById(guidId);
-//        System.out.println("service delete "+voidMono);
         return voidMono;
     }
 }

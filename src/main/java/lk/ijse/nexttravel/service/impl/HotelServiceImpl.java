@@ -46,12 +46,21 @@ public class HotelServiceImpl implements HotelService {
 
     //update hotel details in database
     @Override
-    public void updateHotelDetails(HotelDTO hotelDTO) {
-        if (hotelRepository.existsByHotelId(hotelDTO.getHotelId())) {
-            hotelRepository.save(modelMapper.map(hotelDTO,Hotel.class));
-        }else {
-            throw  new RuntimeException(hotelDTO.getHotelId()+"Hotel Id not Exist");
-        }
+    public Mono<HotelDTO> updateHotelDetails(HotelDTO hotelDTO) {
+        Mono<Hotel> updateHotel = hotelRepository.findById(hotelDTO.getHotelId());
+        return updateHotel.flatMap((existHotel)->{
+            existHotel.setHotelName(hotelDTO.getHotelName());
+            existHotel.setEmail(hotelDTO.getEmail());
+            existHotel.setTelephone(hotelDTO.getTelephone());
+            existHotel.setMobile(hotelDTO.getMobile());
+            existHotel.setFax(hotelDTO.getFax());
+            existHotel.setDescription(hotelDTO.getDescription());
+            existHotel.setWebsiteLink(hotelDTO.getWebsiteLink());
+            existHotel.setFacebook(hotelDTO.getFacebook());
+            existHotel.setInstagram(hotelDTO.getInstagram());
+            existHotel.setStatus(hotelDTO.getStatus());
+            return hotelRepository.save(existHotel);
+        }).map((updatedHotel -> modelMapper.map(updatedHotel, HotelDTO.class)));
     }
 
     //delete hotel details from database

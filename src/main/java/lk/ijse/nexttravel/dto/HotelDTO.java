@@ -1,6 +1,7 @@
 package lk.ijse.nexttravel.dto;
 
 
+import lk.ijse.nexttravel.entity.HotelCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,16 +15,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class HotelDTO {
     private int hotelId;
     private String hotelName;
-    private int hotelCategoryId;
+    private HotelCategory hotelCategory;
     private String email;
     private String telephone;
     private String mobile;
     private String fax;
-    private String address_1;
-    private String address_2;
+    private String address;
     private String city;
-    private double longitude;
-    private double latitude;
+    private String mapLocation;
     private String description;
     private String websiteLink;
     private String facebook;

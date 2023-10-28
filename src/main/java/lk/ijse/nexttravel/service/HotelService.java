@@ -8,6 +8,6 @@ public interface HotelService {
     Mono<HotelDTO>saveHotelDetails(HotelDTO hotelDTO);
     Mono<HotelDTO>getHotelDetails(String hotelName);
     Flux<HotelDTO>getAllHotelDetails();
-    void updateHotelDetails(HotelDTO hotelDTO);
+    Mono<HotelDTO> updateHotelDetails(HotelDTO hotelDTO);
     Mono<Void>deleteHotel(int hotelId);
 }
