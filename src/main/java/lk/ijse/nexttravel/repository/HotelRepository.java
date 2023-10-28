@@ -9,6 +9,7 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface HotelRepository extends ReactiveMongoRepository<Hotel,Integer> {
     Mono<Guide>findByHotelName(String hotelName);
+    boolean existsByHotelId(int hotelId);
     Mono<Guide>findByHotelId(int hotelId);
     Mono<Void>deleteByHotelId(int hotelId);
 }
