@@ -22,7 +22,7 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public Mono<HotelDTO> updateHotelDetails(HotelDTO hotelDTO, int hotelId) {
+    public Mono<HotelDTO> updateHotelDetails(HotelDTO hotelDTO) {
         return null;
     }
 
