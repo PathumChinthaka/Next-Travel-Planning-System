@@ -121,7 +121,6 @@ $('#guide-save-btn').click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
-        // generateAutoIncrementID();
         getAllGuideDetails();
         clearFields();
       }
@@ -141,7 +140,7 @@ function getAllGuideDetails() {
       $("#Guide-Details-table tbody").empty();
       response.forEach(element => {
         let rawData = `<tr>
-                <td> ${element.data.guidId}</td>
+                <td class="d-none"> ${element.data.guidId}</td>
                 <td>${element.data.guidName}</td>
                 <td> ${element.data.address}</td>
                 <td> ${element.data.age}</td>
@@ -154,7 +153,6 @@ function getAllGuideDetails() {
                 </tr>`;
         $("#Guide-Details-table tbody").append(rawData);
       });
-        // generateAutoIncrementID();
     },
     error: function (xhr, status, error) {
       alert("An error occurred: " + error);
@@ -164,6 +162,34 @@ function getAllGuideDetails() {
 
 // get all guide details method globally calling
 getAllGuideDetails();
+
+//genarate auto increment ID
+function generateAutoIncrementID() {
+  $('#guid_Id').val("C00-0001");
+  $.ajax({
+    url: baseURL + "guide/latestId",
+    method: "GET",
+    success: function (response) {
+      const guidId=response.data;
+      console.log("guid Id ",guidId);
+      let tempId = parseInt(guidId.split("-")[1]);
+      console.log(tempId);
+      tempId=tempId+1;
+      if (tempId <= 9) {
+      $('#guid_Id').val("C00-000" + tempId);
+    } else if (tempId <= 99) {
+      $('#guid_Id').val("D00-00" + tempId);
+    } else if (tempId <= 999) {
+      $('#guid_Id').val("D00-0" + tempId);
+    } else {
+      $('#guid_Id').val("D00-" + tempId);
+    }
+    },
+    error: function (xhr, status, error) {
+      alert("genarate Id An error occurred: " + error);
+    }
+  });
+}
 
 // update guide details
 function updateGuideDetails() {
@@ -244,35 +270,6 @@ $("#guide-delete-btn").click(function (e) {
   choice == true ? deleteGuidDetails() : clearFields();
 });
 
-
-function generateAutoIncrementID() {
-  $('#guid_Id').val("C00-0001");
-  $.ajax({
-    url: baseURL + "guide/latestId",
-    method: "GET",
-    success: function (response) {
-      const guidId=response.data;
-      console.log("guid Id ",guidIdId);
-      let tempId = parseInt(guidId.split("-")[1]);
-      console.log(tempId);
-      tempId=tempId+1;
-      if (tempId <= 9) {
-      $('#guid_Id').val("C00-000" + tempId);
-    } else if (tempId <= 99) {
-      $('#guid_Id').val("D00-00" + tempId);
-    } else if (tempId <= 999) {
-      $('#guid_Id').val("D00-0" + tempId);
-    } else {
-      $('#guid_Id').val("D00-" + tempId);
-    }
-    },
-    error: function (xhr, status, error) {
-      console.error(error);
-      alert("genarate Id An error occurred: " + error);
-    }
-  });
-}
-
 //get selected table row
 function getSelectedRow() {
 
@@ -307,7 +304,6 @@ getSelectedRow();
 
 //clear input fields
 function clearFields() {
-  generateAutoIncrementID();
   $('#guid_Id').val("");
   $('#guide_name').val("");
   $('#guidAddress').val("");

@@ -54,7 +54,7 @@ function getAllPackageDetails() {
       $("#package-table tbody").empty();
       response.forEach(element => {
         let rawData = `<tr>
-                <td> ${element.data.packageId}</td>
+                <td class="d-none"> ${element.data.packageId}</td>
                 <td>${element.data.packageName}</td>
                 <td> ${element.data.packageDescription}</td>
                 <td> ${element.data.packageCategory}</td>
@@ -125,10 +125,11 @@ $("#package-update-btn").click(function (e) {
 //delete package data event
 $("#package-delete-btn").click(function (e) {
   const packageId = $('#package_id').val();
+  const choice = confirm("Do you want to delete this Data ?");
   if(packageId==""){
     alert("Package Id is Empty");
     return;
-  }else{
+  }else if(choice == true){
     $.ajax({
       url: baseURL + "package/" + packageId,
       method: "delete",
@@ -137,16 +138,19 @@ $("#package-delete-btn").click(function (e) {
         alert(response.message);
       },
       error: function (xhr, status, error) {
-        alert("Package Deleted Succesfully");
         getAllPackageDetails();
         clearPackageInputs();
+        alert("Package Deleted Succesfully");
       }
     });
+  }else{
+    clearPackageInputs();
   }
 });
 
 //get selected package table raw
 function getSelectedPackageRaw(){
+  
   $('#package-tbody').on('click', 'tr', (event) => {
     const packageId = $(event.target).closest('tr').find('td').eq(0).text();
     const packageName = $(event.target).closest('tr').find('td').eq(1).text();
@@ -188,3 +192,4 @@ function clearPackageInputs(){
   $('#package_video_url').val("");
   $('#room_type').val("");
 }
+
