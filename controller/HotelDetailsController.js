@@ -23,7 +23,10 @@ $("#hotel-save-btn").click(function (e) {
   const hotelDetails={
     hotelId:hotelId,
     hotelName:hotelName,
-    hotelCategory:hotelCategory,
+    hotelCategory:{
+      hotelCategoryId:'',
+      hotelCategory:hotelCategory
+    },
     email:hotelEmail,
     telephone:hotelTele,
     mobile:hotelMobile,
