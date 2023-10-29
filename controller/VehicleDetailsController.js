@@ -1,6 +1,7 @@
 
-//handle vehicle save event
-$("#vehicle-save-btn").click(function (e) {
+//return vehicle details object
+function vehicleDetails(){
+
   const vehicleId = $('#vehicle_id').val();
   const vehicleCategory = $('#vehicleCategory').val();
   const vehicleName = $('#vehicle_name').val();
@@ -31,11 +32,19 @@ $("#vehicle-save-btn").click(function (e) {
     policyType: policyType
   }
 
+  return vehicleDetails;
+}
+//handle vehicle save event
+$("#vehicle-save-btn").click(function (e) {
+  
+  //get returnd vehicle object
+  const vehicleDetailsObj=vehicleDetails();
+
   // Create Post Request
   $.ajax({
     url: baseURL + "vehicle/save",
     method: "post",
-    data: JSON.stringify(vehicleDetails),
+    data: JSON.stringify(vehicleDetailsObj),
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
@@ -144,41 +153,14 @@ getSelectedVehicleRaw();
 //update guide details event
 $("#vehicle-update-btn").click(function (e) {
 
-  const vehicleId = $('#vehicle_id').val();
-  const vehicleCategory = $('#vehicleCategory').val();
-  const vehicleName = $('#vehicle_name').val();
-  const fuelType = $('#fuel_type').val();
-  const fuelUsage = $('#fuel_usage').val();
-  const isHybrid = $('#is_Hybrid').val();
-  const seatCount = $('#seat_count').val();
-  const transmission = $('#transmision_type').val();
-  const fuelUsageCost = $('#fuel_usage_cost').val();
-  const perDayCharage = $('#Vehicle_charge').val();
-  const oneKmCharge = $('#vehical_1km_charge').val();
-  const remarks = $('#vehicle_remarks').val();
-  const policyType = $('#policy-type').val();
-
-  const vehicleDetails = {
-    vehicleId: vehicleId,
-    vehicleCategory: vehicleCategory,
-    vehicleName: vehicleName,
-    fuelType: fuelType,
-    isHybrid: isHybrid,
-    fuelUsage: fuelUsage,
-    seatCount: seatCount,
-    transmissionType: transmission,
-    fuelUsageCost: fuelUsageCost,
-    perDayCharge: perDayCharage,
-    vehicle1kmCharge: oneKmCharge,
-    remarks: remarks,
-    policyType: policyType
-  }
+  //get returnd vehicle object
+  const vehicleDetailsObj=vehicleDetails();
 
   //create put mapping ajax
   $.ajax({
     url: baseURL + "vehicle/update",
     method: "put",
-    data: JSON.stringify(vehicleDetails),
+    data: JSON.stringify(vehicleDetailsObj),
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
