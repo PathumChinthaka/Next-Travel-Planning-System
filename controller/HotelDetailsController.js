@@ -3,7 +3,9 @@
 //   alert('hi');
 // });
 
-$("#hotel-save-btn").click(function (e) { 
+//create hotel details object
+function hotelDetails(){
+  
   const hotelId = $('#hotel_Id').val();
   const hotelName = $('#hotel_Name').val();
   const hotelCategory = $('#hotel_Category').val();
@@ -41,11 +43,19 @@ $("#hotel-save-btn").click(function (e) {
     status:hotelStatus
   }
 
+  return hotelDetails;
+}
+
+$("#hotel-save-btn").click(function (e) {
+
+  //get returned hotel Details object
+  const hotelDetailsObj=hotelDetails();
+
   // Create Post Request
   $.ajax({
     url: baseURL + "hotel/save",
     method: "post",
-    data: JSON.stringify(hotelDetails),
+    data: JSON.stringify(hotelDetailsObj),
     contentType: "application/json",
     dataType: "json",
     success: function (response) {

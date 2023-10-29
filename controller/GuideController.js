@@ -80,12 +80,9 @@ const regExDayValue = /^[0-9]{1,10}(.)[0-9]{2}$/;
 //   }
 // });
 
+//create guide details object
+function guideDetails() {
 
-
-
-//Key Events
-$('#guide-save-btn').click(function (e) {
-  //Get guideDetails
   const guidId = $('#guid_Id').val();
   const name = $('#guide_name').val();
   const guidAddress = $('#guidAddress').val();
@@ -109,13 +106,22 @@ $('#guide-save-btn').click(function (e) {
     dayValue: dayValue,
     remarks: remarks,
     policyId: policyId
-  };
+  }
+
+  return guideObj;
+}
+
+//Key Events
+$('#guide-save-btn').click(function (e) {
+
+  //get returned guide obj
+  const guideDetailsObj = guideDetails();
 
   // Create Post Request
   $.ajax({
     url: baseURL + "guide/save",
     method: "post",
-    data: JSON.stringify(guideObj),
+    data: JSON.stringify(guideDetailsObj),
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
@@ -170,20 +176,20 @@ function generateAutoIncrementID() {
     url: baseURL + "guide/latestId",
     method: "GET",
     success: function (response) {
-      const guidId=response.data;
-      console.log("guid Id ",guidId);
+      const guidId = response.data;
+      console.log("guid Id ", guidId);
       let tempId = parseInt(guidId.split("-")[1]);
       console.log(tempId);
-      tempId=tempId+1;
+      tempId = tempId + 1;
       if (tempId <= 9) {
-      $('#guid_Id').val("C00-000" + tempId);
-    } else if (tempId <= 99) {
-      $('#guid_Id').val("D00-00" + tempId);
-    } else if (tempId <= 999) {
-      $('#guid_Id').val("D00-0" + tempId);
-    } else {
-      $('#guid_Id').val("D00-" + tempId);
-    }
+        $('#guid_Id').val("C00-000" + tempId);
+      } else if (tempId <= 99) {
+        $('#guid_Id').val("D00-00" + tempId);
+      } else if (tempId <= 999) {
+        $('#guid_Id').val("D00-0" + tempId);
+      } else {
+        $('#guid_Id').val("D00-" + tempId);
+      }
     },
     error: function (xhr, status, error) {
       alert("genarate Id An error occurred: " + error);
@@ -191,38 +197,17 @@ function generateAutoIncrementID() {
   });
 }
 
-// update guide details
-function updateGuideDetails() {
+//update guideDetails event
+$("#guide-update-btn").click(function (e) {
 
-  const guidId = $('#guid_Id').val();
-  const name = $('#guide_name').val();
-  const guidAddress = $('#guidAddress').val();
-  const age = $('#age').val();
-  const gender = $('#guide_gender').val();
-  const contact = $('#contact').val();
-  const guideExperience = $('#experiences').val();
-  const dayValue = $('#day_value').val();
-  const policyId = $('#can_policy').val();
-  const remarks = $('#remark').val();
+  //get returned guide obj
+  const guideDetailsObj = guideDetails();
 
-  //Create guide details object
-  var guideObj = {
-    guidId: guidId,
-    guidName: name,
-    address: guidAddress,
-    gender: gender,
-    age: age,
-    contact: contact,
-    experience: guideExperience,
-    dayValue: dayValue,
-    policyId: policyId,
-    remarks: remarks
-  };
-
+  //create put request
   $.ajax({
     url: baseURL + "guide/update",
     method: "put",
-    data: JSON.stringify(guideObj),
+    data: JSON.stringify(guideDetailsObj),
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
@@ -235,13 +220,8 @@ function updateGuideDetails() {
     error: function (xhr, status, error) {
       console.error(error);
       alert("An error occurred: " + error);
-    },
+    }
   });
-}
-
-//update guideDetails event
-$("#guide-update-btn").click(function (e) {
-  updateGuideDetails();
 });
 
 
