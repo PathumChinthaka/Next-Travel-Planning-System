@@ -1,7 +1,7 @@
 
-// $('#hotel-details-tbody').on('click', 'tr', (event) => {
-//   alert('hi');
-// });
+$('#hotel-details-tbody,#hotel-details-tbody2').on('click', 'tr', (event) => {
+  alert($(event.target).closest('tr').find('td').eq(0).text());
+});
 
 //create hotel details object
 function hotelDetails(){
@@ -62,6 +62,7 @@ $("#hotel-save-btn").click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
+        clearHotelInputFields();
       }
     },
     error: function (xhr, status, error) {
@@ -76,22 +77,33 @@ function getAllHotelDetails(){
     url: baseURL + "hotel/getAll",
     method: "GET",
     success: function (response) {
-      $("#hotel-details-tbl tbody").empty();
-      response.forEach(element => {
-        let rawData = `<tr>
-                <td class="d-none"> ${element.data.}</td>
-                <td>${element.data.}</td>
-                <td> ${element.data.}</td>
-                <td> ${element.data.}</td>
-                <td> ${element.data.}</td>
-                <td> ${element.data.}</td>
-                <td> ${element.data.}</td>
-                <td> ${element.data.}</td>
-                <td> ${element.data.}</td>
-                <td> ${element.data.}</td>
-                </tr>`;
-        $("#Guide-Details-table tbody").append(rawData);
-      });
+      // $("#hotel-details-tbl tbody").empty();
+      // response.forEach(element => {
+      //   let rawDataOne = `<tr>
+      //           <td> ${element.data.vehicleId}</td>
+      //           <td>${element.data.vehicleCategory}</td>
+      //           <td> ${element.data.vehicleName}</td>
+      //           <td> ${element.data.fuelType}</td>
+      //           <td> ${element.data.fuelUsage}</td>
+      //           <td> ${element.data.isHybrid}</td>
+      //           <td> ${element.data.seatCount}</td>
+      //           </tr>`;
+      //   $("#vehicle-table-one tbody").append(rawDataOne);
+      // });
+      // //load 2 nd table data
+      // $("#vehicle-table-two tbody").empty();
+      // response.forEach(element => {
+      //   let rawDataTwo = `<tr>
+      //           <td> ${element.data.vehicleId}</td>
+      //           <td> ${element.data.transmissionType}</td>
+      //           <td>${element.data.fuelUsageCost}</td>
+      //           <td> ${element.data.perDayCharge}</td>
+      //           <td> ${element.data.vehicle1kmCharge}</td>
+      //           <td> ${element.data.remarks}</td>
+      //           <td> ${element.data.policyType}</td>
+      //           </tr>`;
+      //   $("#vehicle-table-two tbody").append(rawDataTwo);
+      // });
     },
     error: function (xhr, status, error) {
       alert("An error occurred: " + error);
@@ -114,6 +126,7 @@ $("#hotel-update-btn").click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
+        clearHotelInputFields();
       };
     },
     error: function (xhr, status, error) {
@@ -143,5 +156,26 @@ $("#hotel-delete-btn").click(function (e) {
       }
     });
   }else{
+    clearHotelInputFields();
   }
 });
+
+
+//clear input fields
+function clearHotelInputFields(){
+  $('#hotel_Id').val("");
+  $('#hotel_Name').val("");
+  $('#hotel_Category').val("");
+  $('#hotel_Email').val("");
+  $('#hotel_Tele').val("");
+  $('#hotel_mobile').val("");
+  $('#Hotel_address').val("");
+  $('#city').val("");
+  $('#Map-location').val("");
+  $('#hotel_description').val("");
+  $('#fax_Number').val("");
+  $('#website_link').val("");
+  $('#facebook-link').val("");
+  $('#Inster-link').val("");
+  $('#hotel_status').val("");
+}
