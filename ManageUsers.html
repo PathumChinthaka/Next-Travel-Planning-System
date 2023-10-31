@@ -34,18 +34,18 @@
       <div class="col">
         <label>User Name</label>
         <div class="input-group">
-          <input type="text" class="form-control my-1" id="User_name" placeholder="UserName">
+          <input type="text" class="form-control my-1" id="User_Name" placeholder="UserName">
         </div>
       </div>
       <div class="col">
         <label>User Password</label>
         <div class="input-group">
-          <input type="password" class="form-control my-1" id="user_password" placeholder="Password">
+          <input type="password" class="form-control my-1" id="user_Password" placeholder="Password">
         </div>
       </div>
       <div class="col">
         <label>Gender</label>
-        <select class="form-select bg-secondary text-white my-2" id="user_gender" aria-label="">
+        <select class="form-select bg-secondary text-white my-2" id="user_Gender" aria-label="">
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
@@ -68,7 +68,7 @@
       <div class="col">
         <label>User Address</label>
         <div class="input-group">
-          <textarea class="form-control my-1" id="User_Address" placeholder="User Address"></textarea>
+          <textarea class="form-control my-1" id="user_Address" placeholder="User Address"></textarea>
         </div>
       </div>
       <div class="col">
@@ -112,7 +112,7 @@
   </section>
   <Section class="container-fluid p-5">
     <div>
-      <table class="table table-hover rounded-1 w-100">
+      <table class="table table-hover rounded-1 w-100" id="user-details-table">
         <thead class="table-secondary">
           <tr>
             <th scope="col">ID</th>
@@ -128,7 +128,7 @@
             <!-- <th scope="col">Remarks</th> -->
           </tr>
         </thead>
-        <tbody>
+        <tbody id="userDetails-tbody">
           <tr>
             <th scope="row">1</th>
             <td>Mark</td>
@@ -144,6 +144,7 @@
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
   <script src="Lib\jquery-3.7.1.min.js"></script>
   <script src="config\serverUrl.js"></script>
+  <script src="controller\ManageUsers.js"></script>
   <script>
     $('#create-package-btn').click(function () {
       $('body').load('index.html');

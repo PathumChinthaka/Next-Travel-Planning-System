@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="mt-4 p-3 m-4">
-            <table class="table table-hover rounded-1 w-100">
+            <!-- <table class="table table-hover rounded-1 w-100">
               <thead class="table-secondary">
                 <tr>
                   <th scope="col">PackageId</th>
@@ -87,7 +87,7 @@
                   <td>@mdo</td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
           </div>
         </div>
         <!-- travel Area window -->
@@ -142,7 +142,7 @@
             </div>
           </div>
           <div class="mt-4 p-3 m-4">
-            <table class="table table-hover rounded-1 w-100">
+            <!-- <table class="table table-hover rounded-1 w-100">
               <thead class="table-secondary">
                 <tr>
                   <th scope="col">AreaID</th>
@@ -150,7 +150,6 @@
                   <th scope="col">Description</th>
                   <th scope="col">Select/Remove</th>
                 </tr>
-                <!-- <th scope="col">Remarks</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -161,7 +160,7 @@
                   <td>@mdo</td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
           </div>
         </div>
         <div class="carousel-item">
@@ -215,7 +214,7 @@
             </div>
           </div>
           <div class="mt-4 p-3 m-4">
-            <table class="table table-hover rounded-1 w-100">
+            <!-- <table class="table table-hover rounded-1 w-100">
               <thead class="table-secondary">
                 <tr>
                   <th scope="col">HotelID</th>
@@ -224,9 +223,9 @@
                   <th scope="col">hotelPrice</th>
                   <th scope="col">status</th>
                   <th scope="col">Select/Remove</th>
-                  <!-- <th scope="col">NicPic</th> -->
+                  <!<th scope="col">NicPic</th> -->
                   <!-- <th scope="col">Remarks</th> -->
-                </tr>
+                <!-- </tr>
               </thead>
               <tbody>
                 <tr>
@@ -237,90 +236,242 @@
                   <td>@mdo</td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
           </div>
         </div>
         <div class="carousel-item">
-          <div class="d-flex justify-content-center align-items-center flex-column bg-primary mb-3 text-white p-2">
-            <h1>Vehicles</h1>
+          <div class="p-2 bg-info-subtle">
+            <h1>Booking Details</h1>
           </div>
-          <div class="d-flex justify-content-center mt-4">
-            <input type="text" class="form-control w-25" placeholder="Search vehicle"><button
-              class="btn btn-primary mx-1">Search</button>
-          </div>
-          <div class="d-flex pt-5 justify-content-center m-4">
-            <div class="card mx-3" style="width: 20rem; height:21rem;">
-              <img
-                src="https://images.unsplash.com/photo-1441148345475-03a2e82f9719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyJTIwZnJvbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Regular</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
+          <!-- booking form -->
+          <section class="overflow-x-hidden mt-5 container-fluid px-5">
+            <div class="row">
+              <div class="col">
+                <label>Booking ID</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="booking_Id" placeholder="Booking ID">
+                </div>
+              </div>
+              <div class="col">
+                <label>User ID</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="user_Id" placeholder="User ID">
+                </div>
+              </div>
+              <div class="col">
+                <label>Travel Start Date</label>
+                <div class="input-group">
+                  <input type="date" class="form-control my-1" id="Start_Date">
+                </div>
+              </div>
+              <div class="col">
+                <label>Travel End Date</label>
+                <div class="input-group">
+                  <input type="date" class="form-control my-1" id="End_Date">
+                </div>
+              </div>
+              <div class="col">
+                <label>Adult Count</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="Adult_Count" placeholder="Adult Count">
+                </div>
+              </div>
+              <div class="col">
+                <label>Child Count</label>
+                <div class="input-group">
+                  <input type="password" class="form-control my-1" id="Child_Count" placeholder="Child Count">
+                </div>
               </div>
             </div>
-            <div class="card mx-3" style="width: 20rem; height:21rem;">
-              <img
-                src="https://images.unsplash.com/photo-1523983519351-ab98a0abe560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FyJTIwZnJvbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Mid-level</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
+            <!-- <hr /> -->
+            <div class="row mt-5">
+              <div class="col">
+                <label>Travel package Category</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="package_Category" placeholder="Travel package Category">
+                </div>
+              </div>
+              <div class="col">
+                <label>Package Name</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="Package_Name" placeholder="Package Name">
+                </div>
+              </div>
+              <div class="col">
+                <label>Package Description</label>
+                <div class="input-group">
+                  <textarea class="form-control my-1" id="Package_Description" placeholder="Package Description"></textarea>
+                </div>
+              </div>
+              <!-- <div class="col">
+                <label>Package Value</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="Package_Value" placeholder="Package Value">
+                </div>
+              </div> -->
+              <div class="col">
+                <label>Travel Areas</label>
+                <div class="input-group">
+                  <textarea class="form-control my-1" id="Travel_Areas" placeholder="Travel Areas"></textarea>
+                </div>
               </div>
             </div>
-            <div class="card mx-3" style="width: 20rem; height:21rem;">
-              <img
-                src="https://images.pexels.com/photos/3541743/pexels-photo-3541743.jpeg?auto=compress&cs=tinysrgb&w=600"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Luxury</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
+            <div class="row mt-5">
+              <div class="col">
+                <label>Hotel Category</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="Hotel_Category" placeholder="Hotel Category">
+                </div>
+              </div>
+              <div class="col">
+                <label>Hotel Name</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id=">Hotel_Name" placeholder="Hotel Name">
+                </div>
+              </div>
+              <div class="col">
+                <label>Hotel Options</label>
+                    <select class="form-select bg-secondary text-white my-2" id="Hotel_Options" aria-label="">
+                      <option value="Male">a</option>
+                      <option value="Female">b</option>
+                    </select>
+                </div>
+              <div class="col">
+                <label>Hotel Charge</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="hotel_charge" placeholder="hotel_charge">
+                </div>
+              </div>
+              <div class="col">
+                <label>Hotel Description</label>
+                <div class="input-group">
+                  <textarea class="form-control my-1" id="Hotel_Description" placeholder="Hotel Description"></textarea>
+                </div>
+              </div>
+              <div class="col">
+                <label>Discount</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="hotel_Discount" placeholder="Discount">
+                </div>
               </div>
             </div>
-            <div class="card mx-3" style="width: 20rem; height:21rem;">
-              <img
-                src="https://images.pexels.com/photos/898336/pexels-photo-898336.jpeg?auto=compress&cs=tinysrgb&w=600"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Super Luxury</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
+            <div class="row mt-5">
+              <div class="col">
+                <label>Vehicle Category</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="Vehicle_Category" placeholder="Vehicle Category">
+                </div>
+              </div>
+              <div class="col">
+                <label>Vehicle Name</label>
+                    <select class="form-select bg-secondary text-white my-2" id="Vehicle_Name" aria-label="">
+                      <option value="Male">aa</option>
+                      <option value="Female">aaa</option>
+                    </select>
+                </div>
+              <div class="col">
+                <label>Per Day charge</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="vehicle_Day_charge" placeholder="Remarks">
+                </div>
+              </div>
+              <div class="col">
+                <label>1 KM charge</label>
+                <div class="input-group">
+                  <input type="text" class="form-control my-1" id="1KM_charge" placeholder="1 KM charge">
+                </div>
+              </div>
+              <div class="col">
+                <label>Vehicle Description</label>
+                <div class="input-group">
+                  <textarea class="form-control my-1" id="Vehicle_Description" placeholder="Vehicle Description"></textarea>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="mt-4 p-3 m-4">
-            <table class="table table-hover rounded-1 w-100">
-              <thead class="table-secondary">
-                <tr>
-                  <th scope="col">vehicleId</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">category</th>
-                  <th scope="col">canPolicy</th>
-                  <th scope="col">canFee</th>
-                  <th scope="col">discount</th>
-                  <th scope="col">status</th>
-                  <th scope="col">Select/Remove</th>
-                  <!-- <th scope="col">NicPic</th> -->
-                  <!-- <th scope="col">Remarks</th> -->
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="d-flex justify-content-center flex-column align-items-center">
-            <button class="px-4 py-3 bg-success mt-5 border-0 rounded-2 text-white fw-bold"
-              id="create-package-btn">Create My Package 💸</button>
-          </div>
+
+
+
+            
+            <div class="row mt-3">
+              <label for="" class="my-2">Do you want to Hire Guide ?</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Yes">
+                  <label class="form-check-label" for="inlineCheckbox1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="No">
+                  <label class="form-check-label" for="inlineCheckbox2">No</label>
+                </div>
+              </div>
+              <div class="d-flex mt-4 justify-content-evenly d-none">
+                <div class="col">
+                  <label>Guid Id</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control my-1" id="Guid_Id" placeholder="Guid Id">
+                  </div>
+                </div>
+                <div class="col px-3">
+                  <label>Guide Name</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control my-1" id="Guide_Name" placeholder="Guide Name">
+                  </div>
+              </div>
+                <div class="col px-1">
+                  <label>Per Day Value</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control my-1" id="guide_Day_Value" placeholder="Remarks">
+                  </div>
+              </div>
+                <div class="col px-2">
+                  <label>Guide Description</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control my-1" id="Guide_Description" placeholder="Guide Description">
+                  </div>
+              </div>
+            </div>
+            <div class="row mt-5 d-flex">
+              <div class="col-2">
+                <button type="button" id="user-save-btn" class="btn btn-success px-5">Save</button>
+              </div>
+              <div class="col-2">
+                <button type="button" id="user-update-btn" class="btn btn-warning px-5">Update</button>
+              </div>
+              <div class="col">
+                <button type="button" id="user-delete-btn" class="btn btn-danger px-5">Delete</button>
+              </div>
+            </div>
+          </section>
+          <Section class="container-fluid p-5">
+            <div>
+              <table class="table table-hover rounded-1 w-100">
+                <thead class="table-secondary">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Nic/passport</th>
+                    <th scope="col">Remarks</th>
+                    <!-- <th scope="col">NicPic</th> -->
+                    <!-- <th scope="col">Remarks</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+          </Section>
         </div>
       </div>
       <div class="slider-buttons d-flex">
