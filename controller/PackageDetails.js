@@ -1,3 +1,18 @@
+
+const PackageNameRegex = /^[a-zA-Z\s]+$/;
+const TravelAreaRegex = /^[a-zA-Z\s]+$/;
+const CategoryRegex = /^[a-zA-Z]+$/;
+const hotelEmailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+const cityRegex = /^[a-zA-Z\s]+$/;
+const mobileNumberRegex = /^(071|072|074|076|078|070|075|077)\d{7}$/;
+const descriptionRegex = /^[a-zA-Z0-9\s.,#!&*()-]+$/;
+const websiteLinkRegex = /^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
+const hotelStatusRegex = /^[a-zA-Z\s]+$/;
+const googleMapLocationRegex =/^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
+const faxNumberRegex = /^\d{10}$/;
+const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
+const telephoneRegex = /^\d{10}$/;
+
 function packageDetails(){
 
   const packageName = $('#package_Name').val();

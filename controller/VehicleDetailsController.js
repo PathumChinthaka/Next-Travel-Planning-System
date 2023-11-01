@@ -1,4 +1,20 @@
 
+const NameRegex = /^[a-zA-Z\s]+$/;
+const CategoryRegex = /^[a-zA-Z]+$/;
+const hotelEmailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+const fueltypeRegex = /^[a-zA-Z\s]+$/;
+const mobileNumberRegex = /^(071|072|074|076|078|070|075|077)\d{7}$/;
+const fuelUsageRegex = /^(\d+(\.\d+)?)([ ]?L)?$/;
+const descriptionRegex = /^[a-zA-Z0-9\s.,#!&*()-]+$/;
+const hotelStatusRegex = /^[a-zA-Z\s]+$/;
+const faxNumberRegex = /^\d{10}$/;
+const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
+const telephoneRegex = /^\d{10}$/;
+var regExPrice = /^[0-9]{1,10}(.)[0-9]{2}$/;
+var regExDate = /^\d{2}\/\d{2}\/\d{4}$/;
+var regExDistance = /^[0-9]{1,5}$/;
+
+
 //return vehicle details object
 function vehicleDetails(){
 

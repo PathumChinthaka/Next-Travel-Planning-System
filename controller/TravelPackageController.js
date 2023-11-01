@@ -1,4 +1,14 @@
 
+const PackageNameRegex = /^[a-zA-Z\s]+$/;
+const RoomTypeRegex = /^[a-zA-Z\s]+$/;
+const TravelAreaRegex = /^[a-zA-Z\s]+$/;
+const CategoryRegex = /^[a-zA-Z]+$/;
+const descriptionRegex = /^[a-zA-Z0-9\s.,#!&*()-]+$/;
+const websiteLinkRegex = /^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
+const hotelStatusRegex = /^[a-zA-Z\s]+$/;
+const googleMapLocationRegex =/^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
+
+
 //return package details object
 function packageDetails(){
 

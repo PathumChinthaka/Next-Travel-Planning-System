@@ -1,4 +1,14 @@
 
+
+var regExUsername = /^[A-Z|a-z\s]{3,20}$/;
+var regExPassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
+var regExContact = /^(071-|077-|075-|078-|)[0-9]{7}$/;
+var regExNIC = /^[0-9]{12}$/;
+var regExAge = /^[1-9]{1,2}$/;
+var regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
+var regExRemarks = /^[A-Z|a-z\s]{3,20}$/;
+
+
 //create user details obj
 function userDetails(){
 
@@ -34,7 +44,7 @@ $("#user-save-btn").click(function (e) {
   const userDetailsObj=userDetails();
 
   $.ajax({
-    url: baseURL + "user/save",
+    url: baseWebURL + "user/save",
     method: "post",
     data: JSON.stringify(userDetailsObj),
     contentType: "application/json",
