@@ -1,7 +1,7 @@
 
 
 var regExUsername = /^[A-Z|a-z\s]{3,20}$/;
-var regExPassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
+var regExPassword = /^[A-Z|a-z\s|@|#|$|0-9]{3,10}$/;
 const EmailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 
 $("#first-Name").change(function (event) {
@@ -14,6 +14,8 @@ $("#first-Name").change(function (event) {
   } else {
     $("#first-Name").css('border', '2px solid red');
     alert("Invaid name Check again!");
+    return;
+
   }
 });
 
@@ -27,6 +29,8 @@ $("#last-Name").change(function (event) {
   } else {
     $("#last-Name").css('border', '2px solid red');
     alert("Invaid name Check again!");
+    return;
+
   }
 });
 
@@ -40,6 +44,7 @@ $("#userEmail").change(function (event) {
   } else {
     $("#userEmail").css('border', '2px solid red');
     alert("Invaid email Check again!");
+    return;
   }
 });
 
@@ -53,6 +58,7 @@ $("#user-email").change(function (event) {
   } else {
     $("#user-email").css('border', '2px solid red');
     alert("Invaid email Check again!");
+    return;
   }
 });
 
@@ -66,6 +72,7 @@ $("#Password").change(function (event) {
   } else {
     $("#Password").css('border', '2px solid red');
     alert("Invaid password Check again!");
+    return;
   }
 });
 

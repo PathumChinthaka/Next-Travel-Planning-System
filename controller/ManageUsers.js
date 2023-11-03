@@ -1,13 +1,82 @@
 
 
-var regExUsername = /^[A-Z|a-z\s]{3,20}$/;
-var regExPassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
-var regExContact = /^(071-|077-|075-|078-|)[0-9]{7}$/;
-var regExNIC = /^[0-9]{12}$/;
-var regExAge = /^[1-9]{1,2}$/;
-var regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
-var regExRemarks = /^[A-Z|a-z\s]{3,20}$/;
+const regExUsername = /^[A-Z|a-z\s]{3,20}$/;
+const regExPassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
+const regExContact = /^(071|072|074|076|078|070|075|077)\d{7}$/;
+const regExNIC = /^[0-9]{12}$/;
+const regExAge = /^(1[89]|[2-5]\d|65)$/;
+const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
+const regExRemarks = /^[A-Z|a-z\s]{3,20}$/;
 
+$("#user_Name").change(function (event) {
+  const name = $('#user_Name').val();
+  if (regExUsername.test(name)) {
+    $("#user_Name").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#user_Name").css('border', '2px solid red');
+    alert("Invaid name Check again!");
+  }
+});
+
+$("#user_Password").change(function (event) {
+  const name = $('#user_Password').val();
+  if (regExPassword.test(name)) {
+    $("#user_Password").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#user_Password").css('border', '2px solid red');
+    alert("Invaid password Check again!");
+  }
+});
+
+$("#user_Contact").change(function (event) {
+  const name = $('#user_Contact').val();
+  if (regExContact.test(name)) {
+    $("#user_Contact").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#user_Contact").css('border', '2px solid red');
+    alert("Invaid contact Check again!");
+  }
+});
+
+$("#user_Age").change(function (event) {
+  const name = $('#user_Age').val();
+  if (regExAge.test(name)) {
+    $("#user_Age").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#user_Age").css('border', '2px solid red');
+    alert("Invaid age Check again!");
+  }
+});
+
+$("#user_Address").change(function (event) {
+  const name = $('#user_Address').val();
+  if (regExAddress.test(name)) {
+    $("#user_Address").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#user_Address").css('border', '2px solid red');
+    alert("Invaid Address Check again!");
+  }
+});
+
+$("#userNicPassport").change(function (event) {
+  const name = $('#userNicPassport').val();
+  if (regExNIC.test(name)) {
+    $("#userNicPassport").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#userNicPassport").css('border', '2px solid red');
+    alert("Invaid Address Check again!");
+  }
+});
+
+$("#user_Remarks").change(function (event) {
+  const name = $('#user_Remarks').val();
+  if (regExAddress.test(name)) {
+    $("#user_Remarks").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#user_Remarks").css('border', '2px solid red');
+    alert("Invaid Address Check again!");
+  }
+});
 
 //create user details obj
 function userDetails(){

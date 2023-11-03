@@ -13,218 +13,184 @@ const hotelStatusRegex = /^[a-zA-Z\s]+$/;
 const googleMapLocationRegex =/^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
 const faxNumberRegex = /^\d{10}$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
-const telephoneRegex = /^\d{10}$/;
+const telephoneRegex = /^(011|038|034)\d{7}$/;
 
 
 // hotelNameRegex
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#hotel_Name").change(function (event) {
+  const name = $('#hotel_Name').val();
+  if (hotelNameRegex.test(name)) {
+    $("#hotel_Name").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#hotel_Name").css('border', '2px solid red');
+    alert("Invaid hotel Name Check again!");
+    return;
+  }
+});
 
-// // hotelCategoryRegex
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#hotel_Email").change(function (event) {
+  const n = $('#hotel_Email').val();
+  if (hotelEmailRegex.test(n)) {
+    $("#hotel_Email").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#hotel_Email").css('border', '2px solid red');
+    alert("Invaid Email Check again!");
+    return;
+  }
+});
 
-// //hotelEmailRegex
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#city").change(function (event) {
+  const n = $('#city').val();
+  if (cityRegex.test(n)) {
+    $("#city").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#city").css('border', '2px solid red');
+    alert("Invaid city name Check again!");
+    return;
+  }
+});
 
-// //cityRegex
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#hotel_mobile").change(function (event) {
+  const n = $('#hotel_mobile').val();
+  if (mobileNumberRegex.test(n)) {
+    $("#hotel_mobile").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#hotel_mobile").css('border', '2px solid red');
+    alert("Invaid Mobile No Check again!");
+    return;
+  }
+});
 
-// // mobileNumberRegex
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+// mobileNumberRegex
+$("#hotel_Tele").change(function (event) {
+  const n = $('#hotel_Tele').val();
+  if (telephoneRegex.test(n)) {
+    $("#hotel_Tele").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#hotel_Tele").css('border', '2px solid red');
+    alert("Invaid Telephone NO Check again!");
+    return;
+  }
+});
 
-// // descriptionRegex
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#Hotel_address").change(function (event) {
+  const n = $('#Hotel_address').val();
+  if (regExAddress.test(n)) {
+    $("#Hotel_address").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#Hotel_address").css('border', '2px solid red');
+    alert("Invaid address Check again!");
+    return;
+  }
+});
 
 
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#hotel_description").change(function (event) {
+  const name = $('#hotel_description').val();
+  if (hotelNameRegex.test(name)) {
+    $("#hotel_description").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#hotel_description").css('border', '2px solid red');
+    alert("Invaid hotel Name Check again!");
+    return;
+  }
+});
+
+$("#fax_Number").change(function (event) {
+  const n = $('#fax_Number').val();
+  if (telephoneRegex.test(n)) {
+    $("#fax_Number").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#fax_Number").css('border', '2px solid red');
+    alert("Invaid Telephone NO Check again!");
+    return;
+  }
+});
 
 
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#website_link").change(function (event) {
+  const n = $('#website_link').val();
+  if (regExAddress.test(n)) {
+    $("#website_link").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#website_link").css('border', '2px solid red');
+    alert("Invaid address Check again!");
+    return;
+  }
+});
 
 
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#facebook-link").change(function (event) {
+  const n = $('#facebook-link').val();
+  if (regExAddress.test(n)) {
+    $("#facebook-link").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#facebook-link").css('border', '2px solid red');
+    alert("Invaid address Check again!");
+    return;
+  }
+});
 
 
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#Inster-link").change(function (event) {
+  const n = $('#Inster-link').val();
+  if (regExAddress.test(n)) {
+    $("#Inster-link").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#Inster-link").css('border', '2px solid red');
+    alert("Invaid address Check again!");
+    return;
+  }
+});
 
 
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
+$("#hotel_status").change(function (event) {
+  const name = $('#hotel_status').val();
+  if (hotelNameRegex.test(name)) {
+    $("#hotel_status").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#").focus();
+    }
+  } else {
+    $("#hotel_status").css('border', '2px solid red');
+    alert("Invaid hotel Name Check again!");
+    return;
+  }
+});
 
-
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
-
-
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
-
-
-// $("#").change(function (event) {
-//   const n = $('#').val();
-//   if (r.test(n)) {
-//     $("#").css('border', '2px solid #134eed');
-//     if (event.key == "Enter") {
-//       $("#").focus();
-//     }
-//   } else {
-//     $("#").css('border', '2px solid red');
-//     alert("Invaid zzz Check again!");
-//     return;
-//   }
-// });
 
 //create hotel details object
 function hotelDetails(){
@@ -338,7 +304,7 @@ function getAllHotelDetails(){
   });
 }
 
-getAllHotelDetails();
+// getAllHotelDetails();
 
 $("#hotel-update-btn").click(function (e) {
 

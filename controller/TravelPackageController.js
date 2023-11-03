@@ -8,6 +8,15 @@ const websiteLinkRegex = /^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2
 const hotelStatusRegex = /^[a-zA-Z\s]+$/;
 const googleMapLocationRegex =/^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
 
+$("#package_Name").change(function (event) {
+  const name = $('#package_Name').val();
+  if (regExGuideName.test(name)) {
+    $("#package_Name").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#package_Name").css('border', '2px solid red');
+    alert("Invaid package Name Check again!");
+  }
+});
 
 //return package details object
 function packageDetails(){
