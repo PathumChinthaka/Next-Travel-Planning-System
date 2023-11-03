@@ -1,4 +1,87 @@
 
+
+var regExUsername = /^[A-Z|a-z\s]{3,20}$/;
+var regExPassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
+const EmailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+
+$("#first-Name").change(function (event) {
+  const name = $('#first-Name').val();
+  if (regExUsername.test(name)) {
+    $("#first-Name").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#last-Name").focus();
+    }
+  } else {
+    $("#first-Name").css('border', '2px solid red');
+    alert("Invaid name Check again!");
+  }
+});
+
+$("#last-Name").change(function (event) {
+  const name = $('#last-Name').val();
+  if (regExUsername.test(name)) {
+    $("#last-Name").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#userEmail").focus();
+    }
+  } else {
+    $("#last-Name").css('border', '2px solid red');
+    alert("Invaid name Check again!");
+  }
+});
+
+$("#userEmail").change(function (event) {
+  const name = $('#userEmail').val();
+  if (EmailRegex.test(name)) {
+    $("#userEmail").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#userEmail").focus();
+    }
+  } else {
+    $("#userEmail").css('border', '2px solid red');
+    alert("Invaid email Check again!");
+  }
+});
+
+$("#user-email").change(function (event) {
+  const name = $('#user-email').val();
+  if (EmailRegex.test(name)) {
+    $("#user-email").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#userEmail").focus();
+    }
+  } else {
+    $("#user-email").css('border', '2px solid red');
+    alert("Invaid email Check again!");
+  }
+});
+
+$("#Password").change(function (event) {
+  const name = $('#Password').val();
+  if (regExPassword.test(name)) {
+    $("#Password").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#userEmail").focus();
+    }
+  } else {
+    $("#Password").css('border', '2px solid red');
+    alert("Invaid password Check again!");
+  }
+});
+
+$("#userPassword").change(function (event) {
+  const name = $('#userPassword').val();
+  if (regExPassword.test(name)) {
+    $("#userPassword").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#userEmail").focus();
+    }
+  } else {
+    $("#userPassword").css('border', '2px solid red');
+    alert("Invaid Password Check again!");
+  }
+});
+
 //create user register data object
 function travelerRegisterData() {
 

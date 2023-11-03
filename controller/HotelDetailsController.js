@@ -16,8 +16,6 @@ const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 const telephoneRegex = /^\d{10}$/;
 
 
-
-
 // hotelNameRegex
 // $("#").change(function (event) {
 //   const n = $('#').val();
