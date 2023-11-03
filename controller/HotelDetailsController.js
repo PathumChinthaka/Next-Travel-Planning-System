@@ -1,7 +1,4 @@
 
-// $('#hotel-details-tbody,#hotel-details-tbody2').on('click', 'tr', (event) => {
-//   alert($(event.target).closest('tr').find('td').eq(0).text());
-// });
 
 const hotelNameRegex = /^[a-zA-Z\s]+$/;
 const hotelCategoryRegex = /^[a-zA-Z]+$/;
@@ -18,221 +15,218 @@ const faxNumberRegex = /^\d{10}$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 const telephoneRegex = /^\d{10}$/;
 
-$(selector).change(function (e) { 
-  
-});
+
+
 
 // hotelNameRegex
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
-// hotelCategoryRegex
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// // hotelCategoryRegex
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
-//hotelEmailRegex
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// //hotelEmailRegex
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
-//cityRegex
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// //cityRegex
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
-// mobileNumberRegex
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// // mobileNumberRegex
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
-// descriptionRegex
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
-
-
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// // descriptionRegex
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
-$("#").change(function (event) {
-  const n = $('#').val();
-  if (r.test(n)) {
-    $("#").css('border', '2px solid #134eed');
-    if (event.key == "Enter") {
-      $("#").focus();
-    }
-  } else {
-    $("#").css('border', '2px solid red');
-    alert("Invaid zzz Check again!");
-    return;
-  }
-});
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 
+// $("#").change(function (event) {
+//   const n = $('#').val();
+//   if (r.test(n)) {
+//     $("#").css('border', '2px solid #134eed');
+//     if (event.key == "Enter") {
+//       $("#").focus();
+//     }
+//   } else {
+//     $("#").css('border', '2px solid red');
+//     alert("Invaid zzz Check again!");
+//     return;
+//   }
+// });
 
 //create hotel details object
 function hotelDetails(){
@@ -266,7 +260,7 @@ function hotelDetails(){
     fax:faxNumber,
     address:address,
     city:city,
-    MapLocation:MapLocation,
+    mapLocation:MapLocation,
     description:hotelDescription,
     websiteLink:websiteLink,
     facebook:facebookLink,
@@ -294,6 +288,7 @@ $("#hotel-save-btn").click(function (e) {
       if (response.code == 200) {
         alert(response.message);
         clearHotelInputFields();
+        getAllHotelDetails();
       }
     },
     error: function (xhr, status, error) {
@@ -308,39 +303,44 @@ function getAllHotelDetails(){
     url: baseURL + "hotel/getAll",
     method: "GET",
     success: function (response) {
-      // $("#hotel-details-tbl tbody").empty();
-      // response.forEach(element => {
-      //   let rawDataOne = `<tr>
-      //           <td> ${element.data.vehicleId}</td>
-      //           <td>${element.data.vehicleCategory}</td>
-      //           <td> ${element.data.vehicleName}</td>
-      //           <td> ${element.data.fuelType}</td>
-      //           <td> ${element.data.fuelUsage}</td>
-      //           <td> ${element.data.isHybrid}</td>
-      //           <td> ${element.data.seatCount}</td>
-      //           </tr>`;
-      //   $("#vehicle-table-one tbody").append(rawDataOne);
-      // });
+      $("#hotel-details-tbl tbody").empty();
+      response.forEach(element => {
+        let rawDataOne = `<tr>
+                <td> ${element.data.hotelId}</td>
+                <td>${element.data.hotelName}</td>
+                <td> ${element.data.hotelCategory.hotelCategory}</td>
+                <td> ${element.data.email}</td>
+                <td> ${element.data.telephone}</td>
+                <td> ${element.data.mobile}</td>
+                <td> ${element.data.city}</td>
+                <td> ${element.data.address}</td>
+                </tr>`;
+        $("#hotel-details-tbl tbody").append(rawDataOne);
+      });
       // //load 2 nd table data
-      // $("#vehicle-table-two tbody").empty();
-      // response.forEach(element => {
-      //   let rawDataTwo = `<tr>
-      //           <td> ${element.data.vehicleId}</td>
-      //           <td> ${element.data.transmissionType}</td>
-      //           <td>${element.data.fuelUsageCost}</td>
-      //           <td> ${element.data.perDayCharge}</td>
-      //           <td> ${element.data.vehicle1kmCharge}</td>
-      //           <td> ${element.data.remarks}</td>
-      //           <td> ${element.data.policyType}</td>
-      //           </tr>`;
-      //   $("#vehicle-table-two tbody").append(rawDataTwo);
-      // });
+      $("hotel-details-tbl2 tbody").empty();
+      response.forEach(element => {
+        let rawDataTwo = `<tr>
+                <td> ${element.data.hotelId}</td>
+                <td class="d-none">${element.data.hotelName}</td>
+                <td> ${element.data.mapLocation}</td>
+                <td>${element.data.description}</td>
+                <td> ${element.data.fax}</td>
+                <td> ${element.data.websiteLink}</td>
+                <td> ${element.data.facebook}</td>
+                <td> ${element.data.instagram}</td>
+                <td> ${element.data.status}</td>
+                </tr>`;
+        $("#hotel-details-tbl2 tbody").append(rawDataTwo);
+      });
     },
     error: function (xhr, status, error) {
       alert("An error occurred: " + error);
     }
   });
 }
+
+getAllHotelDetails();
 
 $("#hotel-update-btn").click(function (e) {
 
@@ -367,6 +367,38 @@ $("#hotel-update-btn").click(function (e) {
   });
 });
 
+
+$("#hotel-details-tbody,#hotel-details-tbody2").on('click', 'tr', (event) => {
+
+  const hotelId=$(event.target).closest('tr').find('td').eq(0).text();
+
+    $.ajax({
+      url: baseURL + "hotel/" + hotelId,
+      method: "GET",
+      success: function (response) {
+        console.log(response.data);
+        $('#hotel_Id').val(response.data.hotelId);
+        $('#hotel_Name').val(response.data.hotelName);
+        $('#hotel_Category').val(response.data.hotelCategory);
+        $('#hotel_Email').val(response.data.email);
+        $('#hotel_Tele').val(response.data.telephone);
+        $('#hotel_mobile').val(response.data.mobile);
+        $('#Hotel_address').val(response.data.address);
+        $('#city').val(response.data.city);
+        $('#Map-location').val(response.data.mapLocation);
+        $('#hotel_description').val(response.data.description);
+        $('#fax_Number').val(response.data.fax);
+        $('#website_link').val(response.data.websiteLink);
+        $('#facebook-link').val(response.data.facebook);
+        $('#Inster-link').val(response.data.instagram);
+        $('#hotel_status').val(response.data.status);
+      },
+      error: function (xhr, status, error) {
+        alert("An error occurred hotel tbody getreq: " + error);
+      }
+    });
+});
+
 //delete hotel details event
 $("#hotel-delete-btn").click(function (e) {
   const hotelId = $('#hotel_Id').val();
@@ -383,7 +415,9 @@ $("#hotel-delete-btn").click(function (e) {
         alert(response.message);
       },
       error: function (xhr, status, error) {
-        alert("Package Deleted Succesfully");
+        alert("Hotel Data Deleted Succesfully");
+        $("#hotel-details-tbody,#hotel-details-tbody2").empty();
+        getAllHotelDetails();
       }
     });
   }else{

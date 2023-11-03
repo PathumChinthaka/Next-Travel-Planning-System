@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="Lib\bootstrap-5.3.2-dist\css\bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="Asset\Styles\style.css">
-  <title>Next-Travel</title>
+  <title>Next-Travel | Home</title>
 </head>
 
 <body class="">
@@ -33,7 +33,7 @@
         <span class="float-start">
           <div>
             <button data-bs-toggle="modal" data-bs-target="#exampleModal"
-              class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2" id="login-btn">Log in</button>
+              class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Log in</button>
             <button data-bs-toggle="modal" data-bs-target="#registerModal"
               class="btn-dark border-0 px-4 py-2 bg-dark text-white rounded-2">Register</button>
           </div>
@@ -50,16 +50,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <label for="">E-mail</label>
           <div class="input-group input-group">
-            <input type="text" class="form-control my-1" id="userName" placeholder="User name">
+            <input type="text" class="form-control my-1" id="user-email" placeholder="User e-mail">
           </div>
+          <label for="">Password</label>
           <div class="input-group input-group">
-            <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control my-2" id="userPassword" placeholder="Password">
           </div>
           <select class="form-select bg-secondary text-white" id="login-as" aria-label="">
             <option>Guest user</option>
-            <option>Travel Service</option>
-            <option>Hotel Service</option>
+            <option>Admin</option>
           </select>
         </div>
         <div class="form-check d-flex justify-content-center mb-4">
@@ -70,7 +71,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Log in</button>
+          <button type="button" id="login-btn" class="btn btn-primary">Log in</button>
         </div>
       </div>
     </div>
@@ -84,18 +85,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <label for="">First Name</label>
           <div class="input-group">
-            <input type="text" class="form-control my-1" id="travelerName" placeholder="name">
+            <input type="text" class="form-control my-1" id="first-Name" placeholder="First name">
           </div>
+          <label for="">Last Name</label>
           <div class="input-group">
-            <input type="text" class="form-control my-2" id="address" placeholder="address">
+            <input type="text" class="form-control my-1" id="last-Name" placeholder="Last name">
           </div>
-          <div class="input-group">
-            <input type="text" class="form-control my-1" id="userNic" placeholder="Nic/Passport">
-          </div>
+          <label for="">E-mail</label>
           <div class="input-group">
             <input type="email" class="form-control my-1" id="userEmail" placeholder="e-mail">
           </div>
+          <label for="">Password</label>
           <div class="input-group input-group">
             <input type="password" class="form-control my-2" id="Password" placeholder="Password">
           </div>
@@ -354,21 +356,20 @@
   <script src="Lib\jquery-3.6.4.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.min.js"></script>
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
-  <script src="controller\TravelerRegisterController.js" type="module"></script>
-  <script>
-    $('#login-as').change(function (e) {
-      alert(e.target.value);
-    });
+  <script src="config\serverUrl.js"></script>
+  <script src="controller\TravelerRegisterController.js"></script>
+  <!-- <script>
+    // $('#login-as').change(function (e) {
+    //   alert(e.target.value);
+    // });
 
-    $('#login-btn').click(function () {
-      // $('body').load('dashboard.html');
-    });
+    
 
     $('#custom-package-btn').click(function () {
       $('body').load('custompackage.html');
     });
 
-  </script>
+  </script> -->
 </body>
 
 </html>

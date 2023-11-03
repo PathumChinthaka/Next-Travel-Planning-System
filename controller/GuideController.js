@@ -5,14 +5,15 @@ const regExGuideName = /^[A-Z|a-z\s]{3,20}$/;
 const regExContact = /^(071|072|074|076|078|070|075|077)\d{7}$/;
 const regExAge = /^(1[89]|[2-5]\d|65)$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
-const regExDayValue = /^\d{3,4}$/;
-
+const regExDayValue = /^[0-9]{1,10}[0-9]{2}$/;
+const experience=/^[0-9A-Z a-z,/:]{4,50}$/;
+const remarks=/^[0-9A-Z a-z,/:]{4,50}$/;
 
 // Guide Name Input validation
 $("#guide_name").change(function (event) {
   const name = $('#guide_name').val();
   if (regExGuideName.test(name)) {
-    $("#guide_name").css('border', '2px solid #134eed');
+    $("#guide_name").css('border', '2px solid rgb(222, 226, 230)');
     if (event.key == "Enter") {
       $("#guidAddress").focus();
     }
@@ -26,7 +27,7 @@ $("#guide_name").change(function (event) {
 $("#guidAddress").change(function (event) {
   const address = $('#guidAddress').val();
   if (regExAddress.test(address)) {
-    $("#guidAddress").css('border', '2px solid #134eed');
+    $("#guidAddress").css('border', '2px solid rgb(222, 226, 230)');
     if (event.key == "Enter") {
       $("#age").focus();
     }
@@ -40,7 +41,7 @@ $("#guidAddress").change(function (event) {
 $("#age").change(function (event) {
   const age = $('#age').val();
   if (regExAge.test(age)) {
-    $("#age").css('border', '2px solid #134eed');
+    $("#age").css('border', '2px solid rgb(222, 226, 230)');
     if (event.key == "Enter") {
       $("#gender").focus();
     }
@@ -54,7 +55,7 @@ $("#age").change(function (event) {
 $("#contact").change(function (event) {
   const contact = $('#contact').val();
   if (regExContact.test(contact)) {
-    $("#contact").css('border', '2px solid #134eed');
+    $("#contact").css('border', '2px solid rgb(222, 226, 230)');
     if (event.key == "Enter") {
       $("#experiences").focus();
     }
@@ -68,13 +69,39 @@ $("#contact").change(function (event) {
 $("#day_value").change(function (event) {
   const dayValue = $('#day_value').val();
   if (regExDayValue.test(dayValue)) {
-    $("#day_value").css('border', '2px solid #134eed');
+    $("#day_value").css('border', '2px solid rgb(222, 226, 230)');
     if (event.key == "Enter") {
       $("#remark").focus();
     }
   } else {
     $("#day_value").css('border', '2px solid red');
-    alert("Invaid Contact No: Check again!");
+    alert("Invaid value Check again!");
+  }
+});
+
+$('#experiences').change(function (event) {
+  const exp = $("#experiences").val();
+  if (experience.test(exp)) {
+    $("#experiences").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+      $("#remark").focus();
+    }
+  } else {
+    $("#experiences").css('border', '2px solid red');
+    alert("Invaid value Check again!");
+  }
+});
+
+$("#remark").change(function (event) {
+  const rem = $('#remark').val();
+  if (remarks.test(rem)) {
+    $("#remark").css('border', '2px solid rgb(222, 226, 230)');
+    if (event.key == "Enter") {
+     //
+    }
+  } else {
+    $("#remark").css('border', '2px solid red');
+    alert("Invaid value Check again!");
   }
 });
 
