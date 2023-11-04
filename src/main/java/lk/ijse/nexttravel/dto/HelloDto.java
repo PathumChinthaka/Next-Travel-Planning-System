@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.http.codec.multipart.FilePart;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,6 +13,4 @@ public class HelloDto {
     @Id
     private String id;
     private String name;
-    private String address;
-    private byte[] profile;
 }

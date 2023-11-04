@@ -24,10 +24,10 @@ public class VehicleController {
     }
 
     //handle vehicle by Id Get request
-    @GetMapping("{vehicleName}")
-    public Mono<ResponseUtil> getVehicleData(@PathVariable String vehicleName) {
-        return vehicleService.getVehicle(vehicleName).map(vehicle ->
-                new ResponseUtil(200, vehicleName + "Vehicle Retrieved", vehicle));
+    @GetMapping("{vehicleId}")
+    public Mono<ResponseUtil> getVehicleData(@PathVariable int vehicleId) {
+        return vehicleService.getVehicle(vehicleId).map(vehicle ->
+                new ResponseUtil(200, vehicleId + "Vehicle Retrieved", vehicle));
     }
 
     //handle getAll vehicle request
@@ -46,7 +46,7 @@ public class VehicleController {
 
     //handle vehicle delete by id request
     @DeleteMapping("{vehicleId}")
-    public Mono<ResponseUtil> deleteVehicleData(@PathVariable String vehicleId) {
+    public Mono<ResponseUtil> deleteVehicleData(@PathVariable int vehicleId) {
         return vehicleService.deleteVehicle(vehicleId).map(deletedVehicle ->
                 new ResponseUtil(200, vehicleId + " Deleted Success", null));
     }

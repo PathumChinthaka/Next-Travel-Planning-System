@@ -78,9 +78,7 @@ public class PackageServiceImpl implements TravelPackageService {
             existPackage.setPackageName(packageDTO.getPackageName());
             existPackage.setPackageCategory(packageDTO.getPackageCategory());
             existPackage.setPackageDescription(packageDTO.getPackageDescription());
-            existPackage.setDayCount(packageDTO.getDayCount());
             existPackage.setAllowPets(packageDTO.getAllowPets());
-            existPackage.setNightCount(packageDTO.getNightCount());
             existPackage.setRoomTypes(packageDTO.getRoomTypes());
             existPackage.setTravelAreas(packageDTO.getTravelAreas());
             existPackage.setTravelPackageVideoUrl(packageDTO.getTravelPackageVideoUrl());

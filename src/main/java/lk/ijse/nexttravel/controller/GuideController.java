@@ -18,17 +18,16 @@ public class GuideController {
 
     private final GuideService guideService;
 
-//    private final HeloRepo heloRepo;
-
     //handle guid Post request
     @PostMapping(value = "/save",consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Mono<ResponseUtil> saveGuide(@RequestBody GuideDTO guideDTO) {
+        System.out.println("Guide Details :"+guideDTO);
         return guideService.saveGuide(guideDTO).map(savedGuide ->
                 new ResponseUtil(200, "Guide saved Success...", null));
     }
 
-//    //handle autoGenaratedGuidId
+    //handle auto generate GuidId
     @GetMapping(value = "/latestId")
     public Mono<ResponseUtil>generateGuideId() {
         System.out.println("i came");
@@ -65,33 +64,5 @@ public class GuideController {
         return guideService.deleteGuide(guidId).map(removedGuid ->
                 new ResponseUtil(200, guidId+" Guid Removed...", null));
     }
-
-
-//    //save guid profile_img
-//    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, value = "/upload")
-//    public Mono<String> uploadData(
-//            @RequestPart("name") String name,
-//            @RequestPart("address") String address,
-//            @RequestPart("image") Part image, // Use Part instead of MultipartFile
-//            @RequestPart("id") String id
-//    ) {
-//        return DataBufferUtils.join(image.content())
-//                .map(dataBuffer -> {
-//                    byte[] content = new byte[dataBuffer.readableByteCount()];
-//                    dataBuffer.read(content);
-//                    DataBufferUtils.release(dataBuffer);
-//                    return content;
-//                })
-//                .flatMap(contentBytes -> heloRepo.save(new HelloDto(id, name, address, contentBytes)))
-//                .map(data -> "Details saved Successfully :" + id);
-//
-//    }
-//
-//    @GetMapping(value = "/image/{name}", produces = MediaType.IMAGE_PNG_VALUE)
-//    public Mono<byte[]> getImage(@PathVariable String name) {
-//        return heloRepo.findByName(name)
-//                .map(HelloDto::getProfile);
-//    }
-
 
 }

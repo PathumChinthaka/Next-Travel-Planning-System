@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(value = "Vehicle_details")
 public class Vehicle {
     @Id
-    private String vehicleId;
+    private int vehicleId;
     private String vehicleCategory;
     private String vehicleName;
     private String fuelType;

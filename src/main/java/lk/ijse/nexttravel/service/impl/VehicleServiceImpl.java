@@ -26,15 +26,15 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public Mono<VehicleDTO> saveVehicle(VehicleDTO vehicleDTO) {
         Vehicle vehicleSave = modelMapper.map(vehicleDTO, Vehicle.class);
-        vehicleSave.setVehicleId(UUID.randomUUID().toString());
+//        vehicleSave.setVehicleId(UUID.randomUUID().toString());
         return vehicleRepository.save(vehicleSave).map(savedVehicle ->
                 modelMapper.map(savedVehicle, VehicleDTO.class));
     }
 
     //get Vehicle details from db
     @Override
-    public Mono<VehicleDTO> getVehicle(String vehicleName) {
-        Mono<Vehicle> byVehicleName = vehicleRepository.findByVehicleName(vehicleName);
+    public Mono<VehicleDTO> getVehicle(int vehicleId) {
+        Mono<Vehicle> byVehicleName = vehicleRepository.findById(vehicleId);
         return byVehicleName.map(vehicle ->
                 modelMapper.map(vehicle, VehicleDTO.class));
     }
@@ -68,7 +68,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     //delete Vehicle details in db
     @Override
-    public Mono<Void> deleteVehicle(String vehicleId) {
-        return vehicleRepository.deleteByVehicleId(vehicleId);
+    public Mono<Void> deleteVehicle(int vehicleId) {
+        return vehicleRepository.deleteById(vehicleId);
     }
 }

@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -25,14 +27,15 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public Mono<HotelDTO> saveHotelDetails(HotelDTO hotelDTO) {
         Hotel hotelEntity = modelMapper.map(hotelDTO, Hotel.class);
+        hotelEntity.getHotelCategory().setHotelCategoryId(UUID.randomUUID().toString());
         return hotelRepository.save(hotelEntity).map(hotel ->
                 modelMapper.map(hotel,HotelDTO.class));
     }
 
     //get required hotel details from database
     @Override
-    public Mono<HotelDTO> getHotelDetails(String hotelName) {
-        Mono<Guide> findHotel = hotelRepository.findByHotelName(hotelName);
+    public Mono<HotelDTO> getHotelDetails(int hotelId) {
+        Mono<Hotel> findHotel = hotelRepository.findById(hotelId);
         return findHotel.map(hotelDetails -> modelMapper.map(hotelDetails,HotelDTO.class));
     }
 

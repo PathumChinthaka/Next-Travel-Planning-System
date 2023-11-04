@@ -26,9 +26,9 @@ public class HotelDetailsController {
     }
 
     //handle hotel details get request
-    @GetMapping("{hotelName}")
-    public Mono<ResponseUtil> getHotelDetails(@PathVariable String hotelName) {
-        return hotelService.getHotelDetails(hotelName).map(hotelDTO ->
+    @GetMapping("{hotelId}")
+    public Mono<ResponseUtil> getHotelDetails(@PathVariable int hotelId) {
+        return hotelService.getHotelDetails(hotelId).map(hotelDTO ->
                 new ResponseUtil(200, "Hotel details returned", hotelDTO));
     }
 

@@ -7,8 +7,8 @@ import reactor.core.publisher.Mono;
 
 public interface VehicleService {
     Mono<VehicleDTO> saveVehicle(VehicleDTO vehicleDTO);
-    Mono<VehicleDTO>getVehicle(String vehicleName);
+    Mono<VehicleDTO>getVehicle(int vehicleId);
     Flux<VehicleDTO> getAllVehicles();
     Mono<VehicleDTO>updateVehicle(VehicleDTO vehicleDTO);
-    Mono<Void>deleteVehicle(String vehicleId);
+    Mono<Void>deleteVehicle(int vehicleId);
 }
