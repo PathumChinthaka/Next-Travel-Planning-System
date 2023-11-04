@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Lib\bootstrap-5.3.2-dist\css\bootstrap.min.css">
-  <title>Document</title>
+  <title>Admin Dashboard</title>
   <style>
     .dashboard-aside {
       width: 210px !important;
@@ -22,7 +22,7 @@
     }
 
     .table-wrapper {
-      border: 2px solid rgb(89, 0, 255);
+      /* border: 2px solid rgb(89, 0, 255); */
       margin-left: 220px;
       margin-top:800px;
     }
@@ -30,10 +30,14 @@
     .hotel-service-modal {
       width: 120% !important;
     }
+
+    .admin-btn{
+      text-decoration: none;
+    }
   </style>
 </head>
 
-<body class="">
+<body class="overflow-y-hidden">
   <div>
     <h1 class="fw-bold fs-2 bg-primary text-white p-3 m-0">Admin-Dashboard</h1>
   </div>
@@ -41,27 +45,27 @@
     <div class="admin-profile">
     </div class="mt-2">
     <div class="mt-2">
-      <button id="admin-travel-pkg-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Travel package</button>
-    </div>
-    <hr>
-    <div class="mt-2">
-      <button id="admin-add-hotel-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Hotels</button>
-      <button class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Rooms</button>
-      <button class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Meal Plans</button>
+      <button id="admin-travel-pkg-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium"><a href="TravelPackagepage.html" class="admin-btn">Add Travel Package</a></button>
     </div>
     <hr>
     <div>
-      <button id="admin-add-vehicle-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Vehicle</button>
+      <button id="admin-add-guide-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium"><a href="GuidDetailspage.html" class="admin-btn">Add Guide Details</a></button>
+    </div>
+    <div class="mt-2">
+      <button id="admin-add-hotel-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium"><a href="AddHotelpage.html" class="admin-btn">Add Hotels</a></button>
+      <button class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Rooms</button>
+      <!-- <button class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Meal Plans</button> -->
+    </div>
+    <hr>
+    <div>
+      <button id="admin-add-vehicle-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium"><a href="AddVehiclepage.html" class="admin-btn">Add Vehicle</a></button>
       <button class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Driver</button>
     </div>
     <hr>
     <div>
-      <button id="admin-add-guide-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Add Guide Details</button>
+      <button id="admin-add-user-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium"><a href="ManageUsers.html" class="admin-btn">Manage Users</a></button>
     </div>
     <hr>
-    <div>
-      <button id="admin-add-user-btn" class="active-btn w-100 p-2 my-1 btn-light border-0 fw-medium">Manage Users</button>
-    </div>
   </aside>
   <div class="d-flex justify-content-center align-items-center table-container">
     <!-- table wrapper -->
@@ -536,21 +540,21 @@
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
   <script src="Lib\jquery-3.6.4.min.js"></script>
   <script>
-    $("#admin-travel-pkg-btn").click(function (e) { 
-      window.location.href = "TravelPackagepage.html";
-    });
-    $("#admin-add-hotel-btn").click(function (e) { 
-      window.location.href = "AddHotelpage.html";
-    });
-    $("#admin-add-vehicle-btn").click(function (e) { 
-      window.location.href = "AddVehiclepage.html";
-    });
-    $("#admin-add-guide-btn").click(function (e) { 
-      window.location.href = "GuidDetailspage.html";
-    });
-    $("#admin-add-user-btn").click(function (e) { 
-      window.location.href = "ManageUsers.html";
-    });
+    // $("#admin-travel-pkg-btn").click(function (e) { 
+    //   window.location.href = "TravelPackagepage.html";
+    // });
+    // $("#admin-add-hotel-btn").click(function (e) { 
+    //   window.location.href = "AddHotelpage.html";
+    // });
+    // $("#admin-add-vehicle-btn").click(function (e) { 
+    //   window.location.href = "AddVehiclepage.html";
+    // });
+    // $("#admin-add-guide-btn").click(function (e) { 
+    //   window.location.href = "GuidDetailspage.html";
+    // });
+    // $("#admin-add-user-btn").click(function (e) { 
+    //   window.location.href = "ManageUsers.html";
+    // });
   </script>
 </body>
 

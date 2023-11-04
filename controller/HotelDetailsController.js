@@ -382,6 +382,7 @@ $("#hotel-delete-btn").click(function (e) {
         alert("Hotel Data Deleted Succesfully");
         $("#hotel-details-tbody,#hotel-details-tbody2").empty();
         getAllHotelDetails();
+        clearHotelInputFields();
       }
     });
   }else{

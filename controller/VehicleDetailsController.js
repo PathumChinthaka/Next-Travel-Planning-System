@@ -10,10 +10,83 @@ const hotelStatusRegex = /^[a-zA-Z\s]+$/;
 const faxNumberRegex = /^\d{10}$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 const telephoneRegex = /^\d{10}$/;
-var regExPrice = /^[0-9]{1,10}(.)[0-9]{2}$/;
+var regExPrice = /^[0-9]{1,10}[0-9]{2}$/;
 var regExDate = /^\d{2}\/\d{2}\/\d{4}$/;
 var regExDistance = /^[0-9]{1,5}$/;
+const regExfuelUsage = /^[0-9]L{1,2}$/;
+const seatCount = /^[0-9]{1,2}$/;
+const cost = /^[0-9]{2,4}$/;
 
+
+$("#vehicle_name").change(function (event) {
+  const name = $('#vehicle_name').val();
+  if (NameRegex.test(name)) {
+    $("#vehicle_name").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#vehicle_name").css('border', '2px solid red');
+    alert("Invaid vehicle Name Check again!");
+  }
+});
+
+$("#fuel_usage").change(function (event) {
+  const name = $('#fuel_usage').val();
+  if (regExfuelUsage.test(name)) {
+    $("#fuel_usage").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#fuel_usage").css('border', '2px solid red');
+    alert("Invaid Fuel Usage Check again!");
+  }
+});
+
+$("#seat_count").change(function (event) {
+  const name = $('#seat_count').val();
+  if (seatCount.test(name)) {
+    $("#seat_count").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#seat_count").css('border', '2px solid red');
+    alert("Invaid seat count Check again!");
+  }
+});
+
+$("#fuel_usage_cost").change(function (event) {
+  const name = $('#fuel_usage_cost').val();
+  if (cost.test(name)) {
+    $("#fuel_usage_cost").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#fuel_usage_cost").css('border', '2px solid red');
+    alert("Invaid Fuel Usage cost Check again!");
+  }
+});
+
+$("#Vehicle_charge").change(function (event) {
+  const name = $('#Vehicle_charge').val();
+  if (cost.test(name)) {
+    $("#Vehicle_charge").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#Vehicle_charge").css('border', '2px solid red');
+    alert("Invaid vehicle charge Check again!");
+  }
+});
+
+$("#vehical_1km_charge").change(function (event) {
+  const name = $('#vehical_1km_charge').val();
+  if (cost.test(name)) {
+    $("#vehical_1km_charge").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#vehical_1km_charge").css('border', '2px solid red');
+    alert("Invaid vehicle 1km charge Check again!");
+  }
+});
+
+$("#vehicle_remarks").change(function (event) {
+  const name = $('#vehicle_remarks').val();
+  if (NameRegex.test(name)) {
+    $("#vehicle_remarks").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#vehicle_remarks").css('border', '2px solid red');
+    alert("Invaid status Check again!");
+  }
+});
 
 //return vehicle details object
 function vehicleDetails(){
@@ -123,48 +196,32 @@ function getAllVehicleDetails() {
 //get All Vehicle Details globally
 getAllVehicleDetails();
 
-//get selected vehicle row from db
-function getSelectedVehicleRaw() {
-
-  $('#vehicle-tbody-one').on('click', 'tr', (event) => {
-    const vehicleId = $(event.target).closest('tr').find('td').eq(0).text();
-    const vehicleCategory = $(event.target).closest('tr').find('td').eq(1).text();
-    const vehicleName = $(event.target).closest('tr').find('td').eq(2).text();
-    const fuelType = $(event.target).closest('tr').find('td').eq(3).text();
-    const fuelUsage = $(event.target).closest('tr').find('td').eq(4).text();
-    const isHybrid = $(event.target).closest('tr').find('td').eq(5).text();
-    const seatCount = $(event.target).closest('tr').find('td').eq(6).text();
-
-    $('#vehicle_id').val(vehicleId.trim());
-    $('#vehicleCategory').val(vehicleCategory.trim());
-    $('#vehicle_name').val(vehicleName.trim());
-    $('#fuel_type').val(fuelType.trim());
-    $('#fuel_usage').val(fuelUsage.trim());
-    $('#is_Hybrid').val(isHybrid.trim());
-    $('#seat_count').val(seatCount.trim());
+$("#vehicle-tbody-one,#vehicle-tbody-two").on('click', 'tr', (event) => {
+  const vehicleId=$(event.target).closest('tr').find('td').eq(0).text();
+  $.ajax({
+    url: baseURL + "vehicle/" + vehicleId,
+    method: "GET",
+    success: function (response) {
+      console.log(response.data);
+      $('#vehicle_id').val(response.data.vehicleId);
+      $('#vehicleCategory').val(response.data.vehicleCategory);
+      $('#vehicle_name').val(response.data.vehicleName);
+      $('#fuel_type').val(response.data.fuelType);
+      $('#fuel_usage').val(response.data.fuelUsage);
+      $('#is_Hybrid').val(response.data.isHybrid);
+      $('#seat_count').val(response.data.seatCount);
+      $('#transmision_type').val(response.data.transmissionType);
+      $('#fuel_usage_cost').val(response.data.fuelUsageCost);
+      $('#Vehicle_charge').val(response.data.perDayCharge);
+      $('#vehical_1km_charge').val(response.data.vehicle1kmCharge);
+      $('#vehicle_remarks').val(response.data.remarks);
+      $('#policy-type').val(response.data.policyType);
+    },
+    error: function (xhr, status, error) {
+      alert("An error occurred vehicle tbody getreq: " + error);
+    }
   });
-
-  $('#vehicle-tbody-two').on('click', 'tr', (event) => {
-    const vehicleId = $(event.target).closest('tr').find('td').eq(0).text();
-    const transmission = $(event.target).closest('tr').find('td').eq(1).text();
-    const fuelUsageCost = $(event.target).closest('tr').find('td').eq(2).text();
-    const perDayCharage = $(event.target).closest('tr').find('td').eq(3).text();
-    const oneKmCharge = $(event.target).closest('tr').find('td').eq(4).text();
-    const remarks = $(event.target).closest('tr').find('td').eq(5).text();
-    const policyType = $(event.target).closest('tr').find('td').eq(6).text();
-
-    $('#vehicle_id').val(vehicleId.trim());
-    $('#transmision_type').val(transmission.trim());
-    $('#fuel_usage_cost').val(fuelUsageCost.trim());
-    $('#Vehicle_charge').val(perDayCharage.trim());
-    $('#vehical_1km_charge').val(oneKmCharge.trim());
-    $('#vehicle_remarks').val(remarks.trim());
-    $('#policy-type').val(policyType.trim());
-  });
-}
-
-//get Selected vehicle raw globally
-getSelectedVehicleRaw();
+});
 
 //update guide details event
 $("#vehicle-update-btn").click(function (e) {
@@ -208,6 +265,7 @@ $("#vehicle-delete-btn").click(function (e) {
       },
       error: function (xhr, status, error) {
         alert("Vehicle Data Deleted");
+        $("#vehicle-tbody-one,#vehicle-tbody-two").empty();
         getAllVehicleDetails();
         clearVehicleInputs();
       }

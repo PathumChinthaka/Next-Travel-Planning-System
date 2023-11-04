@@ -3,6 +3,7 @@ const PackageNameRegex = /^[a-zA-Z\s]+$/;
 const RoomTypeRegex = /^[a-zA-Z\s]+$/;
 const TravelAreaRegex = /^[a-zA-Z\s]+$/;
 const CategoryRegex = /^[a-zA-Z]+$/;
+const regExDaycount = /^[0-9]{1,2}$/;
 const descriptionRegex = /^[a-zA-Z0-9\s.,#!&*()-]+$/;
 const websiteLinkRegex = /^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
 const hotelStatusRegex = /^[a-zA-Z\s]+$/;
@@ -10,11 +11,51 @@ const googleMapLocationRegex =/^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}
 
 $("#package_Name").change(function (event) {
   const name = $('#package_Name').val();
-  if (regExGuideName.test(name)) {
+  if (PackageNameRegex.test(name)) {
     $("#package_Name").css('border', '2px solid rgb(222, 226, 230)');
   } else {
     $("#package_Name").css('border', '2px solid red');
     alert("Invaid package Name Check again!");
+  }
+});
+
+$("#package_description").change(function (event) {
+  const name = $('#package_description').val();
+  if (descriptionRegex.test(name)) {
+    $("#package_description").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#package_description").css('border', '2px solid red');
+    alert("Invaid package description Check again!");
+  }
+});
+
+$("#day_Count").change(function (event) {
+  const name = $('#day_Count').val();
+  if (regExDaycount.test(name)) {
+    $("#day_Count").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#day_Count").css('border', '2px solid red');
+    alert("Invaid day count Check again!");
+  }
+});
+
+$("#night_Count").change(function (event) {
+  const name = $('#night_Count').val();
+  if (regExDaycount.test(name)) {
+    $("#night_Count").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#night_Count").css('border', '2px solid red');
+    alert("Invaid day count Check again!");
+  }
+});
+
+$("#package_video_url").change(function (event) {
+  const name = $('#package_video_url').val();
+  if (websiteLinkRegex.test(name)) {
+    $("#package_video_url").css('border', '2px solid rgb(222, 226, 230)');
+  } else {
+    $("#package_video_url").css('border', '2px solid red');
+    alert("Invaid day count Check again!");
   }
 });
 
@@ -254,4 +295,4 @@ function getExistPackageDetails(){
 }
 
 //load exist package details into selectbar
-getExistPackageDetails();
+// getExistPackageDetails();
