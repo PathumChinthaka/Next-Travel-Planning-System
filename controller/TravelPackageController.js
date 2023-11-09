@@ -49,15 +49,15 @@ $("#night_Count").change(function (event) {
   }
 });
 
-$("#package_video_url").change(function (event) {
-  const name = $('#package_video_url').val();
-  if (websiteLinkRegex.test(name)) {
-    $("#package_video_url").css('border', '2px solid rgb(222, 226, 230)');
-  } else {
-    $("#package_video_url").css('border', '2px solid red');
-    alert("Invaid day count Check again!");
-  }
-});
+// $("#package_video_url").change(function (event) {
+//   const name = $('#package_video_url').val();
+//   if (websiteLinkRegex.test(name)) {
+//     $("#package_video_url").css('border', '2px solid rgb(222, 226, 230)');
+//   } else {
+//     $("#package_video_url").css('border', '2px solid red');
+//     alert("Invaid day count Check again!");
+//   }
+// });
 
 //return package details object
 function packageDetails(){
@@ -144,7 +144,7 @@ function getAllPackageDetails() {
 }
 
 //get all packages globally called
-// getAllPackageDetails();
+getAllPackageDetails();
 
 //update package details event
 $("#package-update-btn").click(function (e) {
@@ -295,4 +295,4 @@ function getExistPackageDetails(){
 }
 
 //load exist package details into selectbar
-// getExistPackageDetails();
+getExistPackageDetails();

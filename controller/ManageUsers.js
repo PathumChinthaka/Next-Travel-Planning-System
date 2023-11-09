@@ -121,6 +121,7 @@ $("#user-save-btn").click(function (e) {
     success: function (response) {
       if (response.code == 200) {
         alert(response.message);
+        // generateAutoIncrementID();
       }
     },
     error: function (xhr, status, error) {
@@ -129,6 +130,36 @@ $("#user-save-btn").click(function (e) {
   });
   
 });
+
+
+// function generateAutoIncrementID() {
+//   $('#user_Id').val("U00-0001");
+//   $.ajax({
+//     url: baseWebURL + "user/latestId",
+//     method: "GET",
+//     success: function (response) {
+//       const guidId = response.data;
+//       console.log("guid Id ", guidId);
+//       let tempId = parseInt(guidId.split("-")[1]);
+//       console.log(tempId);
+//       tempId = tempId + 1;
+//       if (tempId <= 9) {
+//         $('#user_Id').val("U00-000" + tempId);
+//       } else if (tempId <= 99) {
+//         $('#user_Id').val("U00-00" + tempId);
+//       } else if (tempId <= 999) {
+//         $('#user_Id').val("U00-0" + tempId);
+//       } else {
+//         $('#user_Id').val("U00-" + tempId);
+//       }
+//     },
+//     error: function (xhr, status, error) {
+//       alert("genarate Id An error occurred: " + error);
+//     }
+//   });
+// }
+
+// generateAutoIncrementID();
 
 
 //get All user details on table view
@@ -160,7 +191,7 @@ function getAllGuideDetails() {
 }
 
 //get All details globally called
-// getAllGuideDetails();
+getAllGuideDetails();
 
 //create user update req
 $("#user-update-btn").click(function (e) { 
@@ -210,6 +241,7 @@ $("#user-delete-btn").click(function (e) {
 
 //clear user details inputs
 function clearUserInputFields(){
+  // generateAutoIncrementID();
     $('#user_Id').val("");
     $('#user_Name').val("");
     $('#user_Password').val("");

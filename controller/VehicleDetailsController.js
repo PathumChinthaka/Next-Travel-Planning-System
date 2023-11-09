@@ -192,7 +192,6 @@ function getAllVehicleDetails() {
   });
 };
 
-
 //get All Vehicle Details globally
 getAllVehicleDetails();
 

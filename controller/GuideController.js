@@ -6,8 +6,8 @@ const regExContact = /^(071|072|074|076|078|070|075|077)\d{7}$/;
 const regExAge = /^(1[89]|[2-5]\d|65)$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 const regExDayValue = /^[0-9]{1,10}[0-9]{2}$/;
-const experience=/^[0-9A-Z a-z,/:]{4,50}$/;
-const remarks=/^[0-9A-Z a-z,/:]{4,50}$/;
+const experience = /^[0-9A-Z a-z,/:]{4,50}$/;
+const remarks = /^[0-9A-Z a-z,/:]{4,50}$/;
 
 // Guide Name Input validation
 $("#guide_name").change(function (event) {
@@ -97,13 +97,14 @@ $("#remark").change(function (event) {
   if (remarks.test(rem)) {
     $("#remark").css('border', '2px solid rgb(222, 226, 230)');
     if (event.key == "Enter") {
-     //
+      //
     }
   } else {
     $("#remark").css('border', '2px solid red');
     alert("Invaid value Check again!");
   }
 });
+
 
 //create guide details object
 function guideDetails() {
@@ -119,7 +120,15 @@ function guideDetails() {
   const remarks = $('#remark').val();
   const policyId = $('#can_policy').val();
 
-  //Create guide details object
+  const guidePfp = $('#profile_pic')[0].files[0];
+  saveFiles(guidePfp);
+  const nicImagefile = $('#nic_pic')[0].files[0]
+  saveFiles(nicImagefile);
+
+  const guidePfpName = $('#profile_pic')[0].files[0].name;
+  const nicImageName = $('#nic_pic')[0].files[0].name;
+
+  // const guidepfp = $('#profile_pic').val();
   let guideObj = {
     guidId: guidId,
     guidName: name,
@@ -130,9 +139,10 @@ function guideDetails() {
     experience: guideExperience,
     dayValue: dayValue,
     remarks: remarks,
-    policyId: policyId
+    policyId: policyId,
+    guideImage: guidePfpName,
+    nicImage:nicImageName
   }
-
   return guideObj;
 }
 
@@ -140,7 +150,8 @@ function guideDetails() {
 $('#guide-save-btn').click(function (e) {
 
   //get returned guide obj
-  const guideDetailsObj = guideDetails();
+  const guideDetailsObj= guideDetails();
+  // guideDetails();
 
   // Create Post Request
   $.ajax({
@@ -162,15 +173,39 @@ $('#guide-save-btn').click(function (e) {
   });
 });
 
+
+function saveFiles(files) {
+
+  var data = new FormData();
+  data.append("imageFile", files);
+
+  $.ajax({
+    url: fileUploadURL + "upload",
+    method: 'post',
+    async: true,
+    contentType: false,
+    processData: false,
+    data: data,
+    success: function (resp) {
+      console.log(resp);
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
+
 //get All Guide Details
 function getAllGuideDetails() {
   $.ajax({
     url: baseURL + "guide/getAll",
     method: "GET",
     success: function (response) {
+      console.log(response.data);
       $("#Guide-Details-table tbody").empty();
       response.forEach(element => {
-        let rawData = `<tr>
+        let rawData = `<tr class="text-center">
                 <td class="d-none"> ${element.data.guidId}</td>
                 <td>${element.data.guidName}</td>
                 <td> ${element.data.address}</td>
@@ -181,8 +216,19 @@ function getAllGuideDetails() {
                 <td> ${element.data.dayValue}</td>
                 <td> ${element.data.policyId}</td>
                 <td> ${element.data.remarks}</td>
+                <td>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <img src="http://localhost:8095/FileHandling/download/${element.data.guideImage}" alt="" style="width: 80px; height: 50px" class="rounded"/>
+                  </div>
+                </td>
+                <td>
+                <div class="d-flex align-items-center jus">
+                  <img src="http://localhost:8095/FileHandling/download/${element.data.nicImage}" alt="" style="width: 80px; height: 50px" class="rounded"/>
+                </div>
+              </td>
                 </tr>`;
         $("#Guide-Details-table tbody").append(rawData);
+               
       });
     },
     error: function (xhr, status, error) {
@@ -301,6 +347,7 @@ function getSelectedRow() {
     $('#day_value').val(dayValue.trim());
     $('#can_policy').val(policyId.trim());
     $('#remark').val(remarks.trim());
+
   });
 };
 
