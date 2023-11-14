@@ -304,7 +304,7 @@ function getAllHotelDetails(){
   });
 }
 
-getAllHotelDetails();
+// getAllHotelDetails();
 
 $("#hotel-update-btn").click(function (e) {
 
