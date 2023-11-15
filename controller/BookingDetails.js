@@ -10,9 +10,9 @@ function getAllPackageDetails() {
       $("#package-table tbody").empty();
       response.forEach(element => {
         const cardData =
-          `<div class="card mx-3 my-3" style="width:40rem;">
+          `<div class="card my-3" style="width:40rem;">
               <div class="card-body">
-                <h5 class="card-title">Regular</h5>
+                <h5 class="card-title">${element.data.packageCategory}</h5>
                 <div class="d-flex">
                   <div class="w-60">
                     <div class="my-2">
@@ -20,19 +20,15 @@ function getAllPackageDetails() {
                     ${element.data.packageName}
                     </div>
                     <div class="my-2">
-                    <span class="font-weight-bold">Package Category :</span>
-                    ${element.data.packageCategory}
-                    </div>
-                    <div class="my-2">
                     <span class="font-weight-bold">Day Count :</span>
                     ${element.data.dayCount}
                     </div>
-                  </div>
-                  <div class="mx-5">
                     <div class="my-2">
                     <span>Night Count :</span>
                     ${element.data.nightCount}
                     </div>
+                  </div>
+                  <div class="mx-5">
                     <div class="my-2">
                     <span>Travel Area :</span>
                     ${element.data.travelAreas}
@@ -47,9 +43,11 @@ function getAllPackageDetails() {
                     </div>
                   </div>
                 </div>
-                <span>Package Description</span>
-                <p class="card-text">${element.data.packageDescription}</p>
-                <a href="#" class="btn btn-primary">Select package</a>
+                <div class="my-2">
+                  <span>Package Description</span>
+                  <p class="card-text my-1">${element.data.packageDescription}</p>
+                </div>
+                <button class="btn btn-primary my-2">Select package</button>
               </div>
             </div>`;
         $("#Booking-cards").append(cardData);
