@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Lib\bootstrap-5.3.2-dist\css\bootstrap.min.css">
-  <title>Custom-package</title>
+  <title>Booking Page</title>
   <style>
     .carousel-control-prev,
     .carousel-control-next {
@@ -21,53 +21,9 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="d-flex justify-content-center bg-primary mb-5 text-white p-2">
-            <h1>Custom package 📋</h1>
+            <h1>Travel packages 🗳</h1>
           </div>
-          <div class="d-flex pt-5 justify-content-center m-4">
-            <div class="card mx-3" style="width: 20rem;">
-              <img
-                src="https://images.unsplash.com/photo-1538445336669-f93af334f834?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzU5fHxob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Regular</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.</p>
-                <a href="#" class="btn btn-primary">Select package</a>
-              </div>
-            </div>
-            <div class="card mx-3" style="width: 20rem;">
-              <img
-                src="https://images.unsplash.com/photo-1596436889106-be35e843f974?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Mid-Level</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.</p>
-                <a href="#" class="btn btn-primary">Select package</a>
-              </div>
-            </div>
-            <div class="card mx-3" style="width: 20rem;">
-              <img
-                src="https://images.unsplash.com/photo-1416331108676-a22ccb276e35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHxob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Luxury</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.</p>
-                <a href="#" class="btn btn-primary">Select package</a>
-              </div>
-            </div>
-            <div class="card mx-3" style="width: 20rem;">
-              <img
-                src="https://images.unsplash.com/photo-1571003123771-bd6a099dd83a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjAwfHxob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                class="card-img-top" alt="..." width="15rem">
-              <div class="card-body">
-                <h5 class="card-title">Super Luxury</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.</p>
-                <a href="#" class="btn btn-primary">Select package</a>
-              </div>
-            </div>
+          <div class="d-flex pt-5 flex-column justify-content-center align-items-center m-4" id="Booking-cards">
           </div>
           <div class="mt-4 p-3 m-4">
             <!-- <table class="table table-hover rounded-1 w-100">
@@ -491,6 +447,7 @@
   <script src="Lib\bootstrap-5.3.2-dist\js\bootstrap.bundle.min.js"></script>
   <script src="Lib\jquery-3.7.1.min.js"></script>
   <script src="config\serverUrl.js"></script>
+  <script src="controller\BookingDetails.js"></script>
   <script>
     $('#create-package-btn').click(function () {
       $('body').load('index.html');
