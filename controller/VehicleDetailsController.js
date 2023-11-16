@@ -131,7 +131,7 @@ $("#vehicle-save-btn").click(function (e) {
 
   // Create Post Request
   $.ajax({
-    url: baseURL + "vehicle/save",
+    url: vehicleBaseURL + "/save",
     method: "post",
     data: JSON.stringify(vehicleDetailsObj),
     contentType: "application/json",
@@ -141,7 +141,6 @@ $("#vehicle-save-btn").click(function (e) {
         alert(response.message);
         getAllVehicleDetails();
         clearVehicleInputs();
-
       }
     },
     error: function (xhr, status, error) {
@@ -154,7 +153,7 @@ $("#vehicle-save-btn").click(function (e) {
 //get All vehicle details
 function getAllVehicleDetails() {
   $.ajax({
-    url: baseURL + "vehicle/getAll",
+    url: vehicleBaseURL + "/getAll",
     method: "GET",
     success: function (response) {
       //load 1 st table data
@@ -198,7 +197,7 @@ getAllVehicleDetails();
 $("#vehicle-tbody-one,#vehicle-tbody-two").on('click', 'tr', (event) => {
   const vehicleId=$(event.target).closest('tr').find('td').eq(0).text();
   $.ajax({
-    url: baseURL + "vehicle/" + vehicleId,
+    url: vehicleBaseURL + "/" + vehicleId,
     method: "GET",
     success: function (response) {
       console.log(response.data);
@@ -230,7 +229,7 @@ $("#vehicle-update-btn").click(function (e) {
 
   //create put mapping ajax
   $.ajax({
-    url: baseURL + "vehicle/update",
+    url: vehicleBaseURL + "vehicle/update",
     method: "put",
     data: JSON.stringify(vehicleDetailsObj),
     contentType: "application/json",
@@ -256,7 +255,7 @@ $("#vehicle-delete-btn").click(function (e) {
   if (choice == true) {
     const vehicleId = $('#vehicle_id').val();
     $.ajax({
-      url: baseURL + "vehicle/" + vehicleId,
+      url: vehicleBaseURL + "vehicle/" + vehicleId,
       method: "delete",
       dataType: "json",
       success: function (response) {

@@ -1,10 +1,11 @@
 $(document).ready(function () {
   getAllPackageDetails();
+  getAllVehicleDetails();
 });
 
 function getAllPackageDetails() {
   $.ajax({
-    url: baseURL + "getAll",
+    url: baseURL + "package/getAll",
     method: "GET",
     success: function (response) {
       $("#package-table tbody").empty();
@@ -51,6 +52,79 @@ function getAllPackageDetails() {
               </div>
             </div>`;
         $("#Booking-cards").append(cardData);
+      });
+    },
+    error: function (xhr, status, error) {
+      alert("An error occurred: " + error);
+    }
+  });
+}
+
+function getAllVehicleDetails(){
+  $.ajax({
+    url: vehicleBaseURL + "/getAll",
+    method: "GET",
+    success: function (response) {
+      $("#package-table tbody").empty();
+      response.forEach(element => {
+        const cardData =
+          `<div class="card my-3" style="width:35rem;">
+              <div class="card-body">
+                <h5 class="card-title">${element.data.vehicleCategory}</h5>
+                <div class="d-flex justify-content-between">
+                  <div class="w-40">
+                    <div class="my-2">
+                    <span class="font-weight-bold">Vehicle Name :</span>
+                    ${element.data.vehicleName}
+                    </div>
+                    <div class="my-2">
+                    <span class="font-weight-bold">Fuel type :</span>
+                    ${element.data.fuelType}
+                    </div>
+                    <div class="my-2">
+                    <span>Fuel usage :</span>
+                    ${element.data.fuelUsage}
+                    </div>
+                    <div class="my-2">
+                    <span>Is Hybrid :</span>
+                    ${element.data.isHybrid}
+                    </div>
+                    <div class="my-2">
+                    <span>Seat Count :</span>
+                    ${element.data.seatCount}
+                    </div>
+                  </div>
+                  <div class="mx-5">
+                    <div class="my-2">
+                    <span>Auto/Menual type :</span>
+                    ${element.data.transmissionType}
+                    </div>
+                    <div class="my-2">
+                    <span>Fuel Usage Cost :</span>
+                    ${element.data.fuelUsageCost}
+                    </div>
+                    <div class="my-2">
+                    <span>Per Day Charge :</span>
+                    ${element.data.perDayCharge}
+                    </div>
+                    <div class="my-2">
+                    <span>Per 1 km charge :</span>
+                    ${element.data.vehicle1kmCharge}
+                    </div>
+                    <div class="my-2">
+                    <span>Policy Types :</span>
+                    ${element.data.policyType}
+                    </div>
+                  </div>
+                </div>
+                <div class="my-2">
+                  <span>Vehicle Remarks</span>
+                  <p class="card-text my-1">${element.data.remarks}</p>
+                </div>
+                <button class="btn btn-primary my-2">Select vehicle</button>
+              </div>
+            </div>`;
+        $("#Vehicle-Details").append(cardData);
       });
     },
     error: function (xhr, status, error) {
