@@ -89,7 +89,7 @@ $("#vehicle_remarks").change(function (event) {
 });
 
 //return vehicle details object
-function vehicleDetails(){
+function vehicleDetails() {
 
   const vehicleId = $('#vehicle_id').val();
   const vehicleCategory = $('#vehicleCategory').val();
@@ -105,6 +105,15 @@ function vehicleDetails(){
   const remarks = $('#vehicle_remarks').val();
   const policyType = $('#policy-type').val();
 
+  const vehicleImage = $('#vehicle-img')[0].files[0];
+  saveFiles(vehicleImage);
+  const vehicleLicenImage = $('#vehicle-licen-img')[0].files[0];
+  saveFiles(vehicleLicenImage);
+
+  const vehicleImageName = $('#vehicle-img')[0].files[0].name;
+  const vehicleLicenImageName = $('#vehicle-licen-img')[0].files[0].name;
+
+
   const vehicleDetails = {
     vehicleId: vehicleId,
     vehicleCategory: vehicleCategory,
@@ -118,16 +127,18 @@ function vehicleDetails(){
     perDayCharge: perDayCharage,
     vehicle1kmCharge: oneKmCharge,
     remarks: remarks,
-    policyType: policyType
+    policyType: policyType,
+    vehicleImage: vehicleImageName,
+    vehicleLicenImage: vehicleLicenImageName
   }
 
   return vehicleDetails;
 }
 //handle vehicle save event
 $("#vehicle-save-btn").click(function (e) {
-  
+
   //get returnd vehicle object
-  const vehicleDetailsObj=vehicleDetails();
+  const vehicleDetailsObj = vehicleDetails();
 
   // Create Post Request
   $.ajax({
@@ -150,6 +161,30 @@ $("#vehicle-save-btn").click(function (e) {
   console.log(vehicleDetails);
 });
 
+
+//save files
+
+function saveFiles(files) {
+
+  var data = new FormData();
+  data.append("imageFile", files);
+
+  $.ajax({
+    url: fileUploadURL + "upload",
+    method: 'post',
+    async: true,
+    contentType: false,
+    processData: false,
+    data: data,
+    success: function (resp) {
+      console.log(resp);
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
 //get All vehicle details
 function getAllVehicleDetails() {
   $.ajax({
@@ -167,6 +202,11 @@ function getAllVehicleDetails() {
                 <td> ${element.data.fuelUsage}</td>
                 <td> ${element.data.isHybrid}</td>
                 <td> ${element.data.seatCount}</td>
+                <td>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <img src="http://localhost:8095/FileHandling/download/${element.data.vehicleImage}" alt="" style="width: 80px; height: 50px" class="rounded"/>
+                  </div>
+                </td>
                 </tr>`;
         $("#vehicle-table-one tbody").append(rawDataOne);
       });
@@ -181,6 +221,11 @@ function getAllVehicleDetails() {
                 <td> ${element.data.vehicle1kmCharge}</td>
                 <td> ${element.data.remarks}</td>
                 <td> ${element.data.policyType}</td>
+                <td>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <img src="http://localhost:8095/FileHandling/download/${element.data.vehicleLicenImage}" alt="" style="width: 80px; height: 50px" class="rounded"/>
+                  </div>
+                </td>
                 </tr>`;
         $("#vehicle-table-two tbody").append(rawDataTwo);
       });
@@ -195,7 +240,7 @@ function getAllVehicleDetails() {
 getAllVehicleDetails();
 
 $("#vehicle-tbody-one,#vehicle-tbody-two").on('click', 'tr', (event) => {
-  const vehicleId=$(event.target).closest('tr').find('td').eq(0).text();
+  const vehicleId = $(event.target).closest('tr').find('td').eq(0).text();
   $.ajax({
     url: vehicleBaseURL + "/" + vehicleId,
     method: "GET",
@@ -214,6 +259,8 @@ $("#vehicle-tbody-one,#vehicle-tbody-two").on('click', 'tr', (event) => {
       $('#vehical_1km_charge').val(response.data.vehicle1kmCharge);
       $('#vehicle_remarks').val(response.data.remarks);
       $('#policy-type').val(response.data.policyType);
+      $('#vehicle-img').val(response.data.vehicleImage);
+      $('#vehicle-licen-img').val(response.data.vehicleLicenImage);
     },
     error: function (xhr, status, error) {
       alert("An error occurred vehicle tbody getreq: " + error);
@@ -225,7 +272,7 @@ $("#vehicle-tbody-one,#vehicle-tbody-two").on('click', 'tr', (event) => {
 $("#vehicle-update-btn").click(function (e) {
 
   //get returnd vehicle object
-  const vehicleDetailsObj=vehicleDetails();
+  const vehicleDetailsObj = vehicleDetails();
 
   //create put mapping ajax
   $.ajax({
@@ -255,7 +302,7 @@ $("#vehicle-delete-btn").click(function (e) {
   if (choice == true) {
     const vehicleId = $('#vehicle_id').val();
     $.ajax({
-      url: vehicleBaseURL + "vehicle/" + vehicleId,
+      url: vehicleBaseURL + "/" + vehicleId,
       method: "delete",
       dataType: "json",
       success: function (response) {

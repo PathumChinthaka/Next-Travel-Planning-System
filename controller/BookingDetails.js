@@ -3,6 +3,7 @@ $(document).ready(function () {
   getAllVehicleDetails();
 });
 
+//get all package details and append on cards
 function getAllPackageDetails() {
   $.ajax({
     url: baseURL + "package/getAll",
@@ -60,6 +61,7 @@ function getAllPackageDetails() {
   });
 }
 
+//get All vehicle details and append on cards
 function getAllVehicleDetails(){
   $.ajax({
     url: vehicleBaseURL + "/getAll",
@@ -71,6 +73,14 @@ function getAllVehicleDetails(){
           `<div class="card my-3" style="width:35rem;">
               <div class="card-body">
                 <h5 class="card-title">${element.data.vehicleCategory}</h5>
+              <div class="d-flex align-items-center justify-content-center">
+                  <div>
+                    <img src="http://localhost:8095/FileHandling/download/${element.data.vehicleImage}" alt="" style="width: 80px; height: 50px" class="rounded"/>
+                  </div>
+                  <div>
+                      <img src="http://localhost:8095/FileHandling/download/${element.data.vehicleLicenImage}" alt="" style="width: 80px; height: 50px" class="rounded"/>
+                  </div>
+              </div>
                 <div class="d-flex justify-content-between">
                   <div class="w-40">
                     <div class="my-2">

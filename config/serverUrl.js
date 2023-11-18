@@ -4,6 +4,8 @@
 
   const vehicleBaseURL = "http://localhost:8065/NextTravel/api/v1/vehicle";
 
+  const userBaseURL="http://localhost:8045/NextTravel/api/v1/user";
+
   const baseWebURL="http://localhost:8080/NextTravel/api/";
 
   const fileUploadURL="http://localhost:8095/FileHandling/"

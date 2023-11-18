@@ -122,7 +122,7 @@ function guideDetails() {
 
   const guidePfp = $('#profile_pic')[0].files[0];
   saveFiles(guidePfp);
-  const nicImagefile = $('#nic_pic')[0].files[0]
+  const nicImagefile = $('#nic_pic')[0].files[0];
   saveFiles(nicImagefile);
 
   const guidePfpName = $('#profile_pic')[0].files[0].name;

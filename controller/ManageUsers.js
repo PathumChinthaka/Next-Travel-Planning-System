@@ -91,6 +91,17 @@ function userDetails(){
   const userNicPassport = $('#userNicPassport').val();
   const userRemarks = $('#user_Remarks').val();
 
+  const userPfp = $('#User-img')[0].files[0];
+  saveFiles(userPfp);
+  const userNicPfp = $('#UserNic-img')[0].files[0];
+  saveFiles(userNicPfp);
+
+  const userPfpName = $('#User-img')[0].files[0].name;
+  const userNicImageName = $('#UserNic-img')[0].files[0].name;
+
+  console.log("user PFP ",userPfpName);
+  console.log("user PFP NIC ",userNicImageName);
+
   const userDetailsObj={
     userId:userId,
     userName:userName,
@@ -100,7 +111,9 @@ function userDetails(){
     userAge:userAge,
     gender:userGender,
     address:userAddress,
-    remarks:userRemarks
+    remarks:userRemarks,
+    userImage:userPfpName,
+    userNicImage:userNicImageName
   }
 
   return userDetailsObj;
@@ -113,7 +126,7 @@ $("#user-save-btn").click(function (e) {
   const userDetailsObj=userDetails();
 
   $.ajax({
-    url: baseWebURL + "user/save",
+    url: userBaseURL + "/save",
     method: "post",
     data: JSON.stringify(userDetailsObj),
     contentType: "application/json",
@@ -130,6 +143,28 @@ $("#user-save-btn").click(function (e) {
   });
   
 });
+
+//save files
+function saveFiles(files) {
+
+  var data = new FormData();
+  data.append("imageFile", files);
+
+  $.ajax({
+    url: fileUploadURL + "upload",
+    method: 'post',
+    async: true,
+    contentType: false,
+    processData: false,
+    data: data,
+    success: function (resp) {
+      console.log(resp);
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
 
 
 // function generateAutoIncrementID() {
@@ -165,7 +200,7 @@ $("#user-save-btn").click(function (e) {
 //get All user details on table view
 function getAllGuideDetails() {
   $.ajax({
-    url: baseURL + "user/getAll",
+    url: userBaseURL + "/getAll",
     method: "GET",
     success: function (response) {
       $("#user-details-table tbody").empty();
@@ -191,7 +226,7 @@ function getAllGuideDetails() {
 }
 
 //get All details globally called
-getAllGuideDetails();
+// getAllGuideDetails();
 
 //create user update req
 $("#user-update-btn").click(function (e) { 
@@ -199,7 +234,7 @@ $("#user-update-btn").click(function (e) {
   const userDetailsObj=userDetails();
 
   $.ajax({
-    url: baseURL + "user/update",
+    url: userBaseURL + "/update",
     method: "put",
     data: JSON.stringify(userDetailsObj),
     contentType: "application/json",
@@ -225,7 +260,7 @@ $("#user-delete-btn").click(function (e) {
     return;
   }else if(choice == true){
     $.ajax({
-      url: baseURL + "user/" + userId,
+      url: userBaseURL + "/" + userId,
       method: "delete",
       dataType: "json",
       success: function (response) {
