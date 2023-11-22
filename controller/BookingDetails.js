@@ -1,6 +1,7 @@
 $(document).ready(function () {
-  getAllPackageDetails();
-  getAllVehicleDetails();
+  // getAllPackageDetails();
+  // getAllVehicleDetails();
+  getAllHotelDetails();
 });
 
 //get all package details and append on cards
@@ -9,10 +10,9 @@ function getAllPackageDetails() {
     url: baseURL + "package/getAll",
     method: "GET",
     success: function (response) {
-      $("#package-table tbody").empty();
       response.forEach(element => {
         const cardData =
-          `<div class="card my-3" style="width:40rem;">
+          `<div class="card my-3 mt-2" style="width:40rem;">
               <div class="card-body">
                 <h5 class="card-title">${element.data.packageCategory}</h5>
                 <div class="d-flex">
@@ -142,3 +142,86 @@ function getAllVehicleDetails(){
     }
   });
 }
+
+//fetch hotel details from db
+function getAllHotelDetails() {
+  $.ajax({
+    url: hotelBaseURL + "/getAll",
+    method: "GET",
+    success: function (response) {
+      console.log(response);
+      response.forEach(element => {
+        const cardData =
+          `<div class="card my-3" style="width:40rem;">
+              <div class="card-body">
+                <h5 class="card-title">${element.data.hotelCategoryDTO.hotelCategoryName}</h5>
+                <div class="d-flex justify-content-between">
+                  <div class="w-50">
+                    <div class="my-2">
+                    <span class="font-weight-bold">Hotel Name :</span>
+                    ${element.data.hotelName}
+                    </div>
+                    <div class="my-2">
+                    <span class="font-weight-bold">Email :</span>
+                    ${element.data.email}
+                    </div>
+                    <div class="my-2">
+                    <span>Telephone :</span>
+                    ${element.data.telephone}
+                    </div>
+                    <div class="my-2">
+                    <span>City :</span>
+                    ${element.data.city}
+                    </div>
+                    <div class="my-2">
+                    <span>Mobile :</span>
+                    ${element.data.mobile}
+                    </div>
+                    <div class="my-2">
+                    <span>Address :</span>
+                    ${element.data.address}
+                    </div>
+                  </div>
+                  <div class="mx-5">
+                    <div class="my-2">
+                    <span>Map location :</span>
+                    <a href="${element.data.mapLocation}">Click Here</a>
+                    </div>
+                    <div class="my-2">
+                    <span>Fax number :</span>
+                    ${element.data.fax}
+                    </div>
+                    <div class="my-2">
+                    <span>Website Link :</span>
+                    <a href="${element.data.websiteLink}">Click Here</a>
+                    </div>
+                    <div class="my-2">
+                    <span>Facebook :</span>
+                    <a href="${element.data.facebook}">Click Here</a>
+                    </div>
+                    <div class="my-2">
+                    <span>Instagram :</span>
+                    <a href="${element.data.instagram}">Click Here</a>
+                    </div>
+                    <div class="my-2">
+                    <span>Status :</span>
+                    ${element.data.status}
+                    </div>
+                  </div>
+                </div>
+                <div class="my-2">
+                  <span>Hotel Description</span>
+                  <p class="card-text my-1">${element.data.description}</p>
+                </div>
+                <button class="btn btn-primary my-2">Select Hotel</button>
+              </div>
+            </div>`;
+        $("#Hotel-Details").append(cardData);
+      });
+    },
+    error: function (xhr, status, error) {
+      alert("An error occurred: " + error);
+    }
+  });
+}
+

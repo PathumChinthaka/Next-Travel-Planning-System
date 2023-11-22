@@ -10,7 +10,7 @@ const websiteLinkRegex = /^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2
 const facebookLinkRegex = /^https:\/\/www\.facebook\.com\/[a-zA-Z0-9.]+$/;
 const instaLinkRegex = /^https:\/\/www\.instagram\.com\/[a-zA-Z0-9._]+$/;
 const hotelStatusRegex = /^[a-zA-Z\s]+$/;
-const googleMapLocationRegex =/^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
+const googleMapLocationRegex = /^(http|https):\/\/[A-Za-z0-9\-.]+(\.[A-Za-z]{2,4}){1,2}\/?([A-Za-z0-9\-.\/]*)$/;
 const faxNumberRegex = /^\d{10}$/;
 const regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 const telephoneRegex = /^(011|038|034)\d{7}$/;
@@ -193,7 +193,7 @@ $("#hotel_status").change(function (event) {
 
 
 //create hotel details object
-function hotelDetails(){
+function hotelDetails() {
 
   const hotelId = $('#hotel_Id').val();
   const hotelName = $('#hotel_Name').val();
@@ -211,25 +211,25 @@ function hotelDetails(){
   const InsterLink = $('#Inster-link').val();
   const hotelStatus = $('#hotel_status').val();
 
-  const hotelDetails={
-    hotelId:hotelId,
-    hotelName:hotelName,
-    hotelCategory:{
-      hotelCategoryId:'',
-      hotelCategory:hotelCategory
+  const hotelDetails = {
+    hotelId: hotelId,
+    hotelName: hotelName,
+    hotelCategory: {
+      hotelCategoryId: '',
+      hotelCategory: hotelCategory
     },
-    email:hotelEmail,
-    telephone:hotelTele,
-    mobile:hotelMobile,
-    fax:faxNumber,
-    address:address,
-    city:city,
-    mapLocation:MapLocation,
-    description:hotelDescription,
-    websiteLink:websiteLink,
-    facebook:facebookLink,
-    instagram:InsterLink,
-    status:hotelStatus
+    email: hotelEmail,
+    telephone: hotelTele,
+    mobile: hotelMobile,
+    fax: faxNumber,
+    address: address,
+    city: city,
+    mapLocation: MapLocation,
+    description: hotelDescription,
+    websiteLink: websiteLink,
+    facebook: facebookLink,
+    instagram: InsterLink,
+    status: hotelStatus
   }
 
   return hotelDetails;
@@ -239,11 +239,11 @@ function hotelDetails(){
 $("#hotel-save-btn").click(function (e) {
 
   //get returned hotel Details object
-  const hotelDetailsObj=hotelDetails();
+  const hotelDetailsObj = hotelDetails();
 
   // Create Post Request
   $.ajax({
-    url: baseURL + "hotel/save",
+    url: hotelBaseURL + "/save",
     method: "post",
     data: JSON.stringify(hotelDetailsObj),
     contentType: "application/json",
@@ -262,9 +262,9 @@ $("#hotel-save-btn").click(function (e) {
 });
 
 //get all hotel details
-function getAllHotelDetails(){
+function getAllHotelDetails() {
   $.ajax({
-    url: baseURL + "hotel/getAll",
+    url: hotelBaseURL + "/getAll",
     method: "GET",
     success: function (response) {
       $("#hotel-details-tbl tbody").empty();
@@ -308,12 +308,12 @@ function getAllHotelDetails(){
 
 $("#hotel-update-btn").click(function (e) {
 
-    //get returned hotel Details object
-  const hotelDetailsObj=hotelDetails();
+  //get returned hotel Details object
+  const hotelDetailsObj = hotelDetails();
 
   // Create Put Request
   $.ajax({
-    url: baseURL + "hotel/update",
+    url: hotelBaseURL + "/update",
     method: "put",
     data: JSON.stringify(hotelDetailsObj),
     contentType: "application/json",
@@ -334,45 +334,45 @@ $("#hotel-update-btn").click(function (e) {
 
 $("#hotel-details-tbody,#hotel-details-tbody2").on('click', 'tr', (event) => {
 
-  const hotelId=$(event.target).closest('tr').find('td').eq(0).text();
+  const hotelId = $(event.target).closest('tr').find('td').eq(0).text();
 
-    $.ajax({
-      url: baseURL + "hotel/" + hotelId,
-      method: "GET",
-      success: function (response) {
-        console.log(response.data);
-        $('#hotel_Id').val(response.data.hotelId);
-        $('#hotel_Name').val(response.data.hotelName);
-        $('#hotel_Category').val(response.data.hotelCategory);
-        $('#hotel_Email').val(response.data.email);
-        $('#hotel_Tele').val(response.data.telephone);
-        $('#hotel_mobile').val(response.data.mobile);
-        $('#Hotel_address').val(response.data.address);
-        $('#city').val(response.data.city);
-        $('#Map-location').val(response.data.mapLocation);
-        $('#hotel_description').val(response.data.description);
-        $('#fax_Number').val(response.data.fax);
-        $('#website_link').val(response.data.websiteLink);
-        $('#facebook-link').val(response.data.facebook);
-        $('#Inster-link').val(response.data.instagram);
-        $('#hotel_status').val(response.data.status);
-      },
-      error: function (xhr, status, error) {
-        alert("An error occurred hotel tbody getreq: " + error);
-      }
-    });
+  $.ajax({
+    url: hotelBaseURL + "/" + hotelId,
+    method: "GET",
+    success: function (response) {
+      console.log(response.data);
+      $('#hotel_Id').val(response.data.hotelId);
+      $('#hotel_Name').val(response.data.hotelName);
+      $('#hotel_Category').val(response.data.hotelCategory);
+      $('#hotel_Email').val(response.data.email);
+      $('#hotel_Tele').val(response.data.telephone);
+      $('#hotel_mobile').val(response.data.mobile);
+      $('#Hotel_address').val(response.data.address);
+      $('#city').val(response.data.city);
+      $('#Map-location').val(response.data.mapLocation);
+      $('#hotel_description').val(response.data.description);
+      $('#fax_Number').val(response.data.fax);
+      $('#website_link').val(response.data.websiteLink);
+      $('#facebook-link').val(response.data.facebook);
+      $('#Inster-link').val(response.data.instagram);
+      $('#hotel_status').val(response.data.status);
+    },
+    error: function (xhr, status, error) {
+      alert("An error occurred hotel tbody getreq: " + error);
+    }
+  });
 });
 
 //delete hotel details event
 $("#hotel-delete-btn").click(function (e) {
   const hotelId = $('#hotel_Id').val();
   const choice = confirm("Do you want to delete this Data ?");
-  if(hotelId==""){
+  if (hotelId == "") {
     alert("Hotel Id is Empty");
     return;
-  }else if(choice == true){
+  } else if (choice == true) {
     $.ajax({
-      url: baseURL + "hotel/" + hotelId,
+      url: hotelBaseURL + "/" + hotelId,
       method: "delete",
       dataType: "json",
       success: function (response) {
@@ -385,14 +385,14 @@ $("#hotel-delete-btn").click(function (e) {
         clearHotelInputFields();
       }
     });
-  }else{
+  } else {
     clearHotelInputFields();
   }
 });
 
 
 //clear input fields
-function clearHotelInputFields(){
+function clearHotelInputFields() {
   $('#hotel_Id').val("");
   $('#hotel_Name').val("");
   $('#hotel_Category').val("");

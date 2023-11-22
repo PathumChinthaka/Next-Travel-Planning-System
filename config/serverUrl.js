@@ -6,6 +6,8 @@
 
   const userBaseURL="http://localhost:8045/NextTravel/api/v1/user";
 
+  const hotelBaseURL="http://localhost:8055/NextTravel/api/v1/hotel";
+
   const baseWebURL="http://localhost:8080/NextTravel/api/";
 
   const fileUploadURL="http://localhost:8095/FileHandling/"
